@@ -1,0 +1,8 @@
+[
+  { "county_name": "East Sussex", "slug": "east-sussex" },
+  { "county_name": "Hampshire", "slug": "hampshire" },
+  { "county_name": "Kent", "slug": "kent" },
+  { "county_name": "London", "slug": "london" },
+  { "county_name": "Surrey", "slug": "surrey" },
+  { "county_name": "West Sussex", "slug": "west-sussex" }
+]

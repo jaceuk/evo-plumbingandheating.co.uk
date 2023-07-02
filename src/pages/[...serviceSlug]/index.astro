@@ -1,0 +1,9 @@
+---
+export function getStaticPaths() {
+	return [{ params: { serviceSlug: 'en' } }, { params: { serviceSlug: 'fr' } }];
+}
+
+const { lang, version } = Astro.params;
+---
+
+<h1>Service page</h1>

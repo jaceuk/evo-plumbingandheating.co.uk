@@ -1,0 +1,29 @@
+---
+interface location {
+	id: number;
+	county: number;
+	name: string;
+	slug: string;
+	postcode: string;
+	tel: string;
+	info: string;
+}
+// 1. Generate a new path for every location
+export async function getStaticPaths() {
+	const counties = await fetch('http://localhost:3000/api/counties').then((response) =>
+		response.json()
+	);
+
+	return counties.map((county: location) => {
+		return {
+			params: { countySlug: county.slug },
+			props: { county }
+		};
+	});
+}
+
+// 2. When it's time to render, you can get the entry directly from the prop
+const { county } = Astro.props;
+---
+
+<h1>Services: {county.name}</h1>

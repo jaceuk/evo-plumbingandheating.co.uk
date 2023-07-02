@@ -1,0 +1,27 @@
+---
+interface service {
+	id: number;
+	name: string;
+	slug: string;
+	templates: number;
+	website: string;
+}
+
+// Generate a new path for every service
+export async function getStaticPaths() {
+	const services = await fetch('http://localhost:3000/api/services').then((response) =>
+		response.json()
+	);
+
+	return services.map((service: service) => {
+		return {
+			params: { serviceSlug: service.slug },
+			props: { service }
+		};
+	});
+}
+
+const { service } = Astro.props;
+---
+
+<h1>{service.name}</h1>

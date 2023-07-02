@@ -1,0 +1,74 @@
+---
+interface service {
+	id: number;
+	name: string;
+	slug: string;
+	templates: number;
+	website: string;
+}
+
+interface location {
+	id: number;
+	county: number;
+	name: string;
+	slug: string;
+	postcode: string;
+	tel: string;
+	info: string;
+}
+
+interface county {
+	id: number;
+	name: string;
+	slug: string;
+}
+
+// Generate a new service and path for every location
+export async function getStaticPaths() {
+	const services = await fetch('http://localhost:3000/api/services').then((response) =>
+		response.json()
+	);
+
+	const locations = await fetch('http://localhost:3000/api/locations').then((response) =>
+		response.json()
+	);
+
+	const counties = await fetch('http://localhost:3000/api/counties').then((response) =>
+		response.json()
+	);
+
+	// add each county as a location
+	counties.forEach((county: county) => {
+		locations.push({
+			id: null,
+			county: null,
+			name: county.name,
+			slug: county.slug,
+			postcode: null,
+			tel: null,
+			info: null
+		});
+	});
+
+	return services.map((service: service) => {
+		return locations.map((location: location) => {
+			return {
+				params: { serviceSlug: service.slug, locationSlug: location.slug },
+				props: { location, service }
+			};
+		});
+	});
+}
+
+const { location, service } = Astro.props;
+
+const locationsInSameCounty = await fetch(
+	`http://localhost:3000/api/locations/county/${location.county}`
+).then((response) => response.json());
+---
+
+<h1>{service.name}: {location.name}</h1>
+
+<h2>Locations in the same county</h2>
+
+{locationsInSameCounty.map((locationInSameCounty: location) => <p>{locationInSameCounty.name}</p>)}

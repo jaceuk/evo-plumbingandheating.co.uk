@@ -23,10 +23,10 @@ interface county {
 	slug: string;
 }
 
-// Generate a new service and path for every location
+// Generate every location location for each service
 export async function getStaticPaths() {
-	const services = await fetch('http://localhost:3000/api/services').then((response) =>
-		response.json()
+	const services = await fetch(`http://localhost:3000/api/services/website/plumbing`).then(
+		(response) => response.json()
 	);
 
 	const locations = await fetch('http://localhost:3000/api/locations').then((response) =>

@@ -71,4 +71,11 @@ const locationsInSameCounty = await fetch(
 
 <h2>Locations in the same county</h2>
 
-{locationsInSameCounty.map((locationInSameCounty: location) => <p>{locationInSameCounty.name}</p>)}
+{
+	locationsInSameCounty.map((locationInSameCounty: location) => (
+		<>
+			<a href={`/${service.slug}/${locationInSameCounty.slug}`}>{locationInSameCounty.name}</a>
+			<br />
+		</>
+	))
+}

@@ -1,0 +1,15 @@
+---
+import { getAllReviewsByCounty } from '../../utils/reviews';
+import type { review } from '../../utils/types';
+
+const countyId = 5;
+const reviews: review[] = await getAllReviewsByCounty(countyId);
+---
+
+{
+	reviews.map((review) => (
+		<p>
+			{review.title}, {review.postcode}
+		</p>
+	))
+}

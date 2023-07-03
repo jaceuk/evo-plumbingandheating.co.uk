@@ -1,5 +1,7 @@
 ---
+import { API_URL } from '../../../utils/constants';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
 const title = 'EVO Plumbing and Heating';
 const description = 'EVO Plumbing and Heating.';
 
@@ -14,9 +16,7 @@ interface location {
 }
 // 1. Generate a new path for every location
 export async function getStaticPaths() {
-	const counties = await fetch('http://localhost:3000/api/counties').then((response) =>
-		response.json()
-	);
+	const counties = await fetch(`${API_URL}/counties`).then((response) => response.json());
 
 	return counties.map((county: location) => {
 		return {

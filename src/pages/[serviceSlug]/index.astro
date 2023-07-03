@@ -1,4 +1,5 @@
 ---
+import { API_URL, WEBSITE } from '../../../utils/constants';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const title = 'EVO Plumbing and Heating';
 const description = 'EVO Plumbing and Heating.';
@@ -13,8 +14,8 @@ interface service {
 
 // Generate a new path for every service
 export async function getStaticPaths() {
-	const services = await fetch('http://localhost:3000/api/services/website/plumbing').then(
-		(response) => response.json()
+	const services = await fetch(`${API_URL}/services/website/${WEBSITE}`).then((response) =>
+		response.json()
 	);
 
 	return services.map((service: service) => {

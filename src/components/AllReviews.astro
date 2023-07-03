@@ -1,0 +1,14 @@
+---
+import { getAllReviews } from '../../utils/reviews';
+import type { review } from '../../utils/types';
+
+const reviews: review[] = await getAllReviews();
+---
+
+{
+	reviews.map((review) => (
+		<p>
+			{review.title}, {review.postcode}
+		</p>
+	))
+}

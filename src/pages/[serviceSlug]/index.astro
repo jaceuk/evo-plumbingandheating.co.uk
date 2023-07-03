@@ -1,4 +1,8 @@
 ---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const title = 'EVO Plumbing and Heating';
+const description = 'EVO Plumbing and Heating.';
+
 interface service {
 	id: number;
 	name: string;
@@ -9,8 +13,8 @@ interface service {
 
 // Generate a new path for every service
 export async function getStaticPaths() {
-	const services = await fetch('http://localhost:3000/api/services').then((response) =>
-		response.json()
+	const services = await fetch('http://localhost:3000/api/services/website/plumbing').then(
+		(response) => response.json()
 	);
 
 	return services.map((service: service) => {
@@ -25,3 +29,5 @@ const { service } = Astro.props;
 ---
 
 <h1>{service.name}</h1>
+
+<BaseLayout title={title} description={description}><h1>{service.name}</h1></BaseLayout>

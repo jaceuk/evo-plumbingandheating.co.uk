@@ -1,4 +1,8 @@
 ---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const title = 'EVO Plumbing and Heating';
+const description = 'EVO Plumbing and Heating.';
+
 interface service {
 	id: number;
 	name: string;
@@ -9,12 +13,12 @@ interface service {
 
 interface location {
 	id: number;
-	county: number;
+	county: number | null;
 	name: string;
 	slug: string;
-	postcode: string;
-	tel: string;
-	info: string;
+	postcode: string | null;
+	tel: string | null;
+	info: string | null;
 }
 
 interface county {
@@ -67,15 +71,17 @@ const locationsInSameCounty = await fetch(
 ).then((response) => response.json());
 ---
 
-<h1>{service.name}: {location.name}</h1>
+<BaseLayout title={title} description={description}>
+	<h1>{service.name}: {location.name}</h1>
 
-<h2>Locations in the same county</h2>
+	<h2>Locations in the same county</h2>
 
-{
-	locationsInSameCounty.map((locationInSameCounty: location) => (
-		<>
-			<a href={`/${service.slug}/${locationInSameCounty.slug}`}>{locationInSameCounty.name}</a>
-			<br />
-		</>
-	))
-}
+	{
+		locationsInSameCounty.map(
+			(locationInSameCounty: location) =>
+				locationInSameCounty.slug !== location.slug && (
+					<a href={`/${service.slug}/${locationInSameCounty.slug}`}>{locationInSameCounty.name}</a>
+				)
+		)
+	}
+</BaseLayout>

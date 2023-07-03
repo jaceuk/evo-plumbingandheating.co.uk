@@ -1,4 +1,8 @@
 ---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const title = 'EVO Plumbing and Heating';
+const description = 'EVO Plumbing and Heating.';
+
 interface location {
 	id: number;
 	county: number;
@@ -26,4 +30,4 @@ export async function getStaticPaths() {
 const { county } = Astro.props;
 ---
 
-<h1>Services: {county.name}</h1>
+<BaseLayout title={title} description={description}><h1>Services: {county.name}</h1></BaseLayout>

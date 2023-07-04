@@ -5,10 +5,11 @@ import type { review } from '../../utils/types';
 const reviews: review[] = await getAllReviews();
 ---
 
+<h2>{reviews.length} reviews</h2>
 {
 	reviews.map((review) => (
 		<p>
-			{review.title}, {review.postcode}
+			{review.date}, {review.title}, {review.postcode}
 		</p>
 	))
 }

@@ -1,16 +1,22 @@
 ---
-import { getAllReviewsByServiceAndLocation } from '../../utils/reviews';
+import { getReviewsByServiceAndLocationWithBackfill } from '../../utils/reviews';
 import type { review } from '../../utils/types';
 
 const serviceId = 6; // plumbing
 const postcode = 'RH10'; // west-sussex
-const reviews: review[] = await getAllReviewsByServiceAndLocation(serviceId, postcode);
+const countyId = 7; // hampshire
+const reviews: review[] = await getReviewsByServiceAndLocationWithBackfill(
+	serviceId,
+	postcode,
+	countyId
+);
 ---
 
+<h2>{reviews.length} reviews</h2>
 {
 	reviews.map((review) => (
 		<p>
-			{review.title}, {review.postcode}
+			{review.date}, {review.title}, {review.postcode}
 		</p>
 	))
 }

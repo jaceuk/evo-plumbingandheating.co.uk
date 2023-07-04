@@ -1,6 +1,8 @@
 ---
 import { API_URL } from '../../../utils/constants';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getReviewsByCountyWithBackfill } from '../../../utils/reviews';
+import type { review } from '../../../utils/types';
 
 const title = 'EVO Plumbing and Heating';
 const description = 'EVO Plumbing and Heating.';
@@ -28,6 +30,19 @@ export async function getStaticPaths() {
 
 // 2. When it's time to render, you can get the entry directly from the prop
 const { county } = Astro.props;
+
+const reviews: review[] = await getReviewsByCountyWithBackfill(county.id);
 ---
 
-<BaseLayout title={title} description={description}><h1>Services: {county.name}</h1></BaseLayout>
+<BaseLayout title={title} description={description}>
+	<h1>Services: {county.name}</h1>
+
+	<h2>{reviews.length} reviews</h2>
+	{
+		reviews.map((review) => (
+			<p>
+				{review.id}, {review.date}, {review.title}, {review.postcode}
+			</p>
+		))
+	}
+</BaseLayout>

@@ -1,9 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import AllReviews from '../components/AllReviewsByServiceAndCounty.astro';
+import { getAllReviews } from '../../utils/reviews';
+import type { review } from '../../utils/types';
+
+const reviews: review[] = await getAllReviews();
 
 const title = 'EVO Plumbing and Heating';
 const description = 'EVO Plumbing and Heating.';
 ---
 
-<BaseLayout title={title} description={description}><h1>Homepage</h1><AllReviews /></BaseLayout>
+<BaseLayout title={title} description={description}>
+	<h1>Homepage</h1>
+	<h2>{reviews.length} reviews</h2>
+	{
+		reviews.map((review) => (
+			<p>
+				{review.id}, {review.date}, {review.title}, {review.postcode}
+			</p>
+		))
+	}
+</BaseLayout>

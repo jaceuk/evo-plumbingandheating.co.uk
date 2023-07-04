@@ -9,6 +9,17 @@ function unique(array: review[]) {
 	return [...new Set(array)];
 }
 
+function arrayWithMatchesFirst(primaryArray: review[], secondaryArray: review[]) {
+	primaryArray.forEach((primaryItem: review) => {
+		secondaryArray.forEach((secondaryItem: review, index) => {
+			// Remove reviews that were a match
+			if (primaryItem.id === secondaryItem.id) secondaryArray.splice(index, 1);
+		});
+	});
+
+	return [...primaryArray, ...secondaryArray];
+}
+
 async function getCountyPostcodes(countyId: number) {
 	return await fetch(`${API_URL}/locations/county/${countyId}`).then((response) => response.json());
 }
@@ -58,15 +69,7 @@ export async function getReviewsByCountyWithBackfill(countyId: number) {
 	const allReviews = await getAllReviews();
 
 	// Top up from all reviews
-	reviewsByCounty.forEach((reviewByCounty: review, index) => {
-		allReviews.forEach((review: review) => {
-			// Remove reviews that were a match
-			if (review.id === reviewByCounty.id) allReviews.splice(index, 1);
-		});
-	});
-
-	// add the reviews that weren't a match to the end of the ones that were
-	const reviews = [...reviewsByCounty, ...allReviews];
+	const reviews = arrayWithMatchesFirst(reviewsByCounty, allReviews);
 
 	return unique(reviews);
 }
@@ -97,15 +100,7 @@ export async function getReviewsByServiceWithBackfill(serviceId: number) {
 	const allReviews = await getAllReviews();
 
 	// Top up from all reviews
-	reviewsByService.forEach((reviewByService: review) => {
-		allReviews.forEach((review: review, index) => {
-			// Remove reviews that were a match
-			if (review.id === reviewByService.id) allReviews.splice(index, 1);
-		});
-	});
-
-	// add the reviews that weren't a match to the end of the ones that were
-	const reviews = [...reviewsByService, ...allReviews];
+	const reviews = arrayWithMatchesFirst(reviewsByService, allReviews);
 
 	return unique(reviews);
 }
@@ -138,26 +133,10 @@ export async function getReviewsByServiceAndCountyWithBackfill(
 	const allReviews = await getAllReviews();
 
 	// top up from reviews by service
-	reviewsByServiceAndCounty.forEach((reviewByServiceAndCounty: review) => {
-		reviewsByService.forEach((reviewByService: review, index) => {
-			// Remove reviews that were a match
-			if (reviewByService.id === reviewByServiceAndCounty.id) reviewsByService.splice(index, 1);
-		});
-	});
-
-	// add the reviews that weren't a match to the end of the ones that were
-	const serviceReviews = [...reviewsByServiceAndCounty, ...reviewsByService];
+	const serviceReviews = arrayWithMatchesFirst(reviewsByServiceAndCounty, reviewsByService);
 
 	// top up from ALL reviews
-	serviceReviews.forEach((serviceReview: review) => {
-		allReviews.forEach((review: review, index) => {
-			// Remove reviews that were a match
-			if (serviceReview.id === review.id) allReviews.splice(index, 1);
-		});
-	});
-
-	// add the reviews that weren't a match to the end of the ones that were
-	const reviews = [...serviceReviews, ...allReviews];
+	const reviews = arrayWithMatchesFirst(serviceReviews, allReviews);
 
 	return unique(reviews);
 }
@@ -187,39 +166,17 @@ export async function getReviewsByServiceAndLocationWithBackfill(
 	const reviewsByService = await getReviewsByService(serviceId);
 	const allReviews = await getAllReviews();
 
-	// top up from reviews by service and county if needed
-	reviewsByServiceAndLocation.forEach((reviewByServiceAndLocation: review) => {
-		reviewsByServiceAndCounty.forEach((reviewByServiceAndCounty: review, index) => {
-			// Remove reviews that were a match
-			if (reviewByServiceAndLocation.id === reviewByServiceAndCounty.id)
-				reviewsByServiceAndCounty.splice(index, 1);
-		});
-	});
-
-	// add the reviews that weren't a match to the end of the ones that were
-	const serviceAndCountyReviews = [...reviewsByServiceAndLocation, ...reviewsByServiceAndCounty];
+	// top up from reviews by service and county
+	const serviceAndCountyReviews = arrayWithMatchesFirst(
+		reviewsByServiceAndLocation,
+		reviewsByServiceAndCounty
+	);
 
 	// top up from reviews by service
-	serviceAndCountyReviews.forEach((serviceAndCountyReview: review) => {
-		reviewsByService.forEach((reviewByService: review, index) => {
-			// Remove reviews that were a match
-			if (reviewByService.id === serviceAndCountyReview.id) reviewsByService.splice(index, 1);
-		});
-	});
-
-	// add the reviews that weren't a match to the end of the ones that were
-	const serviceReviews = [...serviceAndCountyReviews, ...reviewsByService];
+	const serviceReviews = arrayWithMatchesFirst(serviceAndCountyReviews, reviewsByService);
 
 	// top up from ALL reviews
-	serviceReviews.forEach((serviceReview: review) => {
-		allReviews.forEach((review: review, index) => {
-			// Remove reviews that were a match
-			if (serviceReview.id === review.id) allReviews.splice(index, 1);
-		});
-	});
-
-	// add the reviews that weren't a match to the end of the ones that were
-	const reviews = [...serviceReviews, ...allReviews];
+	const reviews = arrayWithMatchesFirst(serviceReviews, allReviews);
 
 	return unique(reviews);
 }

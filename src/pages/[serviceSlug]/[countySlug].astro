@@ -2,6 +2,8 @@
 import { API_URL, WEBSITE } from '../../../utils/constants';
 import type { location, service } from '../../../utils/types';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getReviewsByServiceAndCountyWithBackfill } from '../../../utils/reviews';
+import type { review } from '../../../utils/types';
 
 const title = 'EVO Plumbing and Heating';
 const description = 'EVO Plumbing and Heating.';
@@ -35,10 +37,21 @@ const { county, service } = Astro.props;
 const locationsInSameCounty = await fetch(`${API_URL}/locations/county/${county.id}`).then(
 	(response) => response.json()
 );
+
+const reviews: review[] = await getReviewsByServiceAndCountyWithBackfill(service.id, county.id);
 ---
 
 <BaseLayout title={title} description={description}>
 	<h1>{service.name}: {county.name}</h1>
+
+	<h2>{reviews.length} reviews</h2>
+	{
+		reviews.map((review) => (
+			<p>
+				{review.id}, {review.date}, {review.title}, {review.postcode}
+			</p>
+		))
+	}
 
 	<h2>Locations in the same county</h2>
 

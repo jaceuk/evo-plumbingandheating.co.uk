@@ -1,6 +1,9 @@
 ---
 import { API_URL, WEBSITE } from '../../../utils/constants';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getReviewsByServiceWithBackfill } from '../../../utils/reviews';
+import type { review } from '../../../utils/types';
+
 const title = 'EVO Plumbing and Heating';
 const description = 'EVO Plumbing and Heating.';
 
@@ -27,8 +30,18 @@ export async function getStaticPaths() {
 }
 
 const { service } = Astro.props;
+
+const reviews: review[] = await getReviewsByServiceWithBackfill(service.id);
 ---
 
-<h1>{service.name}</h1>
-
-<BaseLayout title={title} description={description}><h1>{service.name}</h1></BaseLayout>
+<BaseLayout title={title} description={description}>
+	<h1>{service.name}</h1>
+	<h2>{reviews.length} reviews</h2>
+	{
+		reviews.map((review) => (
+			<p>
+				{review.id}, {review.date}, {review.title}, {review.postcode}
+			</p>
+		))
+	}
+</BaseLayout>

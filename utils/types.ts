@@ -8,10 +8,18 @@ export interface review {
 
 export interface location {
 	id: number;
-	county: number | null;
+	county: number;
 	name: string;
 	slug: string;
-	postcode: string | null;
+	postcode: string;
 	tel: string | null;
 	info: string | null;
+}
+
+export interface service {
+	id: number;
+	name: string;
+	slug: string;
+	templates: number;
+	website: string;
 }

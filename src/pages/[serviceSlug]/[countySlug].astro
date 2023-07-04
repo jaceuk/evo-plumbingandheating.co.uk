@@ -1,0 +1,50 @@
+---
+import { API_URL, WEBSITE } from '../../../utils/constants';
+import type { location, service } from '../../../utils/types';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'EVO Plumbing and Heating';
+const description = 'EVO Plumbing and Heating.';
+
+interface county {
+	id: number;
+	name: string;
+	slug: string;
+}
+
+// Generate every county for each service
+export async function getStaticPaths() {
+	const services = await fetch(`${API_URL}/services/website/${WEBSITE}`).then((response) =>
+		response.json()
+	);
+
+	const counties = await fetch(`${API_URL}/counties`).then((response) => response.json());
+
+	return services.map((service: service) => {
+		return counties.map((county: county) => {
+			return {
+				params: { serviceSlug: service.slug, countySlug: county.slug },
+				props: { county, service }
+			};
+		});
+	});
+}
+
+const { county, service } = Astro.props;
+
+const locationsInSameCounty = await fetch(`${API_URL}/locations/county/${county.id}`).then(
+	(response) => response.json()
+);
+---
+
+<BaseLayout title={title} description={description}>
+	<h1>{service.name}: {county.name}</h1>
+
+	<h2>Locations in the same county</h2>
+
+	{
+		locationsInSameCounty.map((locationInSameCounty: location) => (
+			<a href={`/${service.slug}/${locationInSameCounty.slug}`}>{locationInSameCounty.name}</a>
+		))
+	}
+</BaseLayout>

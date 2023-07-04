@@ -1,0 +1,15 @@
+---
+import { getAllReviewsByService } from '../../utils/reviews';
+import type { review } from '../../utils/types';
+
+const serviceId = 6; // plumbing
+const reviews: review[] = await getAllReviewsByService(serviceId);
+---
+
+{
+	reviews.map((review) => (
+		<p>
+			{review.title}, {review.postcode}
+		</p>
+	))
+}

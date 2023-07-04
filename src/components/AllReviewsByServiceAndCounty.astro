@@ -1,0 +1,16 @@
+---
+import { getAllReviewsByServiceAndCounty } from '../../utils/reviews';
+import type { review } from '../../utils/types';
+
+const serviceId = 6; // plumbing
+const countyId = 5; // west-sussex
+const reviews: review[] = await getAllReviewsByServiceAndCounty(serviceId, countyId);
+---
+
+{
+	reviews.map((review) => (
+		<p>
+			{review.title}, {review.postcode}
+		</p>
+	))
+}

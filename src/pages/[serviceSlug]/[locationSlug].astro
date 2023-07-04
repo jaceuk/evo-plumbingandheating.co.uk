@@ -1,49 +1,18 @@
 ---
 import { API_URL, WEBSITE } from '../../../utils/constants';
-import type { location } from '../../../utils/types';
+import type { location, service } from '../../../utils/types';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const title = 'EVO Plumbing and Heating';
 const description = 'EVO Plumbing and Heating.';
 
-interface service {
-	id: number;
-	name: string;
-	slug: string;
-	templates: number;
-	website: string;
-}
-
-interface county {
-	id: number;
-	name: string;
-	slug: string;
-}
-
-// Generate every location location for each service
+// Generate every location for each service
 export async function getStaticPaths() {
 	const services = await fetch(`${API_URL}/services/website/${WEBSITE}`).then((response) =>
 		response.json()
 	);
 
-	console.log(services);
-
 	const locations = await fetch(`${API_URL}/locations`).then((response) => response.json());
-
-	const counties = await fetch(`${API_URL}/counties`).then((response) => response.json());
-
-	// add each county as a location
-	counties.forEach((county: county) => {
-		locations.push({
-			id: null,
-			county: null,
-			name: county.name,
-			slug: county.slug,
-			postcode: null,
-			tel: null,
-			info: null
-		});
-	});
 
 	return services.map((service: service) => {
 		return locations.map((location: location) => {

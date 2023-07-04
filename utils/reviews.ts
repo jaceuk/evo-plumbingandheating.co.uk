@@ -192,7 +192,7 @@ export async function getReviewsByServiceAndLocationWithBackfill(
 		reviewsByServiceAndCounty.forEach((reviewByServiceAndCounty: review, index) => {
 			// Remove reviews that were a match
 			if (reviewByServiceAndLocation.id === reviewByServiceAndCounty.id)
-				reviewsByService.splice(index, 1);
+				reviewsByServiceAndCounty.splice(index, 1);
 		});
 	});
 

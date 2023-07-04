@@ -2,9 +2,9 @@
 import { getReviewsByServiceAndLocationWithBackfill } from '../../utils/reviews';
 import type { review } from '../../utils/types';
 
-const serviceId = 6; // plumbing
-const postcode = 'RH10'; // west-sussex
-const countyId = 7; // hampshire
+const serviceId = 10; // power-flushing
+const postcode = 'RH10'; // crawley
+const countyId = 5; // west-sussex
 const reviews: review[] = await getReviewsByServiceAndLocationWithBackfill(
 	serviceId,
 	postcode,

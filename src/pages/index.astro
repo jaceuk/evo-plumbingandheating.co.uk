@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getAllReviews } from '../../utils/reviews';
-import type { review } from '../../utils/types';
+import type { Review } from '../../utils/types';
 
-const reviews: review[] = await getAllReviews();
+const reviews: Review[] = await getAllReviews();
 
 const title = 'EVO Plumbing and Heating';
 const description = 'EVO Plumbing and Heating.';

@@ -1,4 +1,4 @@
-export interface review {
+export interface Review {
 	id: number;
 	title: string;
 	text: string;
@@ -6,7 +6,7 @@ export interface review {
 	postcode: string;
 }
 
-export interface location {
+export interface Location {
 	id: number;
 	county: number;
 	name: string;
@@ -16,7 +16,7 @@ export interface location {
 	info: string | null;
 }
 
-export interface service {
+export interface Service {
 	id: number;
 	name: string;
 	slug: string;

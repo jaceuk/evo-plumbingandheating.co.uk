@@ -3,7 +3,7 @@ import { API_URL } from '../../utils/constants';
 
 const checkatrade = await fetch(`${API_URL}/checkatrade`).then((response) => response.json());
 
-interface item {
+interface Item {
 	average: number;
 	reviews: number;
 	workmanship: number;
@@ -21,7 +21,7 @@ let reliability = 0;
 let courtesy = 0;
 let accuracy = 0;
 
-checkatrade.forEach((item: item) => {
+checkatrade.forEach((item: Item) => {
 	average += item.average;
 	reviews += item.reviews;
 	workmanship += item.workmanship;

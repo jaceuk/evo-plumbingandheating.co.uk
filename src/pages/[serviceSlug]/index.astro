@@ -2,18 +2,10 @@
 import { API_URL, WEBSITE } from '../../../utils/constants';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getReviewsByServiceWithBackfill } from '../../../utils/reviews';
-import type { review } from '../../../utils/types';
+import type { Review, Service } from '../../../utils/types';
 
 const title = 'EVO Plumbing and Heating';
 const description = 'EVO Plumbing and Heating.';
-
-interface service {
-	id: number;
-	name: string;
-	slug: string;
-	templates: number;
-	website: string;
-}
 
 // Generate a new path for every service
 export async function getStaticPaths() {
@@ -21,7 +13,7 @@ export async function getStaticPaths() {
 		response.json()
 	);
 
-	return services.map((service: service) => {
+	return services.map((service: Service) => {
 		return {
 			params: { serviceSlug: service.slug },
 			props: { service }
@@ -31,7 +23,7 @@ export async function getStaticPaths() {
 
 const { service } = Astro.props;
 
-const reviews: review[] = await getReviewsByServiceWithBackfill(service.id);
+const reviews: Review[] = await getReviewsByServiceWithBackfill(service.id);
 ---
 
 <BaseLayout title={title} description={description}>

@@ -1,14 +1,13 @@
 ---
 import { API_URL, WEBSITE } from '../../../utils/constants';
-import type { location, service } from '../../../utils/types';
+import type { Location, Service, Review } from '../../../utils/types';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getReviewsByServiceAndCountyWithBackfill } from '../../../utils/reviews';
-import type { review } from '../../../utils/types';
 
 const title = 'EVO Plumbing and Heating';
 const description = 'EVO Plumbing and Heating.';
 
-interface county {
+interface County {
 	id: number;
 	name: string;
 	slug: string;
@@ -22,8 +21,8 @@ export async function getStaticPaths() {
 
 	const counties = await fetch(`${API_URL}/counties`).then((response) => response.json());
 
-	return services.map((service: service) => {
-		return counties.map((county: county) => {
+	return services.map((service: Service) => {
+		return counties.map((county: County) => {
 			return {
 				params: { serviceSlug: service.slug, countySlug: county.slug },
 				props: { county, service }
@@ -38,7 +37,7 @@ const locationsInSameCounty = await fetch(`${API_URL}/locations/county/${county.
 	(response) => response.json()
 );
 
-const reviews: review[] = await getReviewsByServiceAndCountyWithBackfill(service.id, county.id);
+const reviews: Review[] = await getReviewsByServiceAndCountyWithBackfill(service.id, county.id);
 ---
 
 <BaseLayout title={title} description={description}>
@@ -56,7 +55,7 @@ const reviews: review[] = await getReviewsByServiceAndCountyWithBackfill(service
 	<h2>Locations in the same county</h2>
 
 	{
-		locationsInSameCounty.map((locationInSameCounty: location) => (
+		locationsInSameCounty.map((locationInSameCounty: Location) => (
 			<a href={`/${service.slug}/${locationInSameCounty.slug}`}>{locationInSameCounty.name}</a>
 		))
 	}

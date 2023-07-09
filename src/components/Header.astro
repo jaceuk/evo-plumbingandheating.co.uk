@@ -1,14 +1,185 @@
 ---
+import { Icon } from 'astro-icon';
+import MobileNav from './MobileNav.astro';
+import HeaderLogo from './HeaderLogo.astro';
 ---
 
-<header>Header</header>
+<script>
+	import MicroModal from 'micromodal';
 
-<nav>
-	<ul>
-		<li><a href="/">Home</a></li>
-		<li><a href="/about">About</a></li>
-		<li><a href="/recruitment">Recruitment</a></li>
-		<li><a href="/services">Services</a></li>
-		<li><a href="/contact">Contact</a></li>
-	</ul>
-</nav>
+	MicroModal.init({ disableScroll: true });
+
+	// pull down menu
+	const menuTriggers = document.querySelectorAll('[aria-haspopup="true"]');
+
+	function toggleMenu(menuTrigger: Element) {
+		const closestPopup = menuTrigger.parentElement?.querySelector('ul');
+		closestPopup?.classList.toggle('show');
+		menuTrigger.setAttribute(
+			'aria-expanded',
+			menuTrigger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+		);
+	}
+
+	menuTriggers?.forEach((menuTrigger) => {
+		menuTrigger.addEventListener(
+			'click',
+			() => {
+				toggleMenu(menuTrigger);
+			},
+			false
+		);
+	});
+
+	// click anywhere or scroll to close pull down menu
+	const popups = [...document.querySelectorAll('.popup')];
+	const triggers = [...document.querySelectorAll('[aria-haspopup="true"]')];
+
+	window.addEventListener('click', (event) => {
+		const target = event.target as HTMLButtonElement;
+		if (!target?.getAttribute('aria-expanded'))
+			popups.forEach((popup) => popup.classList.remove('show'));
+	});
+
+	window.addEventListener('scroll', ({ target }) => {
+		popups.forEach((popup) => popup.classList.remove('show'));
+	});
+</script>
+
+<header>
+	<div class="inner-wrapper">
+		<div class="navbar">
+			<HeaderLogo />
+
+			<nav class="desktop-menu">
+				<ul role="menu">
+					<li role="none"><a class="link" href="/" role="menuitem">Home</a></li>
+					<li role="none">
+						<button class="link" role="menuitem" aria-expanded="false" aria-haspopup="true">
+							Services<Icon name="ic:round-keyboard-arrow-down" />
+						</button>
+
+						<ul role="menu" class="popup">
+							<li role="none">
+								<a class="link" role="menuitem" href="/">Service</a>
+							</li>
+							<li role="none">
+								<a class="link" role="menuitem" href="/">Service</a>
+							</li>
+						</ul>
+					</li>
+					<li role="none"><a class="link" href="/blog" role="menuitem">Blog</a></li>
+					<li role="none"><a class="link" href="/contact" role="menuitem">Contact</a></li>
+				</ul>
+			</nav>
+
+			<button class="burger-icon" data-micromodal-trigger="mobile-nav">
+				<Icon name="ic:round-menu" />
+			</button>
+		</div>
+	</div>
+</header>
+
+<MobileNav />
+
+<style lang="scss">
+	header {
+		box-shadow: var(--box-shadow-menu);
+	}
+
+	.navbar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--s-2-4) 0;
+	}
+
+	.desktop-menu {
+		display: none;
+
+		ul {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+
+			li {
+				list-style: none;
+
+				.link {
+					font-size: var(--fs-nav);
+					font-weight: var(--fw-semi-bold);
+					padding: var(--s-1) var(--s-2);
+					transition: color var(--transition);
+					background: none;
+					border: none;
+
+					&:hover,
+					&.active {
+						color: var(--c-orange);
+					}
+
+					&[aria-haspopup='true'] {
+						display: flex;
+						gap: var(--s-1);
+						align-items: center;
+
+						svg {
+							min-width: 24px;
+							min-height: 24px;
+						}
+					}
+				}
+			}
+		}
+
+		.popup {
+			display: block;
+			position: relative;
+			display: none;
+			position: absolute;
+			background-color: var(--c-white);
+			border-radius: var(--border-radius-small);
+			box-shadow: var(--box-shadow-menu);
+			width: fit-content;
+			padding: var(--s-1-2);
+
+			&.show {
+				display: block;
+				animation: fadein 0.2s;
+			}
+		}
+
+		@media (min-width: 768px) {
+			display: block;
+		}
+	}
+
+	@keyframes fadein {
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 1;
+		}
+	}
+
+	.burger-icon {
+		display: grid;
+		align-items: center;
+		background: none;
+		border: none;
+		cursor: pointer;
+		position: relative;
+		padding: var(--s-1-2);
+
+		@media (min-width: 768px) {
+			display: none;
+		}
+
+		svg {
+			min-width: var(--s-4);
+			min-height: var(--s-4);
+		}
+	}
+</style>

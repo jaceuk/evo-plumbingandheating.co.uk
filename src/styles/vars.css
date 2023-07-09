@@ -71,8 +71,13 @@
 
 	/* misc */
 	--max-readable-width: 750px;
-	--transition: color 0.2s ease;
-	--section-background: linear-gradient(180deg, var(--c-divider) 0%, var(--c-paper) var(--s-4-5));
+	--transition: 0.2s ease;
+	--box-shadow-card: 0px 11px 48px 0px rgba(0, 0, 0, 0.15);
+	--box-shadow-menu: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+	--box-shadow-button: 0px 11px 48px 0px rgba(0, 0, 0, 0.15);
+	--border-radius-med: var(--s-2-4);
+	--border-radius-small: var(--s-1-2);
+	--border-radius-x-small: var(--s-1);
 }
 
 html.dark {

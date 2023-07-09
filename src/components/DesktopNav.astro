@@ -1,0 +1,28 @@
+<nav class="desktop-nav">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/">Services</a></li>
+		<li><a href="/">Blog</a></li>
+		<li><a href="/">Contact</a></li>
+	</ul>
+</nav>
+
+<style lang="scss">
+	.desktop-nav {
+		display: none;
+
+		ul {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+
+			li {
+				list-style: none;
+			}
+		}
+
+		@media (min-width: 768px) {
+			display: block;
+		}
+	}
+</style>

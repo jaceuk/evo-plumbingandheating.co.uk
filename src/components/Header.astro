@@ -33,7 +33,6 @@ import HeaderLogo from './HeaderLogo.astro';
 
 	// click anywhere or scroll to close pull down menu
 	const popups = [...document.querySelectorAll('.popup')];
-	const triggers = [...document.querySelectorAll('[aria-haspopup="true"]')];
 
 	window.addEventListener('click', (event) => {
 		const target = event.target as HTMLButtonElement;
@@ -73,14 +72,10 @@ import HeaderLogo from './HeaderLogo.astro';
 				</ul>
 			</nav>
 
-			<button class="burger-icon" data-micromodal-trigger="mobile-nav">
-				<Icon name="ic:round-menu" />
-			</button>
+			<MobileNav />
 		</div>
 	</div>
 </header>
-
-<MobileNav />
 
 <style lang="scss">
 	header {
@@ -161,25 +156,6 @@ import HeaderLogo from './HeaderLogo.astro';
 
 		to {
 			opacity: 1;
-		}
-	}
-
-	.burger-icon {
-		display: grid;
-		align-items: center;
-		background: none;
-		border: none;
-		cursor: pointer;
-		position: relative;
-		padding: var(--s-1-2);
-
-		@media (min-width: 768px) {
-			display: none;
-		}
-
-		svg {
-			min-width: var(--s-4);
-			min-height: var(--s-4);
 		}
 	}
 </style>

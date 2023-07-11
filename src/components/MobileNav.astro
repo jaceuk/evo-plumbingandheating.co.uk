@@ -1,0 +1,108 @@
+---
+import Icon from 'astro-icon';
+---
+
+<script>
+	import { createFocusTrap } from 'focus-trap';
+
+	const menuToggleButton = document.querySelector('[aria-label="Toggle menu"]');
+	const closeIcon = document.getElementById('close');
+	const menuIcon = document.getElementById('menu');
+	const mobileMenu = document.getElementById('mobile-menu');
+
+	menuToggleButton?.addEventListener('click', menuToggle);
+
+	function menuToggle() {
+		document.body.classList.toggle('no-scroll');
+		mobileMenu?.classList.toggle('show');
+		closeIcon?.classList.toggle('show');
+		menuIcon?.classList.toggle('show');
+	}
+
+	const focusTrap = createFocusTrap('#mobile-menu', {
+		onActivate: () => mobileMenu?.classList.add('is-active'),
+		onDeactivate: () => mobileMenu?.classList.remove('is-active')
+	});
+
+	document.getElementById('menu')?.addEventListener('click', focusTrap.activate);
+	document.getElementById('close')?.addEventListener('click', focusTrap.deactivate);
+</script>
+
+<button aria-label="Toggle menu">
+	<div id="menu" class="menu show"><Icon name="ic:round-menu" /></div>
+	<div id="close" class="close"><Icon name="ic:round-close" /></div>
+</button>
+
+<div id="mobile-menu" class="mobile-menu">
+	<nav>
+		<div class="links">
+			<a class="link" href="/"> Home</a>
+			<a class="link" href="/blog/posts"> Blog</a>
+			<a class="link" href="/contact"> Contact</a>
+		</div>
+	</nav>
+</div>
+
+<style lang="scss">
+	button {
+		z-index: 150;
+		position: relative;
+		background: none;
+		border: none;
+		display: flex;
+
+		@media (min-width: 768px) {
+			display: none;
+		}
+
+		svg {
+			min-width: var(--s-4);
+			min-height: var(--s-4);
+		}
+	}
+
+	.close,
+	.menu {
+		display: none;
+
+		&.show {
+			display: flex;
+		}
+	}
+
+	.mobile-menu {
+		height: 100%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+		background-color: var(--c-white);
+		padding: calc(var(--s-4-5) + 72px) var(--s-4-5) var(--s-4-5);
+		display: none;
+
+		&.show {
+			display: block;
+		}
+	}
+
+	nav {
+		display: flex;
+		gap: var(--size-medium);
+		flex-direction: column;
+		align-items: flex-start;
+		width: fit-content;
+	}
+
+	.links {
+		color: var(--color-text);
+		font-size: var(--font-size-body);
+		text-decoration: none;
+		padding: var(--size-base);
+		font-weight: var(--font-weight-bold);
+		display: flex;
+		gap: var(--size-medium);
+		flex-direction: column;
+		align-items: flex-start;
+		height: 100%;
+	}
+</style>

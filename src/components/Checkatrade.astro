@@ -1,0 +1,44 @@
+---
+const checkatrade = await fetch(`http://localhost:3000/api/checkatrade`).then((response) =>
+	response.json()
+);
+interface item {
+	average: number;
+	reviews: number;
+	workmanship: number;
+	tidiness: number;
+	reliability: number;
+	courtesy: number;
+	accuracy: number;
+}
+let average = 0;
+let reviews = 0;
+let workmanship = 0;
+let tidiness = 0;
+let reliability = 0;
+let courtesy = 0;
+let accuracy = 0;
+checkatrade.forEach((item: item) => {
+	average += item.average;
+	reviews += item.reviews;
+	workmanship += item.workmanship;
+	tidiness += item.tidiness;
+	reliability += item.reliability;
+	courtesy += item.courtesy;
+	accuracy += item.accuracy;
+});
+average = Math.round((average / 3) * 100) / 100;
+workmanship = Math.round((workmanship / 3) * 100) / 100;
+tidiness = Math.round((tidiness / 3) * 100) / 100;
+reliability = Math.round((reliability / 3) * 100) / 100;
+courtesy = Math.round((courtesy / 3) * 100) / 100;
+accuracy = Math.round((accuracy / 3) * 100) / 100;
+---
+
+<p>Average: {average}</p>
+<p>Total reviews: {reviews}</p>
+<p>Workmanship: {workmanship}</p>
+<p>Tidiness: {tidiness}</p>
+<p>Reliability: {reliability}</p>
+<p>Courtesy: {courtesy}</p>
+<p>Accuracy: {accuracy}</p>

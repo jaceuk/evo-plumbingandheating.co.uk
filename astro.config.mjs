@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+import svelte from '@astrojs/svelte';
 
-import sitemap from "@astrojs/sitemap";
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,5 +15,5 @@ export default defineConfig({
     port: 3001,
     host: true
   },
-  integrations: [sitemap()]
+  integrations: [sitemap(), svelte(), react()]
 });

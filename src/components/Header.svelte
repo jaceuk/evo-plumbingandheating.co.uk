@@ -1,48 +1,6 @@
----
-import { Icon } from 'astro-icon';
-import MobileNav from './MobileNav.astro';
-import HeaderLogo from './HeaderLogo.astro';
----
-
-<script>
-	import MicroModal from 'micromodal';
-
-	MicroModal.init({ disableScroll: true });
-
-	// pull down menu
-	const menuTriggers = document.querySelectorAll('[aria-haspopup="true"]');
-
-	function toggleMenu(menuTrigger: Element) {
-		const closestPopup = menuTrigger.parentElement?.querySelector('ul');
-		closestPopup?.classList.toggle('show');
-		menuTrigger.setAttribute(
-			'aria-expanded',
-			menuTrigger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
-		);
-	}
-
-	menuTriggers?.forEach((menuTrigger) => {
-		menuTrigger.addEventListener(
-			'click',
-			() => {
-				toggleMenu(menuTrigger);
-			},
-			false
-		);
-	});
-
-	// click anywhere or scroll to close pull down menu
-	const popups = [...document.querySelectorAll('.popup')];
-
-	window.addEventListener('click', (event) => {
-		const target = event.target as HTMLButtonElement;
-		if (!target?.getAttribute('aria-expanded'))
-			popups.forEach((popup) => popup.classList.remove('show'));
-	});
-
-	window.addEventListener('scroll', ({ target }) => {
-		popups.forEach((popup) => popup.classList.remove('show'));
-	});
+<script lang="ts">
+	import MobileNav from './MobileNav.svelte';
+	import HeaderLogo from './HeaderLogo.svelte';
 </script>
 
 <header>
@@ -55,7 +13,7 @@ import HeaderLogo from './HeaderLogo.astro';
 					<li role="none"><a class="link" href="/" role="menuitem">Home</a></li>
 					<li role="none">
 						<button class="link" role="menuitem" aria-expanded="false" aria-haspopup="true">
-							Services<Icon name="ic:round-keyboard-arrow-down" />
+							Services
 						</button>
 
 						<ul role="menu" class="popup">
@@ -145,7 +103,8 @@ import HeaderLogo from './HeaderLogo.astro';
 		}
 
 		@media (min-width: 768px) {
-			display: block;
+			display: flex;
+			align-items: center;
 		}
 	}
 

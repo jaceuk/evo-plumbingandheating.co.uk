@@ -1,22 +1,11 @@
 ---
-import { Icon } from 'astro-icon';
 import MobileNav from './MobileNav.astro';
 import { Image } from '@astrojs/image/components';
 import LogoPlumbing from '../../images/logo-plumbing.svg';
-import NavLists from './NavLists.astro';
+import DesktopNav from './DesktopNav.astro';
 ---
 
 <script>
-	// pull down menu
-	const menuTriggers = document.querySelectorAll('[aria-haspopup="true"]');
-
-	function toggleMenu(menuTrigger: Element) {
-		menuTrigger.setAttribute(
-			'aria-expanded',
-			menuTrigger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
-		);
-	}
-
 	function stickyHeader() {
 		const header = document.querySelector('header');
 		const heroSection = document.querySelector('#hero');
@@ -30,31 +19,9 @@ import NavLists from './NavLists.astro';
 		}
 	}
 
-	menuTriggers?.forEach((menuTrigger) => {
-		menuTrigger.addEventListener(
-			'click',
-			() => {
-				toggleMenu(menuTrigger);
-			},
-			false
-		);
-	});
-
 	// click anywhere or scroll to close pull down menu
 	window.addEventListener('scroll', () => {
-		menuTriggers?.forEach((menuTrigger) => {
-			menuTrigger.setAttribute('aria-expanded', 'false');
-		});
-
 		stickyHeader();
-	});
-
-	window.addEventListener('click', (element) => {
-		const target = element.target as Element;
-		if (target.classList.contains('link')) return;
-		menuTriggers?.forEach((menuTrigger) => {
-			menuTrigger.setAttribute('aria-expanded', 'false');
-		});
 	});
 </script>
 
@@ -65,24 +32,7 @@ import NavLists from './NavLists.astro';
 				<Image class="logo" src={LogoPlumbing} alt="EVO Plumbing and Heating logo" />
 				<span class="sr-only">Homepage</span>
 			</a>
-
-			<nav class="desktop-menu">
-				<ul role="menu">
-					<li role="none"><a class="link" href="/" role="menuitem">Home</a></li>
-					<li role="none">
-						<button class="link" role="menuitem" aria-expanded="false" aria-haspopup="true">
-							Services<Icon name="ic:round-keyboard-arrow-down" />
-						</button>
-
-						<ul role="menu" class="popup">
-							<NavLists />
-						</ul>
-					</li>
-					<li role="none"><a class="link" href="/blog" role="menuitem">Blog</a></li>
-					<li role="none"><a class="link" href="/contact" role="menuitem">Contact</a></li>
-				</ul>
-			</nav>
-
+			<DesktopNav />
 			<MobileNav />
 		</div>
 
@@ -158,93 +108,5 @@ import NavLists from './NavLists.astro';
 
 	.bar {
 		display: none;
-	}
-
-	.desktop-menu {
-		display: none;
-
-		@media (min-width: 768px) {
-			display: flex;
-			align-items: center;
-		}
-
-		ul {
-			display: flex;
-			align-items: center;
-			flex-direction: row;
-			list-style: none;
-
-			li {
-				list-style: none;
-				position: relative;
-
-				.link {
-					font-size: var(--fs-nav);
-					font-weight: var(--fw-semi-bold);
-					padding: var(--s-1) var(--s-2);
-					background: none;
-					border: none;
-
-					&:hover,
-					&.active {
-						color: var(--c-orange);
-					}
-
-					&[aria-haspopup='true'] {
-						display: flex;
-						gap: var(--s-1);
-						align-items: center;
-
-						svg {
-							z-index: -1;
-							min-width: 24px;
-							min-height: 24px;
-						}
-					}
-				}
-			}
-		}
-
-		[aria-expanded='true'] + .popup {
-			display: flex;
-		}
-
-		[aria-expanded='false'] + .popup {
-			display: none;
-		}
-
-		.popup {
-			position: absolute;
-			right: -178px;
-			margin: auto;
-			background-color: var(--c-white);
-			border-radius: var(--border-radius-small);
-			box-shadow: var(--box-shadow-menu);
-			width: fit-content;
-			padding: var(--s-2-4);
-			display: flex;
-			align-items: start;
-			gap: var(--s-2-4);
-
-			ul {
-				color: var(--color-text);
-				font-size: var(--fs-nav);
-				text-decoration: none;
-				padding: var(--size-base) var(--size-base) var(--size-base) 0;
-				font-weight: var(--fw-bold);
-				display: flex;
-				gap: var(--size-medium);
-				flex-direction: column;
-				align-items: flex-start;
-				height: 100%;
-				gap: var(--s-2);
-				list-style: none;
-
-				.title {
-					color: var(--c-orange);
-					padding-bottom: var(--s-2);
-				}
-			}
-		}
 	}
 </style>

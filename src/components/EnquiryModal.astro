@@ -1,0 +1,38 @@
+<script src="../js/enquiryModal"></script>
+
+<div id="enquiry-modal" class="backdrop">
+	<div
+		role="alertdialog"
+		aria-modal="true"
+		aria-labelledby="dialog_label"
+		aria-describedby="dialog_desc"
+		class="card"
+	>
+		<h2>Enquire online</h2>
+		<div>
+			<p>Form here</p>
+		</div>
+		<div>
+			<button type="button" data-close="enquiry-modal">Cancel</button>
+			<button type="button" id="send">Send enquiry</button>
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+	.backdrop {
+		background: rgba(0, 0, 0, 0.6);
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 100;
+		padding: var(--s-4-5);
+		display: none;
+
+		&.show {
+			display: block;
+		}
+	}
+</style>

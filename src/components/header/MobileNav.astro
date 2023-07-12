@@ -1,5 +1,8 @@
 ---
 import Icon from 'astro-icon';
+import NavLists from './NavLists.astro';
+import NavListItem from './NavListItem.astro';
+import NavList from './NavList.astro';
 ---
 
 <script>
@@ -25,11 +28,12 @@ import Icon from 'astro-icon';
 
 <div id="mobile-menu" class="mobile-menu">
 	<nav>
-		<div class="links">
-			<a class="link" href="/"> Home</a>
-			<a class="link" href="/blog/posts"> Blog</a>
-			<a class="link" href="/contact"> Contact</a>
-		</div>
+		<NavList>
+			<NavListItem href="/" text="Home" />
+			<NavLists />
+			<NavListItem href="/blog/posts" text="Blog" />
+			<NavListItem href="/contact" text="Contact" />
+		</NavList>
 	</nav>
 </div>
 
@@ -61,7 +65,7 @@ import Icon from 'astro-icon';
 	}
 
 	.mobile-menu {
-		height: 100%;
+		height: 100vh;
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -81,18 +85,16 @@ import Icon from 'astro-icon';
 		flex-direction: column;
 		align-items: flex-start;
 		width: fit-content;
-	}
 
-	.links {
-		color: var(--color-text);
-		font-size: var(--font-size-body);
-		text-decoration: none;
-		padding: var(--size-base);
-		font-weight: var(--font-weight-bold);
-		display: flex;
-		gap: var(--size-medium);
-		flex-direction: column;
-		align-items: flex-start;
-		height: 100%;
+		a {
+			font-size: var(--fs-nav);
+			font-weight: var(--fw-semi-bold);
+		}
+
+		ul {
+			padding: 0;
+			list-style: none;
+			gap: var(--s-2);
+		}
 	}
 </style>

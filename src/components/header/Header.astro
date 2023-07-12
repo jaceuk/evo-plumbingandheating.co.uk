@@ -1,7 +1,9 @@
 ---
 import { Icon } from 'astro-icon';
 import MobileNav from './MobileNav.astro';
-import HeaderLogo from './HeaderLogo.astro';
+import { Image } from '@astrojs/image/components';
+import LogoPlumbing from '../../images/logo-plumbing.svg';
+import NavLists from './NavLists.astro';
 ---
 
 <script>
@@ -13,6 +15,19 @@ import HeaderLogo from './HeaderLogo.astro';
 			'aria-expanded',
 			menuTrigger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
 		);
+	}
+
+	function stickyHeader() {
+		const header = document.querySelector('header');
+		const heroSection = document.querySelector('#hero');
+		const rect = heroSection?.getBoundingClientRect();
+
+		// make header sticky when the hero section has scrolled off screen
+		if (rect?.bottom < 0) {
+			header?.classList.add('sticky');
+		} else {
+			header?.classList.remove('sticky');
+		}
 	}
 
 	menuTriggers?.forEach((menuTrigger) => {
@@ -30,6 +45,8 @@ import HeaderLogo from './HeaderLogo.astro';
 		menuTriggers?.forEach((menuTrigger) => {
 			menuTrigger.setAttribute('aria-expanded', 'false');
 		});
+
+		stickyHeader();
 	});
 
 	window.addEventListener('click', (element) => {
@@ -44,7 +61,10 @@ import HeaderLogo from './HeaderLogo.astro';
 <header>
 	<div class="inner-wrapper">
 		<div class="navbar">
-			<HeaderLogo />
+			<a href="/">
+				<Image class="logo" src={LogoPlumbing} alt="EVO Plumbing and Heating logo" />
+				<span class="sr-only">Homepage</span>
+			</a>
 
 			<nav class="desktop-menu">
 				<ul role="menu">
@@ -55,12 +75,7 @@ import HeaderLogo from './HeaderLogo.astro';
 						</button>
 
 						<ul role="menu" class="popup">
-							<li role="none">
-								<a class="link" role="menuitem" href="/">Service</a>
-							</li>
-							<li role="none">
-								<a class="link" role="menuitem" href="/">Service</a>
-							</li>
+							<NavLists />
 						</ul>
 					</li>
 					<li role="none"><a class="link" href="/blog" role="menuitem">Blog</a></li>
@@ -70,7 +85,10 @@ import HeaderLogo from './HeaderLogo.astro';
 
 			<MobileNav />
 		</div>
+
+		<div class="bar">Bar</div>
 	</div>
+	<div class="bottom-border"></div>
 </header>
 
 <style lang="scss">
@@ -78,6 +96,57 @@ import HeaderLogo from './HeaderLogo.astro';
 		box-shadow: var(--box-shadow-menu);
 		z-index: 100;
 		position: relative;
+		background: var(--c-white);
+
+		.bottom-border {
+			height: var(--s-1);
+			background: var(--c-evo-green-medium);
+		}
+
+		&.sticky {
+			position: sticky;
+			top: 0;
+			animation: slideDown var(--transition);
+			border: none;
+
+			.navbar {
+				padding: var(--s-1-2) 0;
+			}
+
+			.bar {
+				display: block;
+			}
+
+			.logo {
+				height: 43px;
+			}
+
+			.bottom-border {
+				display: none;
+			}
+		}
+	}
+
+	.logo {
+		width: clamp(12.3rem, 10.1636rem + 5.697vw, 17rem);
+		z-index: 150;
+		position: relative;
+		height: 43px;
+
+		@media (min-width: 768px) {
+			height: 55px;
+		}
+	}
+
+	@keyframes slideDown {
+		from {
+			top: -16px;
+			opacity: 0;
+		}
+		to {
+			top: 0;
+			opacity: 1;
+		}
 	}
 
 	.navbar {
@@ -87,22 +156,32 @@ import HeaderLogo from './HeaderLogo.astro';
 		padding: var(--s-2-4) 0;
 	}
 
+	.bar {
+		display: none;
+	}
+
 	.desktop-menu {
 		display: none;
+
+		@media (min-width: 768px) {
+			display: flex;
+			align-items: center;
+		}
 
 		ul {
 			display: flex;
 			align-items: center;
 			flex-direction: row;
+			list-style: none;
 
 			li {
 				list-style: none;
+				position: relative;
 
 				.link {
 					font-size: var(--fs-nav);
 					font-weight: var(--fw-semi-bold);
 					padding: var(--s-1) var(--s-2);
-					transition: color var(--transition);
 					background: none;
 					border: none;
 
@@ -127,7 +206,7 @@ import HeaderLogo from './HeaderLogo.astro';
 		}
 
 		[aria-expanded='true'] + .popup {
-			display: block;
+			display: flex;
 		}
 
 		[aria-expanded='false'] + .popup {
@@ -135,18 +214,37 @@ import HeaderLogo from './HeaderLogo.astro';
 		}
 
 		.popup {
-			position: relative;
 			position: absolute;
+			right: -178px;
+			margin: auto;
 			background-color: var(--c-white);
 			border-radius: var(--border-radius-small);
 			box-shadow: var(--box-shadow-menu);
 			width: fit-content;
-			padding: var(--s-1-2);
-		}
-
-		@media (min-width: 768px) {
+			padding: var(--s-2-4);
 			display: flex;
-			align-items: center;
+			align-items: start;
+			gap: var(--s-2-4);
+
+			ul {
+				color: var(--color-text);
+				font-size: var(--fs-nav);
+				text-decoration: none;
+				padding: var(--size-base) var(--size-base) var(--size-base) 0;
+				font-weight: var(--fw-bold);
+				display: flex;
+				gap: var(--size-medium);
+				flex-direction: column;
+				align-items: flex-start;
+				height: 100%;
+				gap: var(--s-2);
+				list-style: none;
+
+				.title {
+					color: var(--c-orange);
+					padding-bottom: var(--s-2);
+				}
+			}
 		}
 	}
 </style>

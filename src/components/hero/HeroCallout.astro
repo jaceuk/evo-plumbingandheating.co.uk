@@ -1,9 +1,9 @@
 ---
 import { Image } from '@astrojs/image/components';
-import LogoCheckatrade from '../images/logo-checkatrade.svg';
+import LogoCheckatrade from '../../images/logo-checkatrade.svg';
 ---
 
-<section class="card">
+<section id="hero" class="card">
 	<div class="info">
 		<p>24 hour emergency helpline</p>
 		<p>Freephone: 0800 920 2030</p>
@@ -12,7 +12,7 @@ import LogoCheckatrade from '../images/logo-checkatrade.svg';
 
 	<button type="button" class="button primary">Enquire online</button>
 
-	<div class="info">
+	<div class="info checkatrade">
 		<Image src={LogoCheckatrade} alt="Checkatrade logo" />
 		<p>9.9/10</p>
 	</div>
@@ -21,13 +21,27 @@ import LogoCheckatrade from '../images/logo-checkatrade.svg';
 <style lang="scss">
 	section {
 		z-index: 20;
-		display: grid;
+		display: flex;
+		flex-direction: column;
 		gap: var(--s-2-4);
+		align-items: center;
 		text-align: center;
+
+		@media (min-width: 768px) {
+			width: fit-content;
+		}
+
+		button {
+			width: 100%;
+		}
 	}
 
 	.info {
 		display: grid;
 		gap: var(--s-1);
+
+		&.checkatrade {
+			padding: 0 var(--s-4);
+		}
 	}
 </style>

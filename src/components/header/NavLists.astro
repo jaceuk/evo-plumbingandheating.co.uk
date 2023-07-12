@@ -1,0 +1,35 @@
+---
+import NavList from './NavList.astro';
+import NavListItem from './NavListItem.astro';
+---
+
+<li role="none">
+	<div>Plumbing and heating</div>
+	<NavList>
+		<NavListItem href="/plumbing" text="Plumbing services" />
+		<NavListItem href="/blocked-sinks-toilets" text="Plumbing services" />
+		<NavListItem href="/central-heating" text="Central heating" />
+		<NavListItem href="/boiler-servicing-repairs" text="Boiler servicing and repairs" />
+		<NavListItem href="/power-flushing" text="Power flushing" />
+	</NavList>
+</li>
+
+<li role="none">
+	<div>External maintenance</div>
+	<NavList>
+		<NavListItem href="/gutter-cleaning" text="Gutter cleaning" />
+		<NavListItem href="/patio-cleaning" text="Patio cleaning" />
+		<NavListItem href="/roof-cleaning" text="Roof cleaning" />
+	</NavList>
+</li>
+
+<style lang="scss">
+	li div {
+		color: var(--c-orange);
+		padding-bottom: var(--s-2);
+		font-size: var(--fs-nav);
+		font-weight: var(--fw-bold);
+		list-style: none;
+		white-space: nowrap;
+	}
+</style>

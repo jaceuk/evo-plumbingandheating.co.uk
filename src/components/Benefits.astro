@@ -1,0 +1,51 @@
+---
+import { Icon } from 'astro-icon';
+---
+
+<section>
+	<div class="inner-wrapper">
+		<div class="benefit"><Icon name="ic:twotone-task-alt" />24/7 emergency cover</div>
+		<div class="benefit"><Icon name="ic:twotone-task-alt" />No callout charge</div>
+		<div class="benefit"><Icon name="ic:twotone-task-alt" />Experienced engineers</div>
+		<div class="benefit"><Icon name="ic:twotone-task-alt" />Satisfied customers</div>
+	</div>
+</section>
+
+<style lang="scss">
+	section {
+		padding: var(--s-2-4) 0;
+		background: var(--c-evo-green-pale);
+	}
+
+	.inner-wrapper {
+		display: flex;
+		align-items: start;
+		gap: var(--s-2-4);
+		flex-wrap: wrap;
+
+		@media (min-width: 768px) {
+			flex-wrap: nowrap;
+		}
+	}
+
+	.benefit {
+		display: flex;
+		align-items: center;
+		gap: var(--s-1-2);
+		width: 100%;
+
+		@media (min-width: 500px) {
+			width: calc(50% - var(--s-1-2));
+		}
+
+		@media (min-width: 768px) {
+			width: 100%;
+		}
+	}
+
+	svg {
+		width: var(--s-4);
+		height: var(--s-4);
+		color: var(--c-green);
+	}
+</style>

@@ -3,8 +3,6 @@ import Icon from 'astro-icon';
 ---
 
 <script>
-	import { createFocusTrap } from 'focus-trap';
-
 	const menuToggleButton = document.querySelector('[aria-label="Toggle menu"]');
 	const closeIcon = document.getElementById('close');
 	const menuIcon = document.getElementById('menu');
@@ -18,14 +16,6 @@ import Icon from 'astro-icon';
 		closeIcon?.classList.toggle('show');
 		menuIcon?.classList.toggle('show');
 	}
-
-	const focusTrap = createFocusTrap('#mobile-menu', {
-		onActivate: () => mobileMenu?.classList.add('is-active'),
-		onDeactivate: () => mobileMenu?.classList.remove('is-active')
-	});
-
-	document.getElementById('menu')?.addEventListener('click', focusTrap.activate);
-	document.getElementById('close')?.addEventListener('click', focusTrap.deactivate);
 </script>
 
 <button aria-label="Toggle menu">

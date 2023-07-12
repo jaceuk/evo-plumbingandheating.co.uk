@@ -1,9 +1,10 @@
 ---
+import { Image } from '@astrojs/image/components';
 import LogoPlumbing from '../images/logo-plumbing.svg';
 ---
 
 <a href="/" class="logo">
-	<img src={LogoPlumbing} alt="EVO Plumbing and Heating logo" />
+	<Image src={LogoPlumbing} alt="EVO Plumbing and Heating logo" />
 	<span class="sr-only">Homepage</span>
 </a>
 

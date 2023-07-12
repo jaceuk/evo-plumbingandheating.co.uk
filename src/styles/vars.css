@@ -74,32 +74,7 @@
 	--transition: 0.2s ease;
 	--box-shadow-card: 0px 11px 48px 0px rgba(0, 0, 0, 0.15);
 	--box-shadow-menu: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
-	--box-shadow-button: 0px 11px 48px 0px rgba(0, 0, 0, 0.15);
-	--border-radius-med: var(--s-2-4);
-	--border-radius-small: var(--s-1-2);
-	--border-radius-x-small: var(--s-1);
-}
-
-html.dark {
-	--c-text: var(--c-white);
-	--c-divider: var(--c-grey-dark);
-	--c-paper: var(--c-black);
-	--c-card: var(--c-black);
-	--c-card-shadow: #ffffff50;
-	--c-accent: var(--c-red);
-	--c-lighthouseGoodPale: var(--c-black);
-	--c-lighthouseGoodDark: var(--c-green);
-	--c-lighthousePoorPale: var(--c-black);
-	--c-lighthousePoorDark: var(--c-red);
-	--c-lighthouseAveragePale: var(--c-black);
-	--c-lighthouseAverageDark: var(--c-orange);
-	--c-input-bg: var(--c-black-pure);
-	--c-alert-success-text: var(--c-green);
-	--c-alert-success-bg: var(--c-black);
-	--c-alert-success-border: var(--c-green);
-	--c-alert-error-text: var(--c-red);
-	--c-alert-error-bg: var(--c-black);
-	--c-alert-error-border: var(--c-red);
-
-	--section-background: linear-gradient(180deg, var(--c-divider) 0%, var(--c-paper) var(--s-4-5));
+	--box-shadow-button: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+	--border-radius-med: var(--s-1-2);
+	--border-radius-small: var(--s-1);
 }

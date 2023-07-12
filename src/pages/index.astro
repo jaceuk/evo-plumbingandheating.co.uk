@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getAllReviews } from '../../utils/reviews';
 import type { Review } from '../../utils/types';
+import Hero from '../components/Hero.astro';
+import HeroImage from '../images/bg-home.jpg';
 
 const reviews: Review[] = await getAllReviews();
 
@@ -10,7 +12,8 @@ const description = 'EVO Plumbing and Heating.';
 ---
 
 <BaseLayout title={title} description={description}>
-	<h1>Homepage</h1>
+	<Hero title="Plumbing, heating and drainage experts in South East England " image={HeroImage} />
+
 	<h2>{reviews.length} reviews</h2>
 	{
 		reviews.map((review) => (

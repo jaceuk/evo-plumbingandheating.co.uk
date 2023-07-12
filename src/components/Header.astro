@@ -76,6 +76,8 @@ import HeaderLogo from './HeaderLogo.astro';
 <style lang="scss">
 	header {
 		box-shadow: var(--box-shadow-menu);
+		z-index: 100;
+		position: relative;
 	}
 
 	.navbar {
@@ -126,7 +128,6 @@ import HeaderLogo from './HeaderLogo.astro';
 
 		[aria-expanded='true'] + .popup {
 			display: block;
-			animation: fadein 0.2s;
 		}
 
 		[aria-expanded='false'] + .popup {
@@ -146,16 +147,6 @@ import HeaderLogo from './HeaderLogo.astro';
 		@media (min-width: 768px) {
 			display: flex;
 			align-items: center;
-		}
-	}
-
-	@keyframes fadein {
-		from {
-			opacity: 0;
-		}
-
-		to {
-			opacity: 1;
 		}
 	}
 </style>

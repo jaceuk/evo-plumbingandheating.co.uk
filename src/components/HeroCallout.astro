@@ -1,0 +1,33 @@
+---
+import { Image } from '@astrojs/image/components';
+import LogoCheckatrade from '../images/logo-checkatrade.svg';
+---
+
+<section class="card">
+	<div class="info">
+		<p>24 hour emergency helpline</p>
+		<p>Freephone: 0800 920 2030</p>
+		<p>No call out charge - Fixed fee</p>
+	</div>
+
+	<button type="button" class="button primary">Enquire online</button>
+
+	<div class="info">
+		<Image src={LogoCheckatrade} alt="Checkatrade logo" />
+		<p>9.9/10</p>
+	</div>
+</section>
+
+<style lang="scss">
+	section {
+		z-index: 20;
+		display: grid;
+		gap: var(--s-2-4);
+		text-align: center;
+	}
+
+	.info {
+		display: grid;
+		gap: var(--s-1);
+	}
+</style>

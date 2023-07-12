@@ -1,0 +1,48 @@
+---
+import { Icon } from 'astro-icon';
+const { type } = Astro.props;
+---
+
+<div class={`container ${type}`} role={type === 'error' ? 'alert' : undefined}>
+	<div class="iconContainer">
+		{type === 'success' && <Icon name="ep:success-filled" />}
+		{type === 'error' && <Icon name="ic:round-error" />}
+	</div>
+	<p class="textContainer"><slot /></p>
+</div>
+
+<style lang="scss">
+	.container {
+		display: flex;
+		gap: var(--s-2);
+		align-items: flex-start;
+		padding: var(--s-2);
+		color: var(--c-paper);
+		border-radius: var(--s-1);
+		font-size: var(--fs-nav);
+		border: 1px solid black;
+
+		&.success {
+			background-color: var(--c-success-pale);
+			color: var(--c-success-dark);
+			border-color: var(--c-success-pale);
+		}
+
+		&.error {
+			background-color: var(--c-error-pale);
+			color: var(--c-error-dark);
+			border-color: var(--c-error-pale);
+		}
+
+		.iconContainer {
+			height: 40px;
+			min-width: 40px;
+		}
+
+		.textContainer {
+			min-height: 40px;
+			display: flex;
+			align-items: center;
+		}
+	}
+</style>

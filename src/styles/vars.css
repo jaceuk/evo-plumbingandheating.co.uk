@@ -13,6 +13,7 @@
 	/* https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport */
 	--s-1-2: clamp(var(--s-1), 0.4364rem + 0.9697vw, var(--s-2));
 	--s-1-4: clamp(var(--s-1), -0.2909rem + 2.9091vw, var(--s-4));
+	--s-2-3: clamp(var(--s-2), 1.2364rem + 0.9697vw, var(--s-3));
 	--s-2-4: clamp(var(--s-2), 0.8727rem + 1.9394vw, var(--s-4));
 	--s-2-5: clamp(var(--s-2), -0.5818rem + 5.8182vw, var(--s-5));
 	--s-4-5: clamp(var(--s-4), 1.7455rem + 3.8788vw, var(--s-5));
@@ -34,6 +35,7 @@
 
 	--c-green: #119c03;
 	--c-orange: #d13f00;
+	--c-orange-medium: #ff6d00;
 
 	--c-error: #f33;
 	--c-error-dark: #c00;
@@ -77,4 +79,5 @@
 	--box-shadow-button: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
 	--border-radius-med: var(--s-1-2);
 	--border-radius-small: var(--s-1);
+	--border-radius-extra-small: var(--s-0);
 }

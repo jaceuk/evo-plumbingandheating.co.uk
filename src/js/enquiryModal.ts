@@ -15,12 +15,14 @@ modalClosers.forEach((modalCloser) => {
 
 function openModal(modal: Element | null) {
 	modal?.classList.add('show');
+	document.body.classList.add('no-scroll');
 	createFocusTrap('#enquiry-modal');
 	focusTrap.activate();
 }
 
 function closeModal(modal: Element | null) {
 	modal?.classList.remove('show');
+	document.body.classList.remove('no-scroll');
 	focusTrap.deactivate();
 }
 

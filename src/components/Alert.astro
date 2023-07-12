@@ -14,10 +14,10 @@ const { type } = Astro.props;
 <style lang="scss">
 	.container {
 		display: flex;
-		gap: var(--s-2);
+		gap: var(--s-1-2);
 		align-items: flex-start;
 		padding: var(--s-2);
-		color: var(--c-paper);
+		color: var(--c-white);
 		border-radius: var(--s-1);
 		font-size: var(--fs-nav);
 		border: 1px solid black;
@@ -35,12 +35,12 @@ const { type } = Astro.props;
 		}
 
 		.iconContainer {
-			height: 40px;
-			min-width: 40px;
+			height: var(--s-3-4);
+			min-width: var(--s-3-4);
 		}
 
 		.textContainer {
-			min-height: 40px;
+			min-height: var(--s-3-4);
 			display: flex;
 			align-items: center;
 		}

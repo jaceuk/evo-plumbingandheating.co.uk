@@ -9,6 +9,7 @@ import '../styles/typography.css';
 import '../styles/vars.css';
 import Footer from '../components/footer/Footer.astro';
 import Header from '../components/header/Header.astro';
+import { RECAPTCHA_SITE_KEY } from '../../utils/constants';
 
 const { title, description } = Astro.props;
 ---
@@ -22,6 +23,8 @@ const { title, description } = Astro.props;
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<script src=`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}` async defer
+		></script>
 	</head>
 	<body>
 		<Header />

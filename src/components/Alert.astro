@@ -13,7 +13,7 @@ const { type } = Astro.props;
 
 <style lang="scss">
 	.container {
-		display: flex;
+		display: none;
 		gap: var(--s-1-2);
 		align-items: flex-start;
 		padding: var(--s-2);
@@ -21,6 +21,10 @@ const { type } = Astro.props;
 		border-radius: var(--s-1);
 		font-size: var(--fs-nav);
 		border: 1px solid black;
+
+		&.show {
+			display: flex;
+		}
 
 		&.success {
 			background-color: var(--c-success-pale);

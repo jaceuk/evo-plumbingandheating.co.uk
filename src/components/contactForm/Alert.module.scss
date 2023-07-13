@@ -1,0 +1,35 @@
+.container {
+	display: flex;
+	gap: var(--s-2);
+	align-items: flex-start;
+	padding: var(--s-2);
+	color: var(--c-paper);
+	border-radius: var(--s-1);
+	font-size: var(--fs-nav);
+
+	&.success {
+		background-color: var(--c-success-pale);
+		color: var(--c-success-dark);
+	}
+
+	&.error {
+		background-color: var(--c-error-pale);
+		color: var(--c-error-dark);
+	}
+
+	.iconContainer {
+		height: 40px;
+		min-width: 40px;
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.textContainer {
+		min-height: 40px;
+		display: flex;
+		align-items: center;
+	}
+}

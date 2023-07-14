@@ -19,14 +19,14 @@ const { title, image } = Astro.props;
 <style lang="scss">
 	section {
 		position: relative;
-		padding: var(--s-4-5) 0;
-		border-bottom: var(--s-2) solid var(--c-evo-orange-medium);
+		padding: var(--scale-32-64) 0;
+		border-bottom: var(--s-16) solid var(--c-evo-orange-medium);
 
 		.inner-wrapper {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			gap: var(--s-4-5);
+			gap: var(--scale-32-64);
 
 			@media (min-width: 768px) {
 				flex-direction: row;
@@ -40,7 +40,7 @@ const { title, image } = Astro.props;
 		padding: 0;
 
 		@media (min-width: 768px) {
-			padding: var(--s-4-5) 0;
+			padding: var(--scale-32-64) 0;
 		}
 	}
 

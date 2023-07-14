@@ -1,10 +1,10 @@
 .form {
 	display: grid;
-	gap: var(--s-4);
+	gap: var(--s-32);
 
 	.row {
 		display: grid;
-		gap: var(--s-1);
+		gap: var(--s-8);
 	}
 
 	.label {
@@ -13,7 +13,7 @@
 	}
 
 	.input {
-		padding: var(--s-2);
+		padding: var(--s-16);
 		border-radius: var(--border-radius-extra-small);
 		border: 1px solid var(--c-nearly-black);
 	}
@@ -28,6 +28,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: end;
-		gap: var(--s-1-2);
+		gap: var(--scale-8-16);
 	}
 }

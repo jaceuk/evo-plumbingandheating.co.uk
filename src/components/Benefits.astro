@@ -13,14 +13,14 @@ import { Icon } from 'astro-icon';
 
 <style lang="scss">
 	section {
-		padding: var(--s-2-4) 0;
+		padding: var(--scale-16-32) 0;
 		background: var(--c-evo-green-pale);
 	}
 
 	.inner-wrapper {
 		display: flex;
 		align-items: start;
-		gap: var(--s-2-4);
+		gap: var(--scale-16-32);
 		flex-wrap: wrap;
 
 		@media (min-width: 768px) {
@@ -31,11 +31,11 @@ import { Icon } from 'astro-icon';
 	.benefit {
 		display: flex;
 		align-items: center;
-		gap: var(--s-1-2);
+		gap: var(--scale-8-16);
 		width: 100%;
 
 		@media (min-width: 500px) {
-			width: calc(50% - var(--s-1-2));
+			width: calc(50% - var(--scale-8-16));
 		}
 
 		@media (min-width: 768px) {
@@ -44,8 +44,8 @@ import { Icon } from 'astro-icon';
 	}
 
 	svg {
-		width: var(--s-4);
-		height: var(--s-4);
+		width: var(--s-32);
+		height: var(--s-32);
 		color: var(--c-green);
 	}
 </style>

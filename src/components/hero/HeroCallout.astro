@@ -1,17 +1,17 @@
 ---
 import { Image } from '@astrojs/image/components';
 import LogoCheckatrade from '../../images/logo-checkatrade.svg';
-import { ContactModal } from '../contactForm/ContactModal';
+import { Modal } from '../contactForm/Modal';
 ---
 
 <section id="hero" class="card">
 	<div class="info">
 		<p class="h5 emergency">24 hour emergency helpline</p>
-		<p class="h4"><span class="body">Freephone:</span> 0800 920 2030</p>
+		<p class="h5">Freephone: 0800 920 2030</p>
 		<p>No call out charge - Fixed fee</p>
 	</div>
 
-	<ContactModal client:only="react" />
+	<Modal client:only="react" />
 
 	<div class="info checkatrade">
 		<Image src={LogoCheckatrade} alt="Checkatrade logo" />
@@ -23,7 +23,7 @@ import { ContactModal } from '../contactForm/ContactModal';
 	section {
 		display: flex;
 		flex-direction: column;
-		gap: var(--s-2-4);
+		gap: var(--scale-16-32);
 		align-items: center;
 		text-align: center;
 
@@ -37,15 +37,15 @@ import { ContactModal } from '../contactForm/ContactModal';
 	}
 
 	.card {
-		padding: var(--s-4-5);
+		padding: var(--scale-16-48);
 	}
 
 	.info {
 		display: grid;
-		gap: var(--s-1);
+		gap: var(--s-8);
 
 		&.checkatrade {
-			padding: 0 var(--s-4);
+			padding: 0 var(--s-32);
 		}
 	}
 

@@ -44,7 +44,7 @@ import NavLists from './NavLists.astro';
 				.link {
 					font-size: var(--fs-nav);
 					font-weight: var(--fw-semi-bold);
-					padding: var(--s-1) var(--s-2);
+					padding: var(--s-8) var(--s-16);
 					background: none;
 					border: none;
 
@@ -55,7 +55,7 @@ import NavLists from './NavLists.astro';
 
 					&[aria-haspopup='true'] {
 						display: flex;
-						gap: var(--s-1);
+						gap: var(--s-8);
 						align-items: center;
 
 						svg {
@@ -84,10 +84,10 @@ import NavLists from './NavLists.astro';
 			border-radius: var(--border-radius-small);
 			box-shadow: var(--box-shadow-menu);
 			width: fit-content;
-			padding: var(--s-2-4);
+			padding: var(--scale-16-32);
 			display: flex;
 			align-items: start;
-			gap: var(--s-4-5);
+			gap: var(--scale-32-64);
 
 			ul {
 				color: var(--color-text);
@@ -100,13 +100,8 @@ import NavLists from './NavLists.astro';
 				flex-direction: column;
 				align-items: flex-start;
 				height: 100%;
-				gap: var(--s-2);
+				gap: var(--s-16);
 				list-style: none;
-
-				.title {
-					color: var(--c-orange);
-					padding-bottom: var(--s-2);
-				}
 			}
 		}
 	}

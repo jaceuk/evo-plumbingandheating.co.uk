@@ -4,7 +4,7 @@ import NavListItem from './NavListItem.astro';
 ---
 
 <li role="none">
-	<div>Plumbing and heating</div>
+	<div class="coloured-text">Plumbing and heating</div>
 	<NavList>
 		<NavListItem href="/plumbing" text="Plumbing services" />
 		<NavListItem href="/blocked-sinks-toilets" text="Plumbing services" />
@@ -15,7 +15,7 @@ import NavListItem from './NavListItem.astro';
 </li>
 
 <li role="none">
-	<div>External maintenance</div>
+	<div class="coloured-text">External maintenance</div>
 	<NavList>
 		<NavListItem href="/gutter-cleaning" text="Gutter cleaning" />
 		<NavListItem href="/patio-cleaning" text="Patio cleaning" />
@@ -25,8 +25,7 @@ import NavListItem from './NavListItem.astro';
 
 <style lang="scss">
 	li div {
-		color: var(--c-orange);
-		padding-bottom: var(--s-2);
+		padding-bottom: var(--s-16);
 		font-size: var(--fs-nav);
 		font-weight: var(--fw-bold);
 		list-style: none;

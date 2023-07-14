@@ -36,8 +36,8 @@ import NavList from './NavList.astro';
 		}
 
 		svg {
-			min-width: var(--s-4);
-			min-height: var(--s-4);
+			min-width: var(--s-32);
+			min-height: var(--s-32);
 		}
 	}
 
@@ -57,7 +57,7 @@ import NavList from './NavList.astro';
 		top: 0;
 		width: 100%;
 		background-color: var(--c-white);
-		padding: calc(var(--s-4-5) + 72px) var(--s-4-5) var(--s-4-5);
+		padding: calc(var(--scale-32-64) + 72px) var(--scale-32-64) var(--scale-32-64);
 		display: none;
 
 		&.show {
@@ -80,7 +80,7 @@ import NavList from './NavList.astro';
 		ul {
 			padding: 0;
 			list-style: none;
-			gap: var(--s-2);
+			gap: var(--s-16);
 		}
 	}
 </style>

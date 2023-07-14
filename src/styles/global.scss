@@ -14,7 +14,7 @@ body {
 	max-width: 1376px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 0 var(--s-2-4);
+	padding: 0 var(--scale-16-32);
 }
 
 .sr-only {
@@ -48,7 +48,7 @@ a {
 }
 
 .button {
-	padding: var(--s-2-3) var(--s-2-4);
+	padding: var(--scale-16-24) var(--scale-16-32);
 	border-radius: var(--border-radius-small);
 	box-shadow: var(--box-shadow-button);
 	color: var(--c-nearly-black);
@@ -87,9 +87,23 @@ a {
 	}
 
 	&.outline {
+		padding: var(--s-16) var(--scale-16-32);
+		display: flex;
+		gap: var(--s-16);
+		align-items: center;
+
+		svg {
+			width: var(--s-24);
+			height: var(--s-24);
+		}
+
 		&:hover,
 		&:focus {
 			background: var(--c-white);
 		}
 	}
+}
+
+.coloured-text {
+	color: var(--c-orange);
 }

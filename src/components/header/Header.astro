@@ -44,12 +44,12 @@ import DesktopNav from './DesktopNav.astro';
 <style lang="scss">
 	header {
 		box-shadow: var(--box-shadow-menu);
-		z-index: 0;
+		z-index: 10;
 		position: relative;
 		background: var(--c-white);
 
 		.bottom-border {
-			height: var(--s-1);
+			height: var(--s-8);
 			background: var(--c-evo-green-medium);
 		}
 
@@ -60,7 +60,7 @@ import DesktopNav from './DesktopNav.astro';
 			border: none;
 
 			.navbar {
-				padding: var(--s-1-2) 0;
+				padding: var(--scale-8-16) 0;
 			}
 
 			.bar {
@@ -103,7 +103,7 @@ import DesktopNav from './DesktopNav.astro';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: var(--s-2-4) 0;
+		padding: var(--scale-16-32) 0;
 	}
 
 	.bar {

@@ -1,0 +1,90 @@
+---
+import { Image } from '@astrojs/image/components';
+import ReviewsImage from '../images/bg-reviews.jpg';
+import Review from './Review.astro';
+import Icon from 'astro-icon';
+---
+
+<section>
+	<div class="inner-wrapper">
+		<div class="image"><Image class="background" src={ReviewsImage} alt="" /></div>
+
+		<div class="text">
+			<header><h2>What our customers say</h2></header>
+
+			<div class="reviews">
+				<Review />
+				<Review />
+				<Review />
+				<Review />
+			</div>
+
+			<footer>
+				<button class="button outline">
+					Jump to more reviews<Icon name="mdi:chevron-double-down" />
+				</button>
+			</footer>
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	section {
+		background: var(--c-evo-green-pale);
+		padding: var(--scale-32-64) 0;
+	}
+
+	.inner-wrapper {
+		display: flex;
+		align-items: stretch;
+		gap: var(--scale-32-64);
+		flex-direction: column;
+
+		@media (min-width: 768px) {
+			flex-direction: row;
+		}
+	}
+
+	button {
+		margin: auto;
+	}
+
+	.image {
+		width: 100%;
+		position: relative;
+		border-radius: var(--border-radius-med);
+		overflow: hidden;
+		height: 150px;
+
+		@media (min-width: 768px) {
+			flex-direction: row;
+			min-width: 230px;
+			height: auto;
+		}
+	}
+
+	.background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.text,
+	.reviews {
+		display: grid;
+		gap: var(--scale-32-64);
+	}
+
+	.reviews {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+
+		@media (min-width: 768px) {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+		}
+	}
+</style>

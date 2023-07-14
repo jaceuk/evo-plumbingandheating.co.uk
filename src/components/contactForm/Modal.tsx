@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Portal } from 'react-portal';
-import styles from './ContactModal.module.scss';
+import styles from './Modal.module.scss';
 import Form from './Form';
 import Overlay from './Overlay';
 import FocusTrap from 'focus-trap-react';
 import { Cross2Icon } from '@radix-ui/react-icons';
 
-export function ContactModal() {
+export function Modal() {
 	const [open, setOpen] = React.useState(false);
 
 	function handleOpenToggle() {
@@ -32,7 +32,9 @@ export function ContactModal() {
 								aria-describedby="modal-desc"
 								className={`card ${styles.modal}`}
 							>
-								<h2 id="modal-label">Enquire online</h2>
+								<h2 id="modal-label" className="coloured-text">
+									Enquire online
+								</h2>
 								<button
 									onClick={handleOpenToggle}
 									className={`button outline ${styles.close}`}

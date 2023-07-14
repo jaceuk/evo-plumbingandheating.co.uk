@@ -78,26 +78,6 @@ a {
 	text-decoration: none;
 }
 
-blockquote {
-	background: var(--color-pale-grey);
-	padding: var(--size-medium);
-	border-left: var(--size-small) solid var(--color-nearly-black-80);
-	font-style: italic;
-}
-
-blockquote:before {
-	color: #ccc;
-	content: open-quote;
-	font-size: 4em;
-	line-height: 0.1em;
-	margin-right: 0.25em;
-	vertical-align: -0.4em;
-}
-
-blockquote p {
-	display: inline;
-}
-
 ul {
 	margin: 0;
 	display: flex;

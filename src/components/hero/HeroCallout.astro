@@ -1,26 +1,26 @@
 ---
 import { Image } from '@astrojs/image/components';
 import LogoCheckatrade from '../../images/logo-checkatrade.svg';
+import { ContactModal } from '../contactForm/ContactModal';
 ---
 
 <section id="hero" class="card">
 	<div class="info">
-		<p>24 hour emergency helpline</p>
-		<p>Freephone: 0800 920 2030</p>
+		<p class="h5 emergency">24 hour emergency helpline</p>
+		<p class="h4"><span class="body">Freephone:</span> 0800 920 2030</p>
 		<p>No call out charge - Fixed fee</p>
 	</div>
 
-	<button type="button" class="button primary" data-modal="enquiry-modal">Enquire online</button>
+	<ContactModal client:only="react" />
 
 	<div class="info checkatrade">
 		<Image src={LogoCheckatrade} alt="Checkatrade logo" />
-		<p>9.9/10</p>
+		<p class="reviews"><strong>9.9 out of 10</strong><span class="small">890 reviews</span></p>
 	</div>
 </section>
 
 <style lang="scss">
 	section {
-		z-index: 20;
 		display: flex;
 		flex-direction: column;
 		gap: var(--s-2-4);
@@ -36,6 +36,10 @@ import LogoCheckatrade from '../../images/logo-checkatrade.svg';
 		}
 	}
 
+	.card {
+		padding: var(--s-4-5);
+	}
+
 	.info {
 		display: grid;
 		gap: var(--s-1);
@@ -43,5 +47,15 @@ import LogoCheckatrade from '../../images/logo-checkatrade.svg';
 		&.checkatrade {
 			padding: 0 var(--s-4);
 		}
+	}
+
+	.emergency {
+		color: var(--c-orange);
+	}
+
+	.reviews {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 </style>

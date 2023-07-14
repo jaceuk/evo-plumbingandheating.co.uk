@@ -6,6 +6,10 @@ body {
 	transition: var(--transition);
 }
 
+.full-width {
+	width: 100%;
+}
+
 .inner-wrapper {
 	max-width: 1376px;
 	margin-left: auto;
@@ -40,7 +44,6 @@ a {
 	border-radius: var(--border-radius-med);
 	box-shadow: var(--box-shadow-card);
 	background: var(--c-white);
-	padding: var(--s-2-4);
 	min-width: fit-content;
 }
 
@@ -84,8 +87,6 @@ a {
 	}
 
 	&.outline {
-		box-shadow: none;
-
 		&:hover,
 		&:focus {
 			background: var(--c-white);

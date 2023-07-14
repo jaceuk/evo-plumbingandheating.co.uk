@@ -57,11 +57,12 @@
 	/* font size */
 	--fs-h1-hero: clamp(5.2rem, 2.6182rem + 5.8182vw, 9.6rem);
 	--fs-h1: clamp(3.2rem, 1.7455rem + 3.8788vw, 6.4rem);
-	--fs-h2: clamp(2.2rem, 1.4273rem + 2.0606vw, 3.9rem);
+	--fs-h2: clamp(2.6rem, 2.0091rem + 1.5758vw, 3.9rem);
 	--fs-h3: clamp(2.2rem, 1.5636rem + 1.697vw, 3.6rem);
-	--fs-h4: clamp(1.6rem, 1.4182rem + 0.4848vw, 2rem);
+	--fs-h4: clamp(1.8rem, 1.5273rem + 0.7273vw, 2.4rem);
+	--fs-h5: clamp(1.6rem, 1.4182rem + 0.4848vw, 2rem);
 	--fs-body: clamp(1.4rem, 1.2182rem + 0.4848vw, 1.8rem);
-	--fs-nav: clamp(1.6rem, 1.5091rem + 0.2424vw, 1.8rem);
+	--fs-nav: clamp(1.4rem, 1.2182rem + 0.4848vw, 1.8rem);
 	--fs-small: clamp(1.2rem, 1.0182rem + 0.4848vw, 1.6rem);
 
 	/* font weight */

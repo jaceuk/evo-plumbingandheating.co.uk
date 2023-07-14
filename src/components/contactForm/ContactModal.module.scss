@@ -1,0 +1,26 @@
+.modal {
+	max-width: var(--max-readable-width);
+	width: 100%;
+	position: relative;
+	padding: var(--s-4-5) var(--s-2-5);
+	display: grid;
+	gap: var(--s-2-4);
+
+	h2 {
+		color: var(--c-orange);
+	}
+
+	.close {
+		display: flex;
+		padding: var(--s-1);
+		border-radius: 200px;
+		position: absolute;
+		top: var(--s-1-2);
+		right: var(--s-1-2);
+
+		svg {
+			min-width: var(--s-3);
+			min-height: var(--s-3);
+		}
+	}
+}

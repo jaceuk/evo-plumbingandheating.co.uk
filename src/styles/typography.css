@@ -15,9 +15,13 @@ html {
 }
 
 body {
+	font-family: 'Poppins', sans-serif;
+}
+
+body,
+.body {
 	font-size: var(--fs-body);
 	font-weight: var(--fw-regular);
-	font-family: 'Poppins', sans-serif;
 }
 
 label {
@@ -28,6 +32,10 @@ button,
 .button {
 	font-size: var(--fs-nav);
 	font-weight: var(--fw-semi-bold);
+}
+
+.small {
+	font-size: var(--fs-small);
 }
 
 h1,
@@ -51,6 +59,12 @@ h3,
 h4,
 .h4 {
 	font-size: var(--fs-h4);
+	font-weight: var(--fw-bold);
+}
+
+h5,
+.h5 {
+	font-size: var(--fs-h5);
 	font-weight: var(--fw-bold);
 }
 

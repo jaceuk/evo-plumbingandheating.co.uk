@@ -4,7 +4,6 @@ import { getAllReviews } from '../../utils/reviews';
 import type { Review } from '../../utils/types';
 import Hero from '../components/hero/Hero.astro';
 import HeroImage from '../images/bg-home.jpg';
-import Modal from '../components/EnquiryModal.astro';
 
 const reviews: Review[] = await getAllReviews();
 
@@ -14,8 +13,6 @@ const description = 'Plumbing, heating and drainage experts in South East Englan
 
 <BaseLayout title={title} description={description}>
 	<Hero title="Plumbing, heating and drainage experts in South East England" image={HeroImage} />
-
-	<Modal />
 
 	<h2>{reviews.length} reviews</h2>
 	{

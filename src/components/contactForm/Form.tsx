@@ -169,9 +169,6 @@ export default function Contact() {
 				</div>
 
 				<div className={styles.actions}>
-					<button type="button" className="button outline" data-close="enquiry-modal">
-						Cancel
-					</button>
 					<button type="submit" className="button secondary" id="send">
 						Send enquiry
 					</button>

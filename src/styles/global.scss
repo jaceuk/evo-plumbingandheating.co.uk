@@ -1,9 +1,6 @@
 html {
-	background-color: var(--c-paper);
-}
-
-body {
-	transition: var(--transition);
+	background-color: var(--c-white);
+	scroll-behavior: smooth;
 }
 
 .full-width {

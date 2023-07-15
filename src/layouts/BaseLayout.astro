@@ -11,6 +11,12 @@ import Footer from '../components/footer/Footer.astro';
 import Header from '../components/header/Header.astro';
 import { RECAPTCHA_SITE_KEY } from '../../utils/constants';
 
+interface Props {
+	children: any;
+	title: string;
+	description: string;
+}
+
 const { title, description } = Astro.props;
 ---
 

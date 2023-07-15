@@ -1,6 +1,14 @@
 ---
 import { Picture } from '@astrojs/image/components';
 
+interface Props {
+	image: ImageMetadata;
+	title: string;
+	text: string;
+	href: string;
+	linkText: string;
+}
+
 const { image, title, text, href, linkText } = Astro.props;
 ---
 

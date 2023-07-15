@@ -4,6 +4,8 @@ import LogoCheckatrade from '../../images/logo-checkatrade.svg';
 import CheckatradeCircle from './CheckatradeCircle.astro';
 import Section from '../Section.astro';
 
+type Props = Record<string, never>;
+
 const checkatrade = await fetch(`http://localhost:3000/api/checkatrade`).then((response) =>
 	response.json()
 );

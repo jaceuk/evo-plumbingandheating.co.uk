@@ -1,9 +1,10 @@
 ---
 interface Props {
 	background?: 'evo-green-pale' | 'evo-orange-pale';
+	children: any;
 }
 
-const { background }: Props = Astro.props;
+const { background } = Astro.props;
 ---
 
 <section class={background ? background : ''}>

@@ -5,6 +5,8 @@ import Review from './Review.astro';
 import Icon from 'astro-icon';
 import ReviewsHeader from './ReviewsHeader.astro';
 import Section from './Section.astro';
+
+type Props = Record<string, never>;
 ---
 
 <Section background="evo-green-pale">
@@ -23,9 +25,9 @@ import Section from './Section.astro';
 		</div>
 
 		<footer>
-			<button class="button outline">
+			<a href="#more-reviews" class="button outline">
 				Jump to more reviews<Icon name="mdi:chevron-double-down" />
-			</button>
+			</a>
 		</footer>
 	</div>
 </Section>
@@ -47,7 +49,7 @@ import Section from './Section.astro';
 		}
 	}
 
-	button {
+	a {
 		margin: auto;
 	}
 

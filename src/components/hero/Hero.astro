@@ -3,6 +3,12 @@ import { Image } from '@astrojs/image/components';
 import HeroCallout from './HeroCallout.astro';
 import Benefits from '../Benefits.astro';
 import Section from '../Section.astro';
+
+interface Props {
+	title: string;
+	image: ImageMetadata;
+}
+
 const { title, image } = Astro.props;
 ---
 

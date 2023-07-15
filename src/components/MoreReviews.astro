@@ -2,33 +2,32 @@
 import Review from './Review.astro';
 import ReviewsHeader from './ReviewsHeader.astro';
 import Section from './Section.astro';
+
+type Props = Record<string, never>;
 ---
 
-<Section background="evo-green-pale">
-	<div class="inner-wrapper">
-		<ReviewsHeader />
+<div id="more-reviews">
+	<Section background="evo-green-pale">
+		<div class="wrapper">
+			<ReviewsHeader />
 
-		<div class="text">
-			<div class="reviews">
-				<Review />
-				<Review />
-				<Review />
-				<Review />
-				<Review />
-				<Review />
-				<Review />
-				<Review />
+			<div class="text">
+				<div class="reviews">
+					<Review />
+					<Review />
+					<Review />
+					<Review />
+					<Review />
+					<Review />
+					<Review />
+					<Review />
+				</div>
 			</div>
 		</div>
-	</div>
-</Section>
+	</Section>
+</div>
 
 <style lang="scss">
-	section {
-		background: var(--c-evo-green-pale);
-		padding: var(--scale-32-64) 0;
-	}
-
 	header {
 		display: flex;
 		align-items: center;
@@ -56,7 +55,7 @@ import Section from './Section.astro';
 		}
 	}
 
-	.inner-wrapper {
+	.wrapper {
 		display: grid;
 		gap: var(--scale-32-64);
 	}

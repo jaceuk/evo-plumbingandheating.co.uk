@@ -76,3 +76,7 @@ h5,
 p {
 	max-width: var(--max-readable-width);
 }
+
+strong {
+	font-weight: var(--fw-bold);
+}

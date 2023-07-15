@@ -48,17 +48,12 @@ a {
 	padding: var(--scale-16-24) var(--scale-16-32);
 	border-radius: var(--border-radius-small);
 	box-shadow: var(--box-shadow-button);
-	color: var(--c-nearly-black);
+	color: var(--c-white);
 	border: 1px solid var(--c-grey);
-	background-color: var(--c-white);
+	background-color: var(--c-nearly-black);
 
 	&.small {
 		padding: var(--scale-8-16) var(--scale-16-32);
-	}
-
-	&:hover,
-	&:focus {
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 20%);
 	}
 
 	&.primary {
@@ -92,6 +87,8 @@ a {
 		display: flex;
 		gap: var(--s-16);
 		align-items: center;
+		background-color: var(--c-white);
+		color: var(--c-nearly-black);
 
 		svg {
 			width: var(--s-24);

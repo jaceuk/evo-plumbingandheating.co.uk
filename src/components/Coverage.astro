@@ -2,6 +2,7 @@
 import { Image } from '@astrojs/image/components';
 import LogoWhich from '../images/logo-which.png';
 import LogoGasSafe from '../images/logo-gas-safe.png';
+import { FREEPHONE_NUMBER } from '../../utils/constants';
 
 type Props = Record<string, never>;
 ---
@@ -10,7 +11,7 @@ type Props = Record<string, never>;
 	<section>
 		<p>Our wide coverage area includes the following counties:</p>
 		<p class="h4 coloured-text">East Sussex, Hampshire, Kent, London, Surrey, and West Sussex</p>
-		<p class="h4">Freephone: 0800 920 2030</p>
+		<p class="h4">Freephone: {FREEPHONE_NUMBER}</p>
 		<p>No call out charge - Fixed fee</p>
 	</section>
 
@@ -27,8 +28,7 @@ type Props = Record<string, never>;
 		padding: var(--scale-16-32);
 		display: grid;
 		gap: var(--scale-16-32);
-		max-width: 442px;
-		width: 100%;
+		width: clamp(100%, 416px, 100%);
 	}
 
 	.wrapper {

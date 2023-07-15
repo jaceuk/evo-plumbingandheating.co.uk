@@ -1,5 +1,6 @@
 ---
 import { Modal } from '../contactForm/Modal';
+import { FREEPHONE_NUMBER } from '../../../utils/constants';
 
 type Props = Record<string, never>;
 ---
@@ -7,7 +8,7 @@ type Props = Record<string, never>;
 <div class="bar">
 	<div class="inner-wrapper">
 		<div class="emergency coloured-text">24 hour emergency helpline</div>
-		<div class="freephone">Freephone: 0800 920 2030</div>
+		<div class="freephone">Freephone: {FREEPHONE_NUMBER}</div>
 		<div class="enquire">
 			<Modal buttonType="primary small" client:only="react" />
 		</div>

@@ -1,10 +1,12 @@
 ---
+import { average } from '../../utils/checkatrade';
+
 type Props = Record<string, never>;
 ---
 
 <div class="outer-circle">
 	<div class="inner-circle">
-		<div class="h4 score">9.99</div>
+		<div class="h4 score">{average}</div>
 	</div>
 </div>
 

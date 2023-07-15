@@ -1,7 +1,11 @@
 ---
 import Coverage from './Coverage.astro';
 
-type Props = Record<string, never>;
+interface Props {
+	county?: string;
+}
+
+const { county } = Astro.props;
 ---
 
 <main>
@@ -10,26 +14,28 @@ type Props = Record<string, never>;
 		<div class="row">
 			<div class="text">
 				<h3 class="h4 coloured-text">
-					Your first choice for plumbing, heating, boiler repair and maintenance.
+					Your first choice for plumbing, heating, boiler repair and maintenance in {county}.
 				</h3>
 				<p>
 					We understand that the biggest home emergencies don't always happen in normal working
 					hours. Luckily, our emergency response team is available 24 hours a day, 7 days a week.
-					From boiler breakdowns to burst pipe and water leak repairs, all our work is carefully
-					undertaken and fully guaranteed for your added peace of mind.
+					From <strong>boiler breakdowns</strong> to <strong
+						>burst pipe and water leak repairs</strong
+					>, all our work is carefully undertaken and fully guaranteed for your added peace of mind.
 				</p>
 				<p>
-					Wherever you are in South East England we will ensure you are completely satisfied with
+					Wherever you are in <strong>{county}</strong> we will ensure you are completely satisfied with
 					the work we do.
 				</p>
 				<p>
-					Combining more than 30 years' experience our priority is to be your preferred choice for
-					planned and emergency plumbing and heating work delivering an experience of unsurpassed
-					excellence for each and every customer.
+					Combining more than 30 years' experience our priority is to be your <strong
+						>preferred choice for planned and emergency plumbing and heating work</strong
+					> delivering an experience of unsurpassed excellence for each and every customer.
 				</p>
 				<p>
-					Call us today and find out why we are a highly rated plumbing and heating company in the
-					UK.
+					Call us today and find out why we are a <strong
+						>highly rated plumbing and heating company</strong
+					> in {county}.
 				</p>
 			</div>
 

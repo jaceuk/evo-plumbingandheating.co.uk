@@ -1,0 +1,22 @@
+---
+import Hero from '../hero/Hero.astro';
+import HeroImage from '../../images/bg-home.jpg';
+import Main from '../Main.astro';
+import Reviews from '../Reviews.astro';
+import Services from '../Services.astro';
+import Strapline from '../Strapline.astro';
+import MoreReviews from '../MoreReviews.astro';
+
+interface Props {
+	county: string;
+}
+
+const { county } = Astro.props;
+---
+
+<Hero title="Plumbing, heating, boiler repair and maintenace" location={county} image={HeroImage} />
+<Main county={county} />
+<Reviews />
+<Services county={county} />
+<Strapline />
+<MoreReviews />

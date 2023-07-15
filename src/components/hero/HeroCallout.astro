@@ -2,6 +2,8 @@
 import { Image } from '@astrojs/image/components';
 import LogoCheckatrade from '../../images/logo-checkatrade.svg';
 import { Modal } from '../contactForm/Modal';
+import { average, reviews } from '../../../utils/checkatrade';
+import { FREEPHONE_NUMBER } from '../../../utils/constants';
 
 type Props = Record<string, never>;
 ---
@@ -9,7 +11,7 @@ type Props = Record<string, never>;
 <section id="hero" class="card">
 	<div class="info">
 		<p class="h5 emergency">24 hour emergency helpline</p>
-		<p class="h5">Freephone: 0800 920 2030</p>
+		<p class="h5">Freephone: {FREEPHONE_NUMBER}</p>
 		<p>No call out charge - Fixed fee</p>
 	</div>
 
@@ -17,7 +19,9 @@ type Props = Record<string, never>;
 
 	<div class="info checkatrade">
 		<Image src={LogoCheckatrade} alt="Checkatrade logo" />
-		<p class="reviews"><strong>9.9 out of 10</strong><span class="small">890 reviews</span></p>
+		<p class="reviews">
+			<strong>{average} out of 10</strong><span class="small">{reviews} reviews</span>
+		</p>
 	</div>
 </section>
 

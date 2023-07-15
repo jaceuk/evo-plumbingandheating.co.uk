@@ -1,0 +1,65 @@
+---
+type Props = Record<string, never>;
+---
+
+<script src="../js/cookieNotice"></script>
+
+<section id="cookie-notice" class="cookieNotice hidden">
+	<div class="inner-wrapper">
+		<div class="content">
+			<p>
+				This website uses cookies for analytical purposes. By continuing to use this website you are
+				indicating that you are happy with this.
+			</p>
+			<button id="cookie-button" class="button outline">Accept</button>
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	.cookieNotice {
+		background: var(--c-white);
+		padding: var(--scale-16-32) 0;
+		box-shadow: var(--box-shadow-card);
+		width: 100%;
+		position: fixed;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		bottom: 0;
+		z-index: 999;
+		animation: slideUp var(--transition);
+		color: var(--c-nearly-black);
+
+		&.hidden {
+			display: none;
+		}
+
+		p {
+			max-width: 100%;
+		}
+
+		.content {
+			display: flex;
+			gap: var(--scale-16-32);
+			align-items: center;
+			flex-direction: column;
+
+			@media (min-width: 768px) {
+				flex-direction: row;
+			}
+		}
+
+		@keyframes slideUp {
+			from {
+				bottom: -16px;
+				opacity: 0;
+			}
+			to {
+				bottom: 0;
+				opacity: 1;
+			}
+		}
+	}
+</style>

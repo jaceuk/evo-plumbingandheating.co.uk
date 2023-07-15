@@ -1,5 +1,7 @@
 ---
 import Section from '../Section.astro';
+import NavList from '../header/NavList.astro';
+import NavListItem from '../header/NavListItem.astro';
 import Legal from './Legal.astro';
 
 type Props = Record<string, never>;
@@ -9,44 +11,44 @@ type Props = Record<string, never>;
 	<div class="wrapper">
 		<nav>
 			<h3 class="h4 coloured-text">EVO Plumbing and Heating Services</h3>
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/">About</a></li>
-				<li><a href="/">Recruitment</a></li>
-				<li><a href="/">Contact</a></li>
-			</ul>
+			<NavList>
+				<NavListItem href="/" text="Home" />
+				<NavListItem href="/about" text="About" />
+				<NavListItem href="/recruitment" text="Recruitment" />
+				<NavListItem href="/contact" text="Contact" />
+			</NavList>
 		</nav>
 
 		<nav>
 			<h3 class="h4 coloured-text">Plumbing and Heating</h3>
-			<ul>
-				<li><a href="/">Plumbing</a></li>
-				<li><a href="/">Blockes sinks and toilets</a></li>
-				<li><a href="/">Central heating</a></li>
-				<li><a href="/">Boiler servicing and repairs</a></li>
-				<li><a href="/">Power flushing</a></li>
-			</ul>
+			<NavList>
+				<NavListItem href="/plumbing" text="Plumbing services" />
+				<NavListItem href="/blocked-sinks-toilets" text="Plumbing services" />
+				<NavListItem href="/central-heating" text="Central heating" />
+				<NavListItem href="/boiler-servicing-repairs" text="Boiler servicing and repairs" />
+				<NavListItem href="/power-flushing" text="Power flushing" />
+			</NavList>
 		</nav>
 
 		<nav>
 			<h3 class="h4 coloured-text">External maintenance</h3>
-			<ul>
-				<li><a href="/">Gutter cleaning</a></li>
-				<li><a href="/">Patio cleaning</a></li>
-				<li><a href="/">Roof cleaning</a></li>
-			</ul>
+			<NavList>
+				<NavListItem href="/gutter-cleaning" text="Gutter cleaning" />
+				<NavListItem href="/patio-cleaning" text="Patio cleaning" />
+				<NavListItem href="/roof-cleaning" text="Roof cleaning" />
+			</NavList>
 		</nav>
 	</div>
 
 	<p class="coverage">
 		<small>
 			We cover
-			<a href="/">East Sussex</a>,
-			<a href="/">Hampshire</a>,
-			<a href="/">Kent</a>,
-			<a href="/">London</a>,
-			<a href="/">Surrey</a>, and
-			<a href="/">West Sussex</a>.
+			<a href="/services/east-sussex">East Sussex</a>,
+			<a href="/services/hampshire">Hampshire</a>,
+			<a href="/services/kent">Kent</a>,
+			<a href="/services/london">London</a>,
+			<a href="/services/surrey">Surrey</a>, and
+			<a href="/services/west-sussex">West Sussex</a>.
 		</small>
 	</p>
 

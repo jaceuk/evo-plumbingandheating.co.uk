@@ -3,6 +3,7 @@ import { Image } from '@astrojs/image/components';
 import ReviewsImage from '../../images/bg-reviews.jpg';
 import Section from '../Section.astro';
 import { Modal } from '../contactForm/Modal';
+import { FREEPHONE_NUMBER } from '../../../utils/constants';
 
 type Props = Record<string, never>;
 ---
@@ -14,7 +15,7 @@ type Props = Record<string, never>;
 		<div class="text">
 			<h2>Get in touch</h2>
 			<p>For all your emergency and planned plumbing and heating works please call us on</p>
-			<h3 class="coloured-text">Freephone 0800 920 2030</h3>
+			<h3 class="coloured-text">Freephone {FREEPHONE_NUMBER}</h3>
 			<p>Alternatively you can enquire online and we will get back to you shortly.</p>
 			<div class="enquire">
 				<Modal buttonType="secondary" client:only="react" />

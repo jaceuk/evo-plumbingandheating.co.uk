@@ -1,17 +1,17 @@
 import { API_URL, WEBSITE } from './constants';
-import type { review, location } from './types';
+import type { Review, Location } from './types';
 
 interface keyword {
 	keyword: string;
 }
 
-function unique(array: review[]) {
+function unique(array: Review[]) {
 	return [...new Set(array)];
 }
 
-function arrayWithMatchesFirst(primaryArray: review[], secondaryArray: review[]) {
-	primaryArray.forEach((primaryItem: review) => {
-		secondaryArray.forEach((secondaryItem: review, index) => {
+function arrayWithMatchesFirst(primaryArray: Review[], secondaryArray: Review[]) {
+	primaryArray.forEach((primaryItem: Review) => {
+		secondaryArray.forEach((secondaryItem: Review, index) => {
 			// Remove reviews that were a match
 			if (primaryItem.id === secondaryItem.id) secondaryArray.splice(index, 1);
 		});
@@ -32,10 +32,10 @@ export async function getAllReviews() {
 	const keywords = await fetch(`${API_URL}/keywords/website/${WEBSITE}`).then((response) =>
 		response.json()
 	);
-	const reviews: review[] = [];
+	const reviews: Review[] = [];
 
 	// Iterate over all the reviews
-	allReviews.forEach((review: review) => {
+	allReviews.forEach((review: Review) => {
 		keywords.forEach((keyword: keyword) => {
 			// Look for any reviews with a title that include the keywords for services on this site
 			if (review.title.includes(keyword.keyword)) reviews.push(review);
@@ -51,11 +51,11 @@ async function getReviewsByCounty(countyId: number) {
 	const allReviews = await getAllReviews();
 	// Get all the postcodes in the county
 	const countyPostcodes = await getCountyPostcodes(countyId);
-	const reviews: review[] = [];
+	const reviews: Review[] = [];
 
 	// Iterate over all the reviews
-	allReviews.forEach((review: review) => {
-		countyPostcodes.forEach((countyPostcode: location) => {
+	allReviews.forEach((review: Review) => {
+		countyPostcodes.forEach((countyPostcode: Location) => {
 			// Look for any reviews with the same postcode as any of the locations in the county
 			if (review.postcode === countyPostcode.postcode) reviews.push(review);
 		});
@@ -82,10 +82,10 @@ async function getReviewsByService(serviceId: number) {
 	const keywords = await fetch(`${API_URL}/keywords/service/${serviceId}`).then((response) =>
 		response.json()
 	);
-	const reviews: review[] = [];
+	const reviews: Review[] = [];
 
 	// Iterate over all the reviews
-	allReviews.forEach((review: review) => {
+	allReviews.forEach((review: Review) => {
 		keywords.forEach((keyword: keyword) => {
 			// Look for any reviews with a title that include the keywords for this service
 			if (review.title.includes(keyword.keyword)) reviews.push(review);
@@ -111,11 +111,11 @@ async function getReviewsByServiceAndCounty(serviceId: number, countyId: number)
 	const allReviews = await getReviewsByService(serviceId);
 	// Get all the postcodes in the county
 	const countyPostcodes = await getCountyPostcodes(countyId);
-	const reviews: review[] = [];
+	const reviews: Review[] = [];
 
 	// Iterate over all the reviews
-	allReviews.forEach((review: review) => {
-		countyPostcodes.forEach((countyPostcode: location) => {
+	allReviews.forEach((review: Review) => {
+		countyPostcodes.forEach((countyPostcode: Location) => {
 			// Look for any reviews with the same postcode as any of the locations in the county
 			if (review.postcode === countyPostcode.postcode) reviews.push(review);
 		});
@@ -145,10 +145,10 @@ export async function getReviewsByServiceAndCountyWithBackfill(
 async function getReviewsByServiceAndLocation(serviceId: number, postcode: string) {
 	// Get all reviews
 	const allReviews = await getReviewsByService(serviceId);
-	const reviews: review[] = [];
+	const reviews: Review[] = [];
 
 	// Iterate over all the reviews
-	allReviews.forEach((review: review) => {
+	allReviews.forEach((review: Review) => {
 		// Look for any reviews with the same postcode as the location
 		if (review.postcode === postcode) reviews.push(review);
 	});

@@ -9,13 +9,9 @@ function toggleMenu(menuTrigger: Element) {
 }
 
 menuTriggers?.forEach((menuTrigger) => {
-	menuTrigger.addEventListener(
-		'click',
-		() => {
-			toggleMenu(menuTrigger);
-		},
-		false
-	);
+	menuTrigger.addEventListener('click', () => {
+		toggleMenu(menuTrigger);
+	});
 });
 
 // click anywhere or scroll to close pull down menu

@@ -2,32 +2,18 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getAllReviews } from '../../utils/reviews';
 import type { Review } from '../../utils/types';
-import Hero from '../components/hero/Hero.astro';
-import HeroImage from '../images/bg-home.jpg';
-import Main from '../components/Main.astro';
-import Reviews from '../components/Reviews.astro';
-import Services from '../components/Services.astro';
-import Strapline from '../components/Strapline.astro';
-import MoreReviews from '../components/MoreReviews.astro';
+import ServicesByCounty from '../components/pages/ServicesByCounty.astro';
 
 const reviews: Review[] = await getAllReviews();
 
-const title = 'EVO Plumbing and Heating';
-const description = 'Plumbing, heating and drainage experts in South East England.';
+const title =
+	'Plumbing, heating, boiler repair and maintenance | EVO Plumbing and Heating Services';
+const description =
+	'Plumbing, heating, boiler repair and maintenance experts in South East England.';
 ---
 
 <BaseLayout title={title} description={description}>
-	<Hero title="Plumbing, heating and drainage experts in South East England" image={HeroImage} />
-
-	<Main />
-
-	<Reviews />
-
-	<Services />
-
-	<Strapline />
-
-	<MoreReviews />
+	<ServicesByCounty county="South East England" />
 
 	<h2>{reviews.length} reviews</h2>
 	{

@@ -1,17 +1,125 @@
 ---
 import Service from './Service.astro';
-import ServiceImage from '../images/bg-home.jpg';
+import PlumbingImage from '../images/bg-plumbing.jpg';
+import BlockedSinksToiletsImage from '../images/bg-blocked-sinks-toilets.jpg';
+import CentralHeatingImage from '../images/bg-central-heating.jpg';
+import BoilerServicingRepairsImage from '../images/bg-boiler-servicing-repairs.jpg';
+import PowerFlushingImage from '../images/bg-power-flushing.jpg';
+import GutterCleaningImage from '../images/bg-gutter-cleaning.jpg';
+import PatioCleaningImage from '../images/bg-patio-cleaning.jpg';
+import RoofCleaningImage from '../images/bg-roof-cleaning.jpg';
 import Section from './Section.astro';
 
-type Props = Record<string, never>;
+interface Props {
+	county: string;
+}
+
+const currentPath = Astro.url.pathname;
+const { county } = Astro.props;
 ---
 
 <Section>
 	<div class="wrapper">
-		<Service image={ServiceImage} title="Title" text="text" href="/" linkText="Service" />
-		<Service image={ServiceImage} title="Title" text="text" href="/" linkText="Service" />
-		<Service image={ServiceImage} title="Title" text="text" href="/" linkText="Service" />
-		<Service image={ServiceImage} title="Title" text="text" href="/" linkText="Service" />
+		<Service image={PlumbingImage} title="Plumbing" href="/plumbing" linkText="Plumbing">
+			<p>
+				From blocked pipes and water leaks to hot water cylinder, ball valves and overflow systems,
+				we are on hand to deal with <strong>all aspects of plumbing</strong>.
+			</p>
+		</Service>
+
+		<Service
+			image={BlockedSinksToiletsImage}
+			title="Blocked sinks and toilets"
+			href="/blocked-sinks-toilets"
+			linkText="Blocked sinks and toilets"
+		>
+			<p>
+				There can be nothing more frustrating than a blocked sink or toilet. However, whatever the
+				cause of the blockage, we are on hand <strong>24 hours a day, 7 days a week</strong>
+				{currentPath !== '/' && `across ${county}`} to deal with the problem <strong
+					>quickly and with minimum fuss</strong
+				>.
+			</p>
+		</Service>
+
+		<Service
+			image={CentralHeatingImage}
+			title="Central heating"
+			href="/central-heating"
+			linkText="Central heating"
+		>
+			<p>
+				We understand that the disruption and inconvenience associated with heating problems means
+				that a <strong>fast, effective response</strong> is needed. At EVO Plumbing and Heating Services,
+				help is always at hand.
+			</p>
+		</Service>
+
+		<Service
+			image={BoilerServicingRepairsImage}
+			title="Boiler servicing and repairs"
+			href="/boiler-servicing-repairs"
+			linkText="Boiler servicing and repairs"
+		>
+			<p>
+				We can help with regular boiler maintenance to ensure its long-term performance. In the
+				event of a boiler breakdown call our emergency helpline for a <strong
+					>speedy resolution</strong
+				>{currentPath !== '/' && ` wherever you are in ${county}`}.
+			</p>
+		</Service>
+
+		<Service
+			image={PowerFlushingImage}
+			title="Power flushing"
+			href="/power-flushing"
+			linkText="Power flushing"
+		>
+			<p>
+				Noticed a drop in the performance of your boiler and central heating system? Reduce the risk
+				of breakdowns with power flushing. Not only can power flushing extend the life of your
+				system, it also helps to <strong>keep your heating bills down</strong>.
+			</p>
+		</Service>
+
+		<Service
+			image={GutterCleaningImage}
+			title="Gutter cleaning"
+			href="/gutter-cleaning"
+			linkText="Gutter cleaning"
+		>
+			<p>
+				Whilst gutter cleaning can seem a real chore, the cost of roofline repairs makes it an
+				essential part of property maintenance. <strong>Protect your home</strong> from water damage,
+				staining, mould and wood rot with our gutter cleaning solutions.
+			</p>
+		</Service>
+
+		<Service
+			image={PatioCleaningImage}
+			title="Patio cleaning"
+			href="/patio-cleaning"
+			linkText="Patio cleaning"
+		>
+			<p>
+				<strong>Maximise the kerb appeal of your home</strong>. As a trusted patio, driveway and
+				hard surface cleaning specialist, we use quality cleaning products and tried and tested
+				techniques to provide outstanding results.
+			</p>
+		</Service>
+
+		<Service
+			image={RoofCleaningImage}
+			title="Roof cleaning"
+			href="/roof-cleaning"
+			linkText="Roof cleaning"
+		>
+			<p>
+				<strong>Is your roof looking a little worse for wear?</strong> Remove unsightly moss and algae
+				with our help. Using specialist roof cleaning equipment, we will remove dirt, buildup and debris
+				and provide a safe, intensive treatment.
+			</p>
+		</Service>
 	</div>
 </Section>
 
@@ -30,5 +138,9 @@ type Props = Record<string, never>;
 			grid-template-columns: 1fr 1fr;
 			grid-template-rows: auto;
 		}
+	}
+
+	p {
+		text-align: center;
 	}
 </style>

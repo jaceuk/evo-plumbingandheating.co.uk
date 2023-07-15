@@ -1,0 +1,38 @@
+---
+import { Image } from '@astrojs/image/components';
+import LogoDrainage from '../../images/logo-drainage.svg';
+---
+
+<section>
+	<div class="inner-wrapper">
+		<Image class="logo" src={LogoDrainage} alt="EVO Plumbing and Heating logo" />
+		<p>
+			Visit our Drainage site for out comprehensive range of services for all of your drainage
+			needs.
+		</p>
+		<a href="/" class="button outline">Visit our Drainage website</a>
+	</div>
+</section>
+
+<style lang="scss">
+	section {
+		background: var(--c-evo-green-pale);
+		padding: var(--scale-16-32) 0;
+	}
+
+	.inner-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-direction: column;
+		gap: var(--scale-16-32);
+
+		@media (min-width: 768px) {
+			flex-direction: row;
+		}
+	}
+
+	a {
+		white-space: nowrap;
+	}
+</style>

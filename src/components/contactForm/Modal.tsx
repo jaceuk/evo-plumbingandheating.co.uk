@@ -6,7 +6,11 @@ import Overlay from './Overlay';
 import FocusTrap from 'focus-trap-react';
 import { Cross2Icon } from '@radix-ui/react-icons';
 
-export function Modal() {
+interface Props {
+	buttonType: 'primary' | 'secondary' | 'primary small';
+}
+
+export function Modal({ buttonType }: Props) {
 	const [open, setOpen] = React.useState(false);
 
 	function handleOpenToggle() {
@@ -16,7 +20,7 @@ export function Modal() {
 
 	return (
 		<>
-			<button className="button primary full-width" onClick={handleOpenToggle}>
+			<button className={`button ${buttonType} full-width`} onClick={handleOpenToggle}>
 				Enquire online
 			</button>
 

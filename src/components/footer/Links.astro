@@ -1,0 +1,95 @@
+---
+import Section from '../Section.astro';
+import Legal from './Legal.astro';
+---
+
+<Section>
+	<div class="wrapper">
+		<nav>
+			<h3 class="h4 coloured-text">EVO Plumbing and Heating Services</h3>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/">About</a></li>
+				<li><a href="/">Recruitment</a></li>
+				<li><a href="/">Contact</a></li>
+			</ul>
+		</nav>
+
+		<nav>
+			<h3 class="h4 coloured-text">Plumbing and Heating</h3>
+			<ul>
+				<li><a href="/">Plumbing</a></li>
+				<li><a href="/">Blockes sinks and toilets</a></li>
+				<li><a href="/">Central heating</a></li>
+				<li><a href="/">Boiler servicing and repairs</a></li>
+				<li><a href="/">Power flushing</a></li>
+			</ul>
+		</nav>
+
+		<nav>
+			<h3 class="h4 coloured-text">External maintenance</h3>
+			<ul>
+				<li><a href="/">Gutter cleaning</a></li>
+				<li><a href="/">Patio cleaning</a></li>
+				<li><a href="/">Roof cleaning</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<p class="coverage">
+		<small>
+			We cover
+			<a href="/">East Sussex</a>,
+			<a href="/">Hampshire</a>,
+			<a href="/">Kent</a>,
+			<a href="/">London</a>,
+			<a href="/">Surrey</a>, and
+			<a href="/">West Sussex</a>.
+		</small>
+	</p>
+
+	<Legal />
+</Section>
+
+<style lang="scss">
+	.wrapper {
+		display: none;
+		align-items: start;
+		gap: var(--scale-32-64);
+
+		@media (min-width: 768px) {
+			display: flex;
+		}
+	}
+
+	nav {
+		flex: 1;
+		display: grid;
+		gap: var(--scale-8-16);
+		border-right: 1px solid var(--c-grey);
+
+		&:last-child {
+			border: none;
+		}
+	}
+
+	ul {
+		display: grid;
+		gap: var(--scale-8-16);
+		padding: 0;
+	}
+
+	li {
+		list-style: none;
+	}
+
+	a {
+		font-weight: var(--fw-semi-bold);
+	}
+
+	.coverage {
+		padding: var(--scale-16-32) 0;
+		text-align: center;
+		margin: auto;
+	}
+</style>

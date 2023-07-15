@@ -1,1 +1,27 @@
-<article><slot /></article>
+---
+import { Picture } from '@astrojs/image/components';
+
+const { image, title, text, href, linkText } = Astro.props;
+---
+
+<article class="card">
+	<Picture src={image} alt="" widths={[200, 400, 800, 1100]} aspectRatio="16:9" />
+	<div class="text">
+		<h3>{title}</h3>
+		<p>{text}</p>
+		<a href={href} class="button outline">{linkText}</a>
+	</div>
+</article>
+
+<style lang="scss">
+	article {
+		overflow: hidden;
+	}
+
+	.text {
+		padding: var(--scale-16-48);
+		display: grid;
+		gap: var(--scale-16-32);
+		justify-items: center;
+	}
+</style>

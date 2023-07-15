@@ -1,8 +1,9 @@
 ---
 import { Icon } from 'astro-icon';
+const { background } = Astro.props;
 ---
 
-<section>
+<section class={background}>
 	<div class="inner-wrapper">
 		<div class="benefit"><Icon name="ic:twotone-task-alt" />24/7 emergency cover</div>
 		<div class="benefit"><Icon name="ic:twotone-task-alt" />No callout charge</div>
@@ -47,5 +48,13 @@ import { Icon } from 'astro-icon';
 		width: var(--s-32);
 		height: var(--s-32);
 		color: var(--c-green);
+	}
+
+	.white {
+		background: var(--c-white);
+	}
+
+	.evo-green-pale {
+		background: var(--c-evo-green-pale);
 	}
 </style>

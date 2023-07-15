@@ -1,0 +1,74 @@
+---
+import { Image } from '@astrojs/image/components';
+import LogoCheckatrade from '../../images/logo-checkatrade.svg';
+import LogoWhich from '../../images/logo-which.png';
+import LogoGasSafe from '../../images/logo-gas-safe.png';
+---
+
+<div class="wrapper">
+	<p>
+		<small>
+			Evo Home Services Ltd - Unit 7 Cophall Farm business units, Effingham Road, Copthorne, RH10
+			3HZ
+		</small>
+	</p>
+	<p>
+		<small>
+			Company number: 09738194 - Registered in England and Wales VAT Number: 245 3537 07
+		</small>
+	</p>
+	<p><small>Tel: 0800 710 1011 - info@evo-homeservices.co.uk</small></p>
+	<div class="logos">
+		<Image class="gas-safe" src={LogoGasSafe} alt="Gas Safe logo" />
+		<Image class="checkatrade" src={LogoCheckatrade} alt="Checkatrade logo" />
+		<Image class="which" src={LogoWhich} alt="Which logo" />
+	</div>
+	<p><small></small></p>
+</div>
+
+<style lang="scss">
+	.wrapper {
+		display: grid;
+		gap: var(--s-4);
+		justify-items: center;
+	}
+
+	.logos {
+		display: flex;
+		align-items: center;
+		gap: var(--scale-8-16);
+		margin-top: var(--scale-16-32);
+	}
+
+	.gas-safe {
+		width: 60px;
+		height: auto;
+
+		@media (min-width: 768px) {
+			width: 70px;
+		}
+	}
+
+	.checkatrade {
+		width: 150px;
+		height: auto;
+
+		@media (min-width: 768px) {
+			width: 250px;
+		}
+	}
+
+	.which {
+		width: 80px;
+		height: auto;
+
+		@media (min-width: 768px) {
+			width: 100px;
+		}
+	}
+
+	p {
+		text-align: center;
+		max-width: 100%;
+	}
+</style>

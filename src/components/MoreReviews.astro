@@ -1,37 +1,62 @@
 ---
-import { Image } from '@astrojs/image/components';
-import ReviewsImage from '../images/bg-reviews.jpg';
 import Review from './Review.astro';
-import Icon from 'astro-icon';
 import ReviewsHeader from './ReviewsHeader.astro';
 import Section from './Section.astro';
 ---
 
 <Section background="evo-green-pale">
-	<div class="wrapper">
+	<div class="inner-wrapper">
 		<ReviewsHeader />
 
 		<div class="text">
-			<div class="image"><Image class="background" src={ReviewsImage} alt="" /></div>
-
 			<div class="reviews">
+				<Review />
+				<Review />
+				<Review />
+				<Review />
 				<Review />
 				<Review />
 				<Review />
 				<Review />
 			</div>
 		</div>
-
-		<footer>
-			<button class="button outline">
-				Jump to more reviews<Icon name="mdi:chevron-double-down" />
-			</button>
-		</footer>
 	</div>
 </Section>
 
 <style lang="scss">
-	.wrapper {
+	section {
+		background: var(--c-evo-green-pale);
+		padding: var(--scale-32-64) 0;
+	}
+
+	header {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		gap: var(--scale-16-32);
+
+		@media (min-width: 768px) {
+			justify-content: space-between;
+		}
+	}
+
+	.checkatrade {
+		display: flex;
+		align-items: center;
+		gap: var(--scale-8-16);
+		margin: auto;
+
+		@media (min-width: 768px) {
+			margin: 0;
+		}
+
+		img {
+			width: 180px;
+		}
+	}
+
+	.inner-wrapper {
 		display: grid;
 		gap: var(--scale-32-64);
 	}
@@ -85,7 +110,6 @@ import Section from './Section.astro';
 
 		@media (min-width: 768px) {
 			grid-template-columns: 1fr 1fr;
-			grid-template-rows: 1fr 1fr;
 		}
 	}
 </style>

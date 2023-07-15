@@ -1,0 +1,27 @@
+---
+interface Props {
+	background?: 'evo-green-pale' | 'evo-orange-pale';
+}
+
+const { background }: Props = Astro.props;
+---
+
+<section class={background ? background : ''}>
+	<div class="inner-wrapper">
+		<slot />
+	</div>
+</section>
+
+<style>
+	section {
+		padding: var(--scale-32-64) 0;
+	}
+
+	.evo-green-pale {
+		background: var(--c-evo-green-pale);
+	}
+
+	.evo-orange-pale {
+		background: var(--c-evo-orange-pale);
+	}
+</style>

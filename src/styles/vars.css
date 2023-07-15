@@ -12,6 +12,7 @@
 	/* based on viewport fom min 375px to max 1200px */
 	/* https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport */
 
+	--scale-4-8: clamp(0.4rem, 0.2182rem + 0.4848vw, 0.8rem);
 	--scale-4-16: clamp(0.4rem, 0.4364rem + 0.9697vw, 1.6rem);
 	--scale-4-32: clamp(0.4rem, -0.2909rem + 2.9091vw, 3.2rem);
 	--scale-8-16: clamp(0.8rem, 0.4364rem + 0.9697vw, 1.6rem);
@@ -38,6 +39,7 @@
 	--c-evo-orange-pale: #fef3e6;
 
 	--c-green: #119c03;
+	--c-green-dark: #0c8300;
 	--c-orange: #d13f00;
 	--c-orange-medium: #ff6d00;
 
@@ -83,6 +85,6 @@
 	--box-shadow-menu: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
 	--box-shadow-button: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
 	--border-radius-med: var(--scale-8-16);
-	--border-radius-small: var(--s-8);
-	--border-radius-extra-small: var(--s-0);
+	--border-radius-small: var(--scale-4-8);
+	--border-radius-extra-small: var(--s-4);
 }

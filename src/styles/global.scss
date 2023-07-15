@@ -55,6 +55,10 @@ a {
 	border: 1px solid var(--c-grey);
 	background-color: var(--c-white);
 
+	&.small {
+		padding: var(--scale-8-16) var(--scale-16-32);
+	}
+
 	&:hover,
 	&:focus {
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 20%);

@@ -1,9 +1,22 @@
-<section>
-	<p>Our wide coverage area includes the following counties:</p>
-	<p class="h4 coloured-text">East Sussex, Hampshire, Kent, London, Surrey, and West Sussex</p>
-	<p class="h4">Freephone: 0800 920 2030</p>
-	<p>No call out charge - Fixed fee</p>
-</section>
+---
+import { Image } from '@astrojs/image/components';
+import LogoWhich from '../images/logo-which.png';
+import LogoGasSafe from '../images/logo-gas-safe.png';
+---
+
+<div class="wrapper">
+	<section>
+		<p>Our wide coverage area includes the following counties:</p>
+		<p class="h4 coloured-text">East Sussex, Hampshire, Kent, London, Surrey, and West Sussex</p>
+		<p class="h4">Freephone: 0800 920 2030</p>
+		<p>No call out charge - Fixed fee</p>
+	</section>
+
+	<div class="logos">
+		<Image src={LogoGasSafe} alt="Gas Safe logo" width={70} />
+		<Image src={LogoWhich} alt="Which logo" width={100} />
+	</div>
+</div>
 
 <style>
 	section {
@@ -14,5 +27,17 @@
 		gap: var(--scale-16-32);
 		max-width: 442px;
 		width: 100%;
+	}
+
+	.wrapper {
+		display: grid;
+		gap: var(--scale-16-32);
+	}
+
+	.logos {
+		display: flex;
+		gap: var(--scale-16-32);
+		align-items: center;
+		justify-content: center;
 	}
 </style>

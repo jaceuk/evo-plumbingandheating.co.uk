@@ -1,0 +1,41 @@
+---
+import { Image } from '@astrojs/image/components';
+import CheckatradeCircle from './CheckatradeCircle.astro';
+import LogoCheckatrade from '../images/logo-checkatrade.svg';
+---
+
+<header>
+	<h2>What our customers say</h2>
+	<div class="checkatrade">
+		<Image src={LogoCheckatrade} alt="Checkatrade logo" /><CheckatradeCircle />
+	</div>
+</header>
+
+<style lang="scss">
+	header {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		gap: var(--scale-16-32);
+
+		@media (min-width: 768px) {
+			justify-content: space-between;
+		}
+	}
+
+	.checkatrade {
+		display: flex;
+		align-items: center;
+		gap: var(--scale-8-16);
+		margin: auto;
+
+		@media (min-width: 768px) {
+			margin: 0;
+		}
+
+		img {
+			width: 180px;
+		}
+	}
+</style>

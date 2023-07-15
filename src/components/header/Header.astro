@@ -3,6 +3,7 @@ import MobileNav from './MobileNav.astro';
 import { Image } from '@astrojs/image/components';
 import LogoPlumbing from '../../images/logo-plumbing.svg';
 import DesktopNav from './DesktopNav.astro';
+import EnquireBar from './EnquireBar.astro';
 ---
 
 <script>
@@ -35,8 +36,10 @@ import DesktopNav from './DesktopNav.astro';
 			<DesktopNav />
 			<MobileNav />
 		</div>
+	</div>
 
-		<div class="bar">Bar</div>
+	<div class="bar">
+		<EnquireBar />
 	</div>
 	<div class="bottom-border"></div>
 </header>

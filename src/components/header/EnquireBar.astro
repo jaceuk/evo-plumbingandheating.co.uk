@@ -1,0 +1,48 @@
+---
+import { Modal } from '../contactForm/Modal';
+---
+
+<div class="bar">
+	<div class="inner-wrapper">
+		<div class="emergency coloured-text">24 hour emergency helpline</div>
+		<div class="freephone">Freephone: 0800 920 2030</div>
+		<div class="enquire">
+			<Modal buttonType="primary small" client:only="react" />
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+	.bar {
+		padding: var(--s-8) 0;
+		border-top: 1px solid var(--c-evo-green-pale);
+
+		.enquire {
+			width: fit-content;
+		}
+
+		.inner-wrapper {
+			display: flex;
+			align-items: center;
+			gap: var(--scale-16-32);
+			justify-content: space-between;
+
+			@media (min-width: 768px) {
+				justify-content: end;
+			}
+		}
+
+		.freephone {
+			font-weight: var(--fw-bold);
+		}
+
+		.emergency {
+			display: none;
+			font-weight: var(--fw-bold);
+
+			@media (min-width: 768px) {
+				display: block;
+			}
+		}
+	}
+</style>

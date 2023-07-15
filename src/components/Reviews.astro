@@ -5,32 +5,46 @@ import Review from './Review.astro';
 import Icon from 'astro-icon';
 import ReviewsHeader from './ReviewsHeader.astro';
 import Section from './Section.astro';
+import type { Review as ReviewType } from '../../utils/types';
 
-type Props = Record<string, never>;
+interface Props {
+	reviews: ReviewType[];
+}
+
+const { reviews } = Astro.props;
+const reviewsCount = reviews.length;
 ---
 
-<Section background="evo-green-pale">
-	<div class="wrapper">
-		<ReviewsHeader />
+<div id={reviewsCount !== 4 ? 'more-reviews' : ''}>
+	<Section background="evo-green-pale">
+		<div class="wrapper">
+			<ReviewsHeader />
 
-		<div class="text">
-			<div class="image"><Image class="background" src={ReviewsImage} alt="" /></div>
+			<div class="text">
+				<div class="image"><Image class="background" src={ReviewsImage} alt="" /></div>
 
-			<div class="reviews">
-				<Review />
-				<Review />
-				<Review />
-				<Review />
+				<div class="reviews">
+					{
+						reviews.map((review) => (
+							<Review title={review.title} text={review.text} postcode={review.postcode} />
+						))
+					}
+				</div>
 			</div>
-		</div>
 
-		<footer>
-			<a href="#more-reviews" class="button outline">
-				Jump to more reviews<Icon name="mdi:chevron-double-down" />
-			</a>
-		</footer>
-	</div>
-</Section>
+			{
+				reviewsCount === 4 && (
+					<footer>
+						<a href="#more-reviews" class="button outline">
+							Jump to more reviews
+							<Icon name="mdi:chevron-double-down" />
+						</a>
+					</footer>
+				)
+			}
+		</div>
+	</Section>
+</div>
 
 <style lang="scss">
 	.wrapper {
@@ -64,6 +78,8 @@ type Props = Record<string, never>;
 			flex-direction: row;
 			min-width: 230px;
 			height: auto;
+			flex: 1;
+			max-height: 650px;
 		}
 	}
 
@@ -78,16 +94,7 @@ type Props = Record<string, never>;
 
 	.reviews {
 		display: grid;
-		gap: var(--scale-32-64);
-	}
-
-	.reviews {
-		grid-template-columns: 1fr;
-		grid-template-rows: auto;
-
-		@media (min-width: 768px) {
-			grid-template-columns: 1fr 1fr;
-			grid-template-rows: 1fr 1fr;
-		}
+		gap: var(--scale-16-32);
+		max-width: var(--max-readable-width);
 	}
 </style>

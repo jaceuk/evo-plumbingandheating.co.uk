@@ -1,11 +1,15 @@
 ---
-type Props = Record<string, never>;
+interface Props {
+	county: string;
+}
+
+const { county } = Astro.props;
 ---
 
 <div class="strapline">
 	<div class="inner-wrapper">
 		<h3>
-			Your first choice for Plumbing, Heating, Boiler Repair and Maintenance in South East England
+			Your first choice for Plumbing, Heating, Boiler Repair and Maintenance in {county}
 		</h3>
 	</div>
 </div>

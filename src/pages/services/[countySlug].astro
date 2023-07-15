@@ -27,15 +27,5 @@ const reviews: Review[] = await getReviewsByCountyWithBackfill(county.id);
 ---
 
 <BaseLayout title={title} description={description}>
-	<Services county={county.name} />
-	<h1>Services: {county.name}</h1>
-
-	<h2>{reviews.length} reviews</h2>
-	{
-		reviews.map((review) => (
-			<p>
-				{review.id}, {review.date}, {review.title}, {review.postcode}
-			</p>
-		))
-	}
+	<Services county={county.name} reviews={reviews} />
 </BaseLayout>

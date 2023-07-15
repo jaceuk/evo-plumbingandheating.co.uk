@@ -3,30 +3,33 @@ import { Image } from '@astrojs/image/components';
 import LogoCheckatrade from '../../images/logo-checkatrade.svg';
 import LogoWhich from '../../images/logo-which.png';
 import LogoGasSafe from '../../images/logo-gas-safe.png';
+import Section from '../Section.astro';
 
 type Props = Record<string, never>;
 ---
 
-<div class="wrapper">
-	<p>
-		<small>
-			Evo Home Services Ltd - Unit 7 Cophall Farm business units, Effingham Road, Copthorne, RH10
-			3HZ
-		</small>
-	</p>
-	<p>
-		<small>
-			Company number: 09738194 - Registered in England and Wales VAT Number: 245 3537 07
-		</small>
-	</p>
-	<p><small>Tel: 0800 710 1011 - info@evo-homeservices.co.uk</small></p>
-	<div class="logos">
-		<Image class="gas-safe" src={LogoGasSafe} alt="Gas Safe logo" />
-		<Image class="checkatrade" src={LogoCheckatrade} alt="Checkatrade logo" />
-		<Image class="which" src={LogoWhich} alt="Which logo" />
+<Section>
+	<div class="wrapper">
+		<p>
+			<small>
+				Evo Home Services Ltd - Unit 7 Cophall Farm business units, Effingham Road, Copthorne, RH10
+				3HZ
+			</small>
+		</p>
+		<p>
+			<small>
+				Company number: 09738194 - Registered in England and Wales VAT Number: 245 3537 07
+			</small>
+		</p>
+		<p><small>Tel: 0800 710 1011 - info@evo-homeservices.co.uk</small></p>
+		<div class="logos">
+			<Image class="gas-safe" src={LogoGasSafe} alt="Gas Safe logo" />
+			<Image class="checkatrade" src={LogoCheckatrade} alt="Checkatrade logo" />
+			<Image class="which" src={LogoWhich} alt="Which logo" />
+		</div>
+		<p><small></small></p>
 	</div>
-	<p><small></small></p>
-</div>
+</Section>
 
 <style lang="scss">
 	.wrapper {

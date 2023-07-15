@@ -5,6 +5,7 @@ import type { Review } from '../../utils/types';
 import ServicesByCounty from '../components/pages/ServicesByCounty.astro';
 
 const reviews: Review[] = await getAllReviews();
+const twelveReviews = reviews.slice(0, 12);
 
 const title =
 	'Plumbing, heating, boiler repair and maintenance | EVO Plumbing and Heating Services';
@@ -13,14 +14,5 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
-	<ServicesByCounty county="South East England" />
-
-	<h2>{reviews.length} reviews</h2>
-	{
-		reviews.map((review) => (
-			<p>
-				{review.id}, {review.date}, {review.title}, {review.postcode}
-			</p>
-		))
-	}
+	<ServicesByCounty county="South East England" reviews={twelveReviews} />
 </BaseLayout>

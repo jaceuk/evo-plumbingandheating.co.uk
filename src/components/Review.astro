@@ -1,16 +1,20 @@
 ---
 import Icon from 'astro-icon';
 
-type Props = Record<string, never>;
+interface Props {
+	title: string;
+	text: string;
+	postcode: string;
+}
+
+const { title, text, postcode } = Astro.props;
 ---
 
 <figure>
-	<h3 class="h5 coloured-text">Boiler inspection and resolve pressure issue</h3>
+	<h3 class="h5 coloured-text">{title}</h3>
 	<blockquote>
 		<span><Icon name="icon-park:quote" /></span>
-		The work was carried out by Steven, who was extremely helpful and considerate He performed all the
-		work to a very high standard and we are very pleased with the result. We would not hesitate in recommending
-		the company to anyone requiring central heating work.
+		<p>{text} {postcode}</p>
 	</blockquote>
 </figure>
 
@@ -22,7 +26,7 @@ type Props = Record<string, never>;
 
 	blockquote {
 		display: flex;
-		gap: var(--s-16);
+		gap: var(--s-8);
 	}
 
 	svg {

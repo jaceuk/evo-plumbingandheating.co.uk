@@ -51,8 +51,6 @@ type Props = Record<string, never>;
 			<a href="/services/west-sussex">West Sussex</a>.
 		</small>
 	</p>
-
-	<Legal />
 </Section>
 
 <style lang="scss">
@@ -92,8 +90,11 @@ type Props = Record<string, never>;
 	}
 
 	.coverage {
-		padding: var(--scale-16-32) 0;
 		text-align: center;
 		margin: auto;
+
+		@media (min-width: 768px) {
+			padding: var(--scale-16-32) 0 0 0;
+		}
 	}
 </style>

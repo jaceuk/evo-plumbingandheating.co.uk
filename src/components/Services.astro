@@ -11,7 +11,7 @@ import RoofCleaningImage from '../images/bg-roof-cleaning.jpg';
 import Section from './Section.astro';
 
 interface Props {
-	county: string;
+	county?: string;
 }
 
 const currentPath = Astro.url.pathname;
@@ -19,6 +19,7 @@ const { county } = Astro.props;
 ---
 
 <Section>
+	<h2 class="sr-only">Our services</h2>
 	<div class="wrapper">
 		<Service image={PlumbingImage} title="Plumbing" href="/plumbing" linkText="Plumbing">
 			<p>
@@ -31,12 +32,12 @@ const { county } = Astro.props;
 			image={BlockedSinksToiletsImage}
 			title="Blocked sinks and toilets"
 			href="/blocked-sinks-toilets"
-			linkText="Blocked sinks and toilets"
+			linkText="Blocked Sinks and Toilets"
 		>
 			<p>
 				There can be nothing more frustrating than a blocked sink or toilet. However, whatever the
 				cause of the blockage, we are on hand <strong>24 hours a day, 7 days a week</strong>
-				{currentPath !== '/' && `across ${county}`} to deal with the problem <strong
+				{county && `across ${county}`} to deal with the problem <strong
 					>quickly and with minimum fuss</strong
 				>.
 			</p>
@@ -46,7 +47,7 @@ const { county } = Astro.props;
 			image={CentralHeatingImage}
 			title="Central heating"
 			href="/central-heating"
-			linkText="Central heating"
+			linkText="Central Heating"
 		>
 			<p>
 				We understand that the disruption and inconvenience associated with heating problems means
@@ -59,13 +60,13 @@ const { county } = Astro.props;
 			image={BoilerServicingRepairsImage}
 			title="Boiler servicing and repairs"
 			href="/boiler-servicing-repairs"
-			linkText="Boiler servicing and repairs"
+			linkText="Boiler Servicing and Repairs"
 		>
 			<p>
 				We can help with regular boiler maintenance to ensure its long-term performance. In the
 				event of a boiler breakdown call our emergency helpline for a <strong
 					>speedy resolution</strong
-				>{currentPath !== '/' && ` wherever you are in ${county}`}.
+				>{county && ` wherever you are in ${county}`}.
 			</p>
 		</Service>
 
@@ -73,7 +74,7 @@ const { county } = Astro.props;
 			image={PowerFlushingImage}
 			title="Power flushing"
 			href="/power-flushing"
-			linkText="Power flushing"
+			linkText="Power Flushing"
 		>
 			<p>
 				Noticed a drop in the performance of your boiler and central heating system? Reduce the risk
@@ -86,7 +87,7 @@ const { county } = Astro.props;
 			image={GutterCleaningImage}
 			title="Gutter cleaning"
 			href="/gutter-cleaning"
-			linkText="Gutter cleaning"
+			linkText="Gutter Cleaning"
 		>
 			<p>
 				Whilst gutter cleaning can seem a real chore, the cost of roofline repairs makes it an
@@ -99,7 +100,7 @@ const { county } = Astro.props;
 			image={PatioCleaningImage}
 			title="Patio cleaning"
 			href="/patio-cleaning"
-			linkText="Patio cleaning"
+			linkText="Patio Cleaning"
 		>
 			<p>
 				<strong>Maximise the kerb appeal of your home</strong>. As a trusted patio, driveway and
@@ -112,7 +113,7 @@ const { county } = Astro.props;
 			image={RoofCleaningImage}
 			title="Roof cleaning"
 			href="/roof-cleaning"
-			linkText="Roof cleaning"
+			linkText="Roof Cleaning"
 		>
 			<p>
 				<strong>Is your roof looking a little worse for wear?</strong> Remove unsightly moss and algae

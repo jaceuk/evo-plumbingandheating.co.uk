@@ -1,6 +1,6 @@
-const checkatrade = await fetch(`http://localhost:3000/api/checkatrade`).then((response) =>
-	response.json()
-);
+import { API_URL } from './constants';
+
+const checkatrade = await fetch(`${API_URL}/checkatrade`).then((response) => response.json());
 
 interface item {
 	average: number;

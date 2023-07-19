@@ -7,12 +7,11 @@ import Section from '../Section.astro';
 interface Props {
 	title: string;
 	image: ImageMetadata;
-	location: string;
+	location?: string;
 }
 
-const currentPath = Astro.url.pathname;
 const { title, image, location } = Astro.props;
-const heroTitle = title + (currentPath !== '/' ? ` in ${location}` : '');
+const heroTitle = title + (location ? ` in ${location}` : '');
 ---
 
 <div class="section-wrapper">
@@ -37,6 +36,7 @@ const heroTitle = title + (currentPath !== '/' ? ` in ${location}` : '');
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			justify-content: space-between;
 			gap: var(--scale-32-64);
 
 			@media (min-width: 768px) {

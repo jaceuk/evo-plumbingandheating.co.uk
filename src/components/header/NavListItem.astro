@@ -9,8 +9,10 @@ const { href, text } = Astro.props;
 
 <li role="none"><a role="menuitem" href={href}>{text}</a></li>
 
-<style>
+<style lang="scss">
 	a {
+		white-space: nowrap;
+
 		&:hover,
 		&.active {
 			color: var(--c-orange);

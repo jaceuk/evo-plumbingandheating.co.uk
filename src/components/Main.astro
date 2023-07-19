@@ -14,7 +14,9 @@ const { county } = Astro.props;
 		<div class="row">
 			<div class="text">
 				<h3 class="h4 coloured-text">
-					Your first choice for plumbing, heating, boiler repair and maintenance in {county}.
+					Your first choice for plumbing, heating, boiler repair and maintenance in {
+						county ? `${county}` : 'South East England'
+					}.
 				</h3>
 				<p>
 					We understand that the biggest home emergencies don't always happen in normal working
@@ -24,8 +26,8 @@ const { county } = Astro.props;
 					>, all our work is carefully undertaken and fully guaranteed for your added peace of mind.
 				</p>
 				<p>
-					Wherever you are in <strong>{county}</strong> we will ensure you are completely satisfied with
-					the work we do.
+					Wherever you are in <strong>{county ? `${county}` : 'South East England'}</strong> we will
+					ensure you are completely satisfied with the work we do.
 				</p>
 				<p>
 					Combining more than 30 years' experience our priority is to be your <strong
@@ -35,7 +37,7 @@ const { county } = Astro.props;
 				<p>
 					Call us today and find out why we are a <strong
 						>highly rated plumbing and heating company</strong
-					> in {county}.
+					>{county && ` in ${county}`}.
 				</p>
 			</div>
 

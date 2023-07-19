@@ -3,10 +3,7 @@ import { API_URL } from '../../../utils/constants';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getReviewsByCountyWithBackfill } from '../../../utils/reviews';
 import type { Review, Location } from '../../../utils/types';
-import Services from '../../components/pages/ServicesByCounty.astro';
-
-const title = 'EVO Plumbing and Heating';
-const description = 'EVO Plumbing and Heating.';
+import ServicesPage from '../../components/pages/ServicesPage.astro';
 
 // 1. Generate a new path for every location
 export async function getStaticPaths() {
@@ -20,12 +17,19 @@ export async function getStaticPaths() {
 	});
 }
 
-// 2. When it's time to render, you can get the entry directly from the prop
 const { county } = Astro.props;
 
+const title = `Plumbing, Heating, Boiler Repair and Maintenance in ${county.name} | EVO Plumbing and Heating Services`;
+const description = `Plumbing, Heating, Boiler Repair and Maintenance experts in ${county.name}.`;
+
 const reviews: Review[] = await getReviewsByCountyWithBackfill(county.id);
+const twelveReviews = reviews.slice(0, 12);
 ---
 
 <BaseLayout title={title} description={description}>
-	<Services county={county.name} reviews={reviews} />
+	<ServicesPage
+		title="Plumbing, Heating, Boiler Repair and Maintenance"
+		county={county.name}
+		reviews={twelveReviews}
+	/>
 </BaseLayout>

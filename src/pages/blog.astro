@@ -1,10 +1,24 @@
 ---
+import { getAllReviews } from '../../utils/reviews';
+import type { Review } from '../../utils/types';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroImage from '../images/bg-contact.jpg';
+import Hero from '../components/hero/Hero.astro';
+import Reviews from '../components/Reviews.astro';
+import Section from '../components/Section.astro';
 
-const title = 'EVO Plumbing and Heating';
-const description = 'EVO Plumbing and Heating.';
+const reviews: Review[] = await getAllReviews();
+const firstEightReviews = reviews.slice(0, 8);
+
+const title = 'Contact | EVO Plumbing and Heating Services';
+const description =
+	'Plumbing, Heating, Boiler Repair and Maintenance experts in South East England.';
 ---
 
 <BaseLayout title={title} description={description}>
-	<h1>Blog</h1>
+	<Hero title="Blog posts" image={HeroImage} />
+
+	<Section>Blog</Section>
+
+	<Reviews reviews={firstEightReviews} />
 </BaseLayout>

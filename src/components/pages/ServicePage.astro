@@ -1,0 +1,45 @@
+---
+import Hero from '../hero/Hero.astro';
+import Main from '../Main.astro';
+import Reviews from '../Reviews.astro';
+import Services from '../Services.astro';
+import Strapline from '../Strapline.astro';
+import type { Review } from '../../../utils/types';
+import PlumbingImage from '../../images/bg-plumbing.jpg';
+import BlockedSinksToiletsImage from '../../images/bg-blocked-sinks-toilets.jpg';
+import CentralHeatingImage from '../../images/bg-central-heating.jpg';
+import BoilerServicingRepairsImage from '../../images/bg-boiler-servicing-repairs.jpg';
+import PowerFlushingImage from '../../images/bg-power-flushing.jpg';
+import GutterCleaningImage from '../../images/bg-gutter-cleaning.jpg';
+import PatioCleaningImage from '../../images/bg-patio-cleaning.jpg';
+import RoofCleaningImage from '../../images/bg-roof-cleaning.jpg';
+
+interface Props {
+	county: string;
+	reviews: Review[];
+	title: string;
+	serviceSlug: string;
+}
+
+const { county, reviews, title, serviceSlug } = Astro.props;
+const firstFourReviews = reviews.slice(0, 4);
+const lastEightReviews = reviews.slice(4, 12);
+
+let HeroImage: ImageMetadata;
+
+if (serviceSlug === 'plumbing') HeroImage = PlumbingImage;
+if (serviceSlug === 'blocked-sinks-toilets') HeroImage = BlockedSinksToiletsImage;
+if (serviceSlug === 'central-heating') HeroImage = CentralHeatingImage;
+if (serviceSlug === 'boiler-servicing-repairs') HeroImage = BoilerServicingRepairsImage;
+if (serviceSlug === 'power-flushing') HeroImage = PowerFlushingImage;
+if (serviceSlug === 'gutter-cleaning') HeroImage = GutterCleaningImage;
+if (serviceSlug === 'patio-cleaning') HeroImage = PatioCleaningImage;
+if (serviceSlug === 'roof-cleaning') HeroImage = RoofCleaningImage;
+---
+
+<Hero title={title} location={county} image={HeroImage} />
+<Main county={county} />
+<Reviews reviews={firstFourReviews} />
+<Services county={county} />
+<Strapline county={county} />
+<Reviews reviews={lastEightReviews} />

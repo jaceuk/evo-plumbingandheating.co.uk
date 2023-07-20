@@ -12,16 +12,22 @@ import Section from './Section.astro';
 
 interface Props {
 	county?: string;
+	countySlug?: string;
 }
 
 const currentPath = Astro.url.pathname;
-const { county } = Astro.props;
+const { county, countySlug = '' } = Astro.props;
 ---
 
 <Section>
 	<h2 class="sr-only">Our services</h2>
 	<div class="wrapper">
-		<Service image={PlumbingImage} title="Plumbing" href="/plumbing" linkText="Plumbing">
+		<Service
+			image={PlumbingImage}
+			title="Plumbing"
+			href={`/plumbing${countySlug && `/${countySlug}`}`}
+			linkText="Plumbing"
+		>
 			<p>
 				From blocked pipes and water leaks to hot water cylinder, ball valves and overflow systems,
 				we are on hand to deal with <strong>all aspects of plumbing</strong>.
@@ -31,7 +37,7 @@ const { county } = Astro.props;
 		<Service
 			image={BlockedSinksToiletsImage}
 			title="Blocked sinks and toilets"
-			href="/blocked-sinks-toilets"
+			href={`/blocked-sinks-toilets${countySlug && `/${countySlug}`}`}
 			linkText="Blocked Sinks and Toilets"
 		>
 			<p>
@@ -46,7 +52,7 @@ const { county } = Astro.props;
 		<Service
 			image={CentralHeatingImage}
 			title="Central heating"
-			href="/central-heating"
+			href={`/central-heating${countySlug && `/${countySlug}`}`}
 			linkText="Central Heating"
 		>
 			<p>
@@ -59,7 +65,7 @@ const { county } = Astro.props;
 		<Service
 			image={BoilerServicingRepairsImage}
 			title="Boiler servicing and repairs"
-			href="/boiler-servicing-repairs"
+			href={`/boiler-servicing-repairs${countySlug && `/${countySlug}`}`}
 			linkText="Boiler Servicing and Repairs"
 		>
 			<p>
@@ -73,7 +79,7 @@ const { county } = Astro.props;
 		<Service
 			image={PowerFlushingImage}
 			title="Power flushing"
-			href="/power-flushing"
+			href={`/power-flushing${countySlug && `/${countySlug}`}`}
 			linkText="Power Flushing"
 		>
 			<p>
@@ -86,7 +92,7 @@ const { county } = Astro.props;
 		<Service
 			image={GutterCleaningImage}
 			title="Gutter cleaning"
-			href="/gutter-cleaning"
+			href={`/gutter-cleaning${countySlug && `/${countySlug}`}`}
 			linkText="Gutter Cleaning"
 		>
 			<p>
@@ -99,7 +105,7 @@ const { county } = Astro.props;
 		<Service
 			image={PatioCleaningImage}
 			title="Patio cleaning"
-			href="/patio-cleaning"
+			href={`/patio-cleaning${countySlug && `/${countySlug}`}`}
 			linkText="Patio Cleaning"
 		>
 			<p>
@@ -112,7 +118,7 @@ const { county } = Astro.props;
 		<Service
 			image={RoofCleaningImage}
 			title="Roof cleaning"
-			href="/roof-cleaning"
+			href={`/roof-cleaning${countySlug && `/${countySlug}`}`}
 			linkText="Roof Cleaning"
 		>
 			<p>

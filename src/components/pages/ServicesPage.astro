@@ -1,7 +1,7 @@
 ---
 import Hero from '../hero/Hero.astro';
 import HeroImage from '../../images/bg-home.jpg';
-import Main from '../Main.astro';
+import Main from '../ServicesMainContent.astro';
 import Reviews from '../Reviews.astro';
 import Services from '../Services.astro';
 import Strapline from '../Strapline.astro';
@@ -9,18 +9,19 @@ import type { Review } from '../../../utils/types';
 
 interface Props {
 	county?: string;
+	countySlug?: string;
 	reviews: Review[];
 	title: string;
 }
 
-const { county, reviews, title } = Astro.props;
+const { county, reviews, title, countySlug = '' } = Astro.props;
 const firstFourReviews = reviews.slice(0, 4);
 const lastEightReviews = reviews.slice(4, 12);
 ---
 
 <Hero title={title} location={county} image={HeroImage} />
-<Main county={county} />
+<Main county={county} countySlug={countySlug} />
 <Reviews reviews={firstFourReviews} />
-<Services county={county} />
+<Services county={county} countySlug={countySlug} />
 <Strapline county={county} />
 <Reviews reviews={lastEightReviews} />

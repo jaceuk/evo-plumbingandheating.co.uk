@@ -1,11 +1,13 @@
 ---
 import Coverage from './Coverage.astro';
+import Map from './Map.astro';
 
 interface Props {
 	county?: string;
+	countySlug?: string;
 }
 
-const { county } = Astro.props;
+const { county, countySlug } = Astro.props;
 ---
 
 <main>
@@ -41,7 +43,9 @@ const { county } = Astro.props;
 				</p>
 			</div>
 
-			<Coverage />
+			<aside>
+				{countySlug ? <Map locationSlug={countySlug} /> : <Coverage />}
+			</aside>
 		</div>
 	</div>
 </main>
@@ -69,6 +73,22 @@ const { county } = Astro.props;
 
 		@media (min-width: 768px) {
 			flex-direction: row;
+		}
+
+		.text {
+			width: 100%;
+
+			@media (min-width: 768px) {
+				width: 60%;
+			}
+		}
+
+		aside {
+			width: 100%;
+
+			@media (min-width: 768px) {
+				width: 40%;
+			}
 		}
 	}
 </style>

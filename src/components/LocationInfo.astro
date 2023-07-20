@@ -1,0 +1,37 @@
+---
+import Section from './Section.astro';
+
+interface Props {
+	location: string;
+	locationInfo: string;
+}
+
+const { location, locationInfo } = Astro.props;
+---
+
+<div class="container">
+	<Section>
+		<div class="wrapper">
+			<h2 class="h4">
+				More about {location}
+			</h2>
+			<div class="text small" set:html={locationInfo} />
+		</div>
+	</Section>
+</div>
+
+<style lang="scss">
+	.container {
+		margin-bottom: calc(var(--scale-16-32) * -1);
+	}
+
+	.wrapper {
+		display: grid;
+		gap: var(--scale-16-32);
+	}
+
+	.text {
+		display: grid;
+		gap: var(--scale-8-16);
+	}
+</style>

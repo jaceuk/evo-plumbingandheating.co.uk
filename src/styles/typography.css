@@ -73,10 +73,6 @@ h5,
 	color: var(--c-accent);
 }
 
-p {
-	max-width: var(--max-readable-width);
-}
-
 strong {
 	font-weight: var(--fw-bold);
 }

@@ -1,0 +1,52 @@
+---
+import { Image } from '@astrojs/image/components';
+import LogoWhich from '../images/logo-which.png';
+import LogoGasSafe from '../images/logo-gas-safe.png';
+import { GOOGLE_API_KEY } from '../../utils/constants';
+
+interface Props {
+	locationSlug: string;
+}
+
+const { locationSlug } = Astro.props;
+---
+
+<div class="wrapper">
+	<section>
+		<iframe
+			width="100%"
+			height="300"
+			style="border:0"
+			src=`https://www.google.com/maps/embed/v1/place?key=${GOOGLE_API_KEY}&q=${locationSlug}+UK`
+			allowfullscreen
+		>
+		</iframe>
+	</section>
+
+	<div class="logos">
+		<Image src={LogoGasSafe} alt="Gas Safe logo" width={70} />
+		<Image src={LogoWhich} alt="Which logo" width={115} />
+	</div>
+</div>
+
+<style>
+	section {
+		border-radius: var(--border-radius-med);
+		display: grid;
+		gap: var(--scale-16-32);
+		width: clamp(100%, 416px, 100%);
+		overflow: hidden;
+	}
+
+	.wrapper {
+		display: grid;
+		gap: var(--scale-16-32);
+	}
+
+	.logos {
+		display: flex;
+		gap: var(--scale-16-32);
+		align-items: center;
+		justify-content: center;
+	}
+</style>

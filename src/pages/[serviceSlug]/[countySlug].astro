@@ -1,11 +1,10 @@
 ---
 import { API_URL, WEBSITE } from '../../../utils/constants';
-import type { Location, Service, Review } from '../../../utils/types';
+import type { Service, Review } from '../../../utils/types';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getReviewsByServiceAndCountyWithBackfill } from '../../../utils/reviews';
-
-const title = 'EVO Plumbing and Heating';
-const description = 'EVO Plumbing and Heating.';
+import ServicePage from '../../components/pages/ServicePage.astro';
+import NeighbouringLocations from '../../components/NeighbouringLocations.astro';
 
 interface County {
 	id: number;
@@ -38,25 +37,25 @@ const locationsInSameCounty = await fetch(`${API_URL}/locations/county/${county.
 );
 
 const reviews: Review[] = await getReviewsByServiceAndCountyWithBackfill(service.id, county.id);
+const twelveReviews = reviews.slice(0, 12);
+
+const title = `${service.name} in ${county.name} | EVO Plumbing and Heating Services`;
+const description = `${service.name} experts in ${county.name}.`;
 ---
 
 <BaseLayout title={title} description={description}>
-	<h1>{service.name}: {county.name}</h1>
+	<ServicePage
+		location={county.name}
+		title={service.name}
+		reviews={twelveReviews}
+		serviceSlug={service.slug}
+		locationSlug={county.slug}
+	/>
 
-	<h2>{reviews.length} reviews</h2>
-	{
-		reviews.map((review) => (
-			<p>
-				{review.id}, {review.date}, {review.title}, {review.postcode}
-			</p>
-		))
-	}
-
-	<h2>Locations in the same county</h2>
-
-	{
-		locationsInSameCounty.map((locationInSameCounty: Location) => (
-			<a href={`/${service.slug}/${locationInSameCounty.slug}`}>{locationInSameCounty.name}</a>
-		))
-	}
+	<NeighbouringLocations
+		county={county.name}
+		service={service.name}
+		serviceSlug={service.slug}
+		locationsInSameCounty={locationsInSameCounty}
+	/>
 </BaseLayout>

@@ -1,20 +1,17 @@
 ---
 import Coverage from './Coverage.astro';
+import Map from './Map.astro';
+import Section from './Section.astro';
 
-type Props = { children: any };
+interface Props {
+	children: any;
+	locationSlug?: string;
+}
+
+const { locationSlug = '' } = Astro.props;
 ---
 
-<main>
-	<div class="inner-wrapper">
-		<div class="row">
-			<div class="text">
-				<slot />
-			</div>
-
-			<Coverage />
-		</div>
-	</div>
-</main>
+<Section>Secondary content</Section>
 
 <style lang="scss">
 	main {
@@ -39,6 +36,14 @@ type Props = { children: any };
 
 		@media (min-width: 768px) {
 			flex-direction: row;
+		}
+
+		.text {
+			width: 60%;
+		}
+
+		aside {
+			width: 40%;
 		}
 	}
 </style>

@@ -1,0 +1,53 @@
+---
+import Section from './Section.astro';
+
+interface Props {
+	service: string;
+	county: string;
+	serviceSlug: string;
+	locationsInSameCounty: Location[];
+}
+
+interface Location {
+	name: string;
+	slug: string;
+}
+
+const { service, serviceSlug, county, locationsInSameCounty } = Astro.props;
+---
+
+<div class="container">
+	<Section>
+		<div class="wrapper">
+			<h2 class="h4">
+				We also provide {service} services to neighbouring locations in {county} including:
+			</h2>
+			<div class="locations small">
+				{
+					locationsInSameCounty.map((locationInSameCounty: Location) => (
+						<a href={`/${serviceSlug}/${locationInSameCounty.slug}`}>{locationInSameCounty.name}</a>
+					))
+				}
+			</div>
+		</div>
+	</Section>
+</div>
+
+<style lang="scss">
+	.container {
+		margin-bottom: calc(var(--scale-16-32) * -1);
+	}
+
+	.wrapper {
+		display: grid;
+		gap: var(--scale-16-32);
+	}
+
+	a:after {
+		content: ', ';
+	}
+
+	a:last-child:after {
+		content: '';
+	}
+</style>

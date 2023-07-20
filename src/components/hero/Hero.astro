@@ -10,14 +10,13 @@ interface Props {
 	location?: string;
 }
 
-const { title, image, location } = Astro.props;
-const heroTitle = title + (location ? ` in ${location}` : '');
+const { title, image, location = '' } = Astro.props;
 ---
 
 <div class="section-wrapper">
 	<Section>
 		<div class="wrapper">
-			<h1>{heroTitle}</h1>
+			<h1>{title + (location && ` in ${location}`)}</h1>
 			<HeroCallout />
 		</div>
 		<div class="overlay"></div>

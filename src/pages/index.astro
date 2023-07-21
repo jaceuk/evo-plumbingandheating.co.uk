@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getAllReviews } from '../../utils/reviews';
-import type { Review } from '../../utils/types';
+import { getAllReviews } from '../utils/reviews';
+import type { Review } from '../utils/types';
 import ServicesPage from '../components/pages/ServicesPage.astro';
 
 const reviews: Review[] = await getAllReviews();

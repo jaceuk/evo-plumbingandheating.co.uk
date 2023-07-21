@@ -3,7 +3,7 @@ import styles from './Form.module.scss';
 import Overlay from './Overlay';
 import Loader from './Loader';
 import Alert from './Alert';
-import { API_URL, RECAPTCHA_SITE_KEY } from '../../../utils/constants';
+import { API_URL, RECAPTCHA_SITE_KEY } from '../../utils/constants';
 
 declare global {
 	interface Window {

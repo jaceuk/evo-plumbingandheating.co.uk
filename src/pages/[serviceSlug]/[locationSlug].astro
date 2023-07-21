@@ -1,8 +1,8 @@
 ---
-import { API_URL, WEBSITE } from '../../../utils/constants';
-import type { Location, Service, Review } from '../../../utils/types';
+import { API_URL, WEBSITE } from '../../utils/constants';
+import type { Location, Service, Review } from '../../utils/types';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getReviewsByServiceAndLocationWithBackfill } from '../../../utils/reviews';
+import { getReviewsByServiceAndLocationWithBackfill } from '../../utils/reviews';
 import NeighbouringLocations from '../../components/NeighbouringLocations.astro';
 import ServicePage from '../../components/pages/ServicePage.astro';
 import LocationInfo from '../../components/LocationInfo.astro';

@@ -1,20 +1,41 @@
 ---
 import Coverage from './Coverage.astro';
 import Map from './Map.astro';
+import PlumbingPrimary from '../components/content/plumbing/Primary.astro';
+import BlockedSinksToiletsPrimary from '../components/content/blockedSinksToilets/Primary.astro';
+import BoilerServicingRepairsPrimary from '../components/content/BoilerServicingRepairs/Primary.astro';
+import CentralHeatingPrimary from '../components/content/centralHeating/Primary.astro';
+import PowerFlushingPrimary from '../components/content/powerFlushing/Primary.astro';
+import GutterCleaningPrimary from '../components/content/gutterCleaning/Primary.astro';
+import PatioCleaningPrimary from '../components/content/patioCleaning/Primary.astro';
+import RoofCleaningPrimary from '../components/content/roofCleaning/Primary.astro';
 
 interface Props {
-	children: any;
 	locationSlug?: string;
+	serviceSlug: string;
 }
 
-const { locationSlug = '' } = Astro.props;
+const { locationSlug = '', serviceSlug } = Astro.props;
+
+function getPrimaryContent(serviceSlug: string) {
+	if (serviceSlug === 'plumbing') return PlumbingPrimary;
+	if (serviceSlug === 'blocked-sinks-toilets') return BlockedSinksToiletsPrimary;
+	if (serviceSlug === 'central-heating') return CentralHeatingPrimary;
+	if (serviceSlug === 'boiler-servicing-repairs') return BoilerServicingRepairsPrimary;
+	if (serviceSlug === 'power-flushing') return PowerFlushingPrimary;
+	if (serviceSlug === 'gutter-cleaning') return GutterCleaningPrimary;
+	if (serviceSlug === 'patio-cleaning') return PatioCleaningPrimary;
+	if (serviceSlug === 'roof-cleaning') return RoofCleaningPrimary;
+}
+
+const PrimaryContent = getPrimaryContent(serviceSlug);
 ---
 
 <main>
 	<div class="inner-wrapper">
 		<div class="row">
 			<div class="text">
-				<slot />
+				<PrimaryContent />
 			</div>
 
 			<aside>

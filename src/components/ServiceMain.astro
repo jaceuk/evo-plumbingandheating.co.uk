@@ -1,41 +1,112 @@
 ---
 import Coverage from './Coverage.astro';
 import Map from './Map.astro';
+
 import PlumbingPrimary from '../components/content/plumbing/Primary.astro';
+import PlumbingPrimaryLocalTemplate1 from '../components/content/plumbing/localTemplates/1/Primary.astro';
+import PlumbingPrimaryLocalTemplate2 from '../components/content/plumbing/localTemplates/2/Primary.astro';
+
 import BlockedSinksToiletsPrimary from '../components/content/blockedSinksToilets/Primary.astro';
-import BoilerServicingRepairsPrimary from '../components/content/BoilerServicingRepairs/Primary.astro';
+import BlockedSinksToiletsPrimaryLocalTemplate1 from '../components/content/blockedSinksToilets/localTemplates/1/Primary.astro';
+import BlockedSinksToiletsPrimaryLocalTemplate2 from '../components/content/blockedSinksToilets/localTemplates/2/Primary.astro';
+
+import BoilerServicingRepairsPrimary from '../components/content/boilerServicingRepairs/Primary.astro';
+import BoilerServicingRepairsPrimaryLocalTemplate1 from '../components/content/boilerServicingRepairs/localTemplates/1/Primary.astro';
+import BoilerServicingRepairsPrimaryLocalTemplate2 from '../components/content/boilerServicingRepairs/localTemplates/2/Primary.astro';
+
 import CentralHeatingPrimary from '../components/content/centralHeating/Primary.astro';
+import CentralHeatingPrimaryLocalTemplate1 from '../components/content/centralHeating/localTemplates/1/Primary.astro';
+import CentralHeatingPrimaryLocalTemplate2 from '../components/content/centralHeating/localTemplates/2/Primary.astro';
+
 import PowerFlushingPrimary from '../components/content/powerFlushing/Primary.astro';
+import PowerFlushingLocalTemplate1 from '../components/content/powerFlushing/localTemplates/1/Primary.astro';
+import PowerFlushingLocalTemplate2 from '../components/content/powerFlushing/localTemplates/2/Primary.astro';
+import PowerFlushingLocalTemplate3 from '../components/content/powerFlushing/localTemplates/3/Primary.astro';
+import PowerFlushingLocalTemplate4 from '../components/content/powerFlushing/localTemplates/4/Primary.astro';
+import PowerFlushingLocalTemplate5 from '../components/content/powerFlushing/localTemplates/5/Primary.astro';
+import PowerFlushingLocalTemplate6 from '../components/content/powerFlushing/localTemplates/6/Primary.astro';
+import PowerFlushingLocalTemplate7 from '../components/content/powerFlushing/localTemplates/7/Primary.astro';
+import PowerFlushingLocalTemplate8 from '../components/content/powerFlushing/localTemplates/8/Primary.astro';
+import PowerFlushingLocalTemplate9 from '../components/content/powerFlushing/localTemplates/9/Primary.astro';
+
 import GutterCleaningPrimary from '../components/content/gutterCleaning/Primary.astro';
+import GutterCleaningPrimaryLocalTemplate1 from '../components/content/gutterCleaning/localTemplates/1/Primary.astro';
+import GutterCleaningPrimaryLocalTemplate2 from '../components/content/gutterCleaning/localTemplates/2/Primary.astro';
+
 import PatioCleaningPrimary from '../components/content/patioCleaning/Primary.astro';
+import PatioCleaningPrimaryLocalTemplate1 from '../components/content/patioCleaning/localTemplates/1/Primary.astro';
+import PatioCleaningPrimaryLocalTemplate2 from '../components/content/patioCleaning/localTemplates/2/Primary.astro';
+
 import RoofCleaningPrimary from '../components/content/roofCleaning/Primary.astro';
+import RoofCleaningPrimaryLocalTemplate1 from '../components/content/roofCleaning/localTemplates/1/Primary.astro';
+import RoofCleaningPrimaryLocalTemplate2 from '../components/content/roofCleaning/localTemplates/2/Primary.astro';
 
 interface Props {
 	locationSlug?: string;
 	serviceSlug: string;
+	localTemplateNumber: number;
+	location: string;
+	locationTel?: string;
 }
 
-const { locationSlug = '', serviceSlug } = Astro.props;
+const { locationSlug = '', serviceSlug, localTemplateNumber, location, locationTel } = Astro.props;
 
-function getPrimaryContent(serviceSlug: string) {
-	if (serviceSlug === 'plumbing') return PlumbingPrimary;
-	if (serviceSlug === 'blocked-sinks-toilets') return BlockedSinksToiletsPrimary;
-	if (serviceSlug === 'central-heating') return CentralHeatingPrimary;
-	if (serviceSlug === 'boiler-servicing-repairs') return BoilerServicingRepairsPrimary;
-	if (serviceSlug === 'power-flushing') return PowerFlushingPrimary;
-	if (serviceSlug === 'gutter-cleaning') return GutterCleaningPrimary;
-	if (serviceSlug === 'patio-cleaning') return PatioCleaningPrimary;
-	if (serviceSlug === 'roof-cleaning') return RoofCleaningPrimary;
+let PrimaryContent: any;
+
+if (serviceSlug === 'plumbing') {
+	if (!localTemplateNumber) PrimaryContent = PlumbingPrimary;
+	if (localTemplateNumber === 1) PrimaryContent = PlumbingPrimaryLocalTemplate1;
+	if (localTemplateNumber === 2) PrimaryContent = PlumbingPrimaryLocalTemplate2;
 }
-
-const PrimaryContent = getPrimaryContent(serviceSlug);
+if (serviceSlug === 'blocked-sinks-toilets') {
+	if (!localTemplateNumber) PrimaryContent = BlockedSinksToiletsPrimary;
+	if (localTemplateNumber === 1) PrimaryContent = BlockedSinksToiletsPrimaryLocalTemplate1;
+	if (localTemplateNumber === 2) PrimaryContent = BlockedSinksToiletsPrimaryLocalTemplate2;
+}
+if (serviceSlug === 'central-heating') {
+	if (!localTemplateNumber) PrimaryContent = CentralHeatingPrimary;
+	if (localTemplateNumber === 1) PrimaryContent = CentralHeatingPrimaryLocalTemplate1;
+	if (localTemplateNumber === 2) PrimaryContent = CentralHeatingPrimaryLocalTemplate2;
+}
+if (serviceSlug === 'boiler-servicing-repairs') {
+	if (!localTemplateNumber) PrimaryContent = BoilerServicingRepairsPrimary;
+	if (localTemplateNumber === 1) PrimaryContent = BoilerServicingRepairsPrimaryLocalTemplate1;
+	if (localTemplateNumber === 2) PrimaryContent = BoilerServicingRepairsPrimaryLocalTemplate2;
+}
+if (serviceSlug === 'power-flushing') {
+	if (!localTemplateNumber) PrimaryContent = PowerFlushingPrimary;
+	if (localTemplateNumber === 1) PrimaryContent = PowerFlushingLocalTemplate1;
+	if (localTemplateNumber === 2) PrimaryContent = PowerFlushingLocalTemplate2;
+	if (localTemplateNumber === 3) PrimaryContent = PowerFlushingLocalTemplate3;
+	if (localTemplateNumber === 4) PrimaryContent = PowerFlushingLocalTemplate4;
+	if (localTemplateNumber === 5) PrimaryContent = PowerFlushingLocalTemplate5;
+	if (localTemplateNumber === 6) PrimaryContent = PowerFlushingLocalTemplate6;
+	if (localTemplateNumber === 7) PrimaryContent = PowerFlushingLocalTemplate7;
+	if (localTemplateNumber === 8) PrimaryContent = PowerFlushingLocalTemplate8;
+	if (localTemplateNumber === 9) PrimaryContent = PowerFlushingLocalTemplate9;
+}
+if (serviceSlug === 'gutter-cleaning') {
+	if (!localTemplateNumber) PrimaryContent = GutterCleaningPrimary;
+	if (localTemplateNumber === 1) PrimaryContent = GutterCleaningPrimaryLocalTemplate1;
+	if (localTemplateNumber === 2) PrimaryContent = GutterCleaningPrimaryLocalTemplate2;
+}
+if (serviceSlug === 'patio-cleaning') {
+	if (!localTemplateNumber) PrimaryContent = PatioCleaningPrimary;
+	if (localTemplateNumber === 1) PrimaryContent = PatioCleaningPrimaryLocalTemplate1;
+	if (localTemplateNumber === 2) PrimaryContent = PatioCleaningPrimaryLocalTemplate2;
+}
+if (serviceSlug === 'roof-cleaning') {
+	if (!localTemplateNumber) PrimaryContent = RoofCleaningPrimary;
+	if (localTemplateNumber === 1) PrimaryContent = RoofCleaningPrimaryLocalTemplate1;
+	if (localTemplateNumber === 2) PrimaryContent = RoofCleaningPrimaryLocalTemplate2;
+}
 ---
 
 <main>
 	<div class="inner-wrapper">
 		<div class="row">
 			<div class="text">
-				<PrimaryContent />
+				<PrimaryContent location={location} locationTel={locationTel} />
 			</div>
 
 			<aside>

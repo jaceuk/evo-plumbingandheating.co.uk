@@ -1,12 +1,44 @@
-<h2>Slow-draining water?</h2>
-<h3 class="h4 coloured-text">We are your first choice for sink and toilet blockages</h3>
+---
+import { FREEPHONE_NUMBER } from '../../../../../utils/constants';
+
+interface Props {
+	location: string;
+	locationTel: string;
+}
+
+const { location, locationTel } = Astro.props;
+---
+
+<h2>
+	Do you need your Patio Cleaning and live in {location} or the surrounding area?
+</h2>
+<h3 class="h4 coloured-text">
+	Call us now on {
+		locationTel ? locationTel : `Freephone ${FREEPHONE_NUMBER} - 24 hour Emergency Helpline`
+	}
+</h3>
+
+<h3 class="h4">
+	Is your patio looking a little worse for wear? Problems with unsightly moss, lichen, slippery
+	algae growth and staining?
+</h3>
 <p>
-	When you suspect a blockage, knowing what signs to look out for is the first step to a <strong
-		>quick resolution</strong
-	>. Is there a foul smell emitting from your sink or bath? Perhaps the water is taking a long time
-	to drain?
+	With our driveway and patio cleaning services, these issues will be resolved quickly and safely.
+	Using specialist equipment, tried and tested techniques and products of the highest quality, we
+	have established a reputation as <strong
+		>trusted patio, driveway and hard surface cleaning specialists</strong
+	> covering {location}.
 </p>
-<p>
-	We are <strong>plumbing and drainage specialists</strong> with a wealth of experience tackling blocked
-	sinks, basins, toilets and pipework.
-</p>
+<p>Choose us for the cleaning of:</p>
+<ul>
+	<li>Crazy paving, patios and pathways, driveways</li>
+	<li>Decking, forecourts, car park</li>
+	<li>Conservatories</li>
+	<li>Garden walls and other hard external surfaces</li>
+	<li>Graffiti removal</li>
+</ul>
+<h3 class="h4 coloured-text">
+	Call us today and find out why we're one of the highest rated companies for Patio Cleaning in {
+		location
+	}.
+</h3>

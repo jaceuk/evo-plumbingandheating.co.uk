@@ -1,12 +1,37 @@
-<h2>Slow-draining water?</h2>
-<h3 class="h4 coloured-text">We are your first choice for sink and toilet blockages</h3>
+---
+import { FREEPHONE_NUMBER } from '../../../../../utils/constants';
+
+interface Props {
+	location: string;
+	locationTel: string;
+}
+
+const { location, locationTel } = Astro.props;
+---
+
+<h2 class="h3">
+	Do you need Power Flushing and live in {location} or the surrounding area?
+</h2>
+<h3 class="h4 coloured-text">
+	Call us now on {
+		locationTel ? locationTel : `Freephone ${FREEPHONE_NUMBER} - 24 hour Emergency Helpline`
+	}
+</h3>
+
+<h3 class="h4">
+	Reducing energy bills and the risk of boiler breakdowns in {location}
+</h3>
 <p>
-	When you suspect a blockage, knowing what signs to look out for is the first step to a <strong
-		>quick resolution</strong
-	>. Is there a foul smell emitting from your sink or bath? Perhaps the water is taking a long time
-	to drain?
+	Is your radiator cold at the bottom? Perhaps you have a noisy boiler? Extend the life of your
+	boiler and heating system with EVO Plumbing and Heating Services, covering {location}. Not only
+	will power flushing help to <strong>keep heating bills down</strong>, it also <strong
+		>reduces the risk of breakdowns</strong
+	> by removing magnetite - a sludge-like substance that is made up on dirt, mites and corroded metals.
 </p>
+<h3 class="h4">What is power flushing?</h3>
 <p>
-	We are <strong>plumbing and drainage specialists</strong> with a wealth of experience tackling blocked
-	sinks, basins, toilets and pipework.
+	Power flushing is the specialist process of forcibly cleansing a heating system with water. Whilst
+	it sounds quite simple, the water must be applied at high-velocity and low-pressure so that no
+	physical damage is caused to the system. The purpose of power flushing is to restore systems to
+	optimum operation; improving overall circulation and resolving boiler noise issues.
 </p>

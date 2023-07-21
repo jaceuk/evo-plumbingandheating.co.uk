@@ -14,9 +14,19 @@ interface Props {
 	title: string;
 	serviceSlug: string;
 	locationSlug?: string;
+	localTemplateNumber: number;
+	locationTel?: string;
 }
 
-const { location, reviews, title, serviceSlug, locationSlug = '' } = Astro.props;
+const {
+	location,
+	reviews,
+	title,
+	serviceSlug,
+	locationSlug = '',
+	localTemplateNumber,
+	locationTel
+} = Astro.props;
 const firstFourReviews = reviews.slice(0, 4);
 const lastEightReviews = reviews.slice(4, 12);
 
@@ -24,7 +34,13 @@ const HeroImage = getHeroImage(serviceSlug);
 ---
 
 <Hero title={title} location={location} image={HeroImage} />
-<ServiceMain locationSlug={locationSlug} serviceSlug={serviceSlug} />
+<ServiceMain
+	locationSlug={locationSlug}
+	serviceSlug={serviceSlug}
+	localTemplateNumber={localTemplateNumber}
+	location={location}
+	locationTel={locationTel}
+/>
 <Reviews reviews={firstFourReviews} />
 <SecondaryContent>SecondaryContent</SecondaryContent>
 <Strapline county={location} />

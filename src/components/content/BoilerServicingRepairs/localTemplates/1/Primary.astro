@@ -1,12 +1,42 @@
-<h2>Slow-draining water?</h2>
-<h3 class="h4 coloured-text">We are your first choice for sink and toilet blockages</h3>
+---
+import { FREEPHONE_NUMBER } from '../../../../../utils/constants';
+
+interface Props {
+	location: string;
+	locationTel: string;
+}
+
+const { location, locationTel } = Astro.props;
+---
+
+<h2 class="h3">
+	Do you need a Boiler Repair or Service and live in {location} or the surrounding area?
+</h2>
+<h3 class="h4 coloured-text">
+	Call us now on {
+		locationTel ? locationTel : `Freephone ${FREEPHONE_NUMBER} - 24 hour Emergency Helpline`
+	}
+</h3>
+
+<h3 class="h4">Boiler breakdown? Choose us for boiler repairs in {location}</h3>
 <p>
-	When you suspect a blockage, knowing what signs to look out for is the first step to a <strong
-		>quick resolution</strong
-	>. Is there a foul smell emitting from your sink or bath? Perhaps the water is taking a long time
-	to drain?
+	A boiler breakdown can be expensive, so regular maintenance is essential to ensure its long-term
+	performance. Our local team of engineers covering {location} have experience working with Worcester
+	Bosch boilers and gas, combi and condensing boilers from many other manufacturers.
+</p>
+<h3 class="h4 coloured-text">24-hour Emergency Heating Engineers</h3>
+<p>
+	We understand that the disruption and inconvenience associated with heating problems means that a <strong
+		>fast, effective response</strong
+	> is needed.
 </p>
 <p>
-	We are <strong>plumbing and drainage specialists</strong> with a wealth of experience tackling blocked
-	sinks, basins, toilets and pipework.
+	The dedication of our 24-hour emergency heating engineers covering {location}
+	means that we aim to be with you <strong>within 2 hours of your call</strong>. What's more, we
+	will keep you informed throughout every step of the repair process.
+</p>
+<p>
+	Beyond issues with central heating and boilers, we also offer <strong
+		>gas safety inspections</strong
+	>, <strong>Landlord CP12 certificates</strong> and <strong>homeowner certificates</strong>.
 </p>

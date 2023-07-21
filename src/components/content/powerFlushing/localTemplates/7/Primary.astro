@@ -1,12 +1,43 @@
-<h2>Slow-draining water?</h2>
-<h3 class="h4 coloured-text">We are your first choice for sink and toilet blockages</h3>
+---
+import { FREEPHONE_NUMBER } from '../../../../../utils/constants';
+
+interface Props {
+	location: string;
+	locationTel: string;
+}
+
+const { location, locationTel } = Astro.props;
+---
+
+<h2 class="h3">Are you looking for a simple way to slash your fuel bill?</h2>
 <p>
-	When you suspect a blockage, knowing what signs to look out for is the first step to a <strong
-		>quick resolution</strong
-	>. Is there a foul smell emitting from your sink or bath? Perhaps the water is taking a long time
-	to drain?
+	Want to ensure optimal heating comfort and heating distribution throughout your home? Schedule a
+	power flush with EVO today and keep your radiator and boiler in top condition.
 </p>
 <p>
-	We are <strong>plumbing and drainage specialists</strong> with a wealth of experience tackling blocked
-	sinks, basins, toilets and pipework.
+	We are a leading plumbing and heating services provider serving {location}
+	and the surrounding area. Our local team of engineers and technicians are able to deliver prompt service.
+	Our thorough work, meticulous attention to detail, and affable personality has earned us top customer
+	ratings.
+</p>
+
+<h3 class="h4 coloured-text">
+	Contact us now on {
+		locationTel ? locationTel : `Freephone ${FREEPHONE_NUMBER} - 24 hour Emergency Helpline`
+	}
+</h3>
+
+<p>We look forward to assisting you.</p>
+
+<h3 class="h4">What does power flushing involve?</h3>
+<p>
+	Power flushing is a rapid and deep cleansing process to remove sludge and other contaminants from
+	a heating system. Power flushing equipment connects to your home's heating system and uses water
+	at a high velocity and low pressure for a comprehensive cleanse without causing damage to the
+	system.
+</p>
+<p>
+	This technique causes the black sludge in your radiators and pipes to flush out, and the process
+	is repeated until clean and pH neutral water emerges. Inhibitor fluid may be added at the end of
+	the cleanse to prevent a future build-up of contaminants.
 </p>

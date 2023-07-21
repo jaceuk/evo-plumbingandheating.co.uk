@@ -1,12 +1,41 @@
-<h2>Slow-draining water?</h2>
-<h3 class="h4 coloured-text">We are your first choice for sink and toilet blockages</h3>
+---
+import { FREEPHONE_NUMBER } from '../../../../../utils/constants';
+
+interface Props {
+	location: string;
+	locationTel: string;
+}
+
+const { location, locationTel } = Astro.props;
+---
+
+<h2 class="h3">Keep energy bills low and avoid expensive breakdowns</h2>
+
 <p>
-	When you suspect a blockage, knowing what signs to look out for is the first step to a <strong
-		>quick resolution</strong
-	>. Is there a foul smell emitting from your sink or bath? Perhaps the water is taking a long time
-	to drain?
+	When {location} home owners spot a problem with their radiator or boiler, they give us a call. We also
+	perform preventive maintenance on residential heating systems, helping customers keep energy bills
+	low and avoid expensive breakdowns.
 </p>
 <p>
-	We are <strong>plumbing and drainage specialists</strong> with a wealth of experience tackling blocked
-	sinks, basins, toilets and pipework.
+	Our local team attends to all requests quickly, helping you avoid heating system breakdowns. We
+	recommend power flushing your radiators, pipes and boiler at least every five years. This will
+	keep your heating system in peak condition and extend its life.
+</p>
+
+<h3 class="h4 coloured-text">
+	If you suspect a problem with your home's radiator or boiler, call us on {
+		locationTel ? locationTel : `Freephone ${FREEPHONE_NUMBER} - 24 hour Emergency Helpline`
+	}
+</h3>
+
+<h3 class="h4">What exactly is power flushing?</h3>
+<p>
+	Power flushing is a cleansing process for heating systems. It uses water at a very high velocity
+	and low pressure to rid the heating system of sludge deposits that can reduce the efficiency of
+	the system.
+</p>
+<p>
+	This sludge, known as magnetite, is the dissolved metal in the heating system's water. It appears
+	as black sludge, and is commonly noticeable in the lower parts of the heating system, such as the
+	basement or ground floor.
 </p>

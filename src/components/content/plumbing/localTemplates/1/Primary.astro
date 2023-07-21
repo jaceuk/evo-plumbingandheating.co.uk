@@ -1,12 +1,37 @@
-<h2>Slow-draining water?</h2>
-<h3 class="h4 coloured-text">We are your first choice for sink and toilet blockages</h3>
+---
+import { FREEPHONE_NUMBER } from '../../../../../utils/constants';
+
+interface Props {
+	location: string;
+	locationTel: string;
+}
+
+const { location, locationTel } = Astro.props;
+---
+
+<h2 class="h3">
+	Do you need a Plumber and live in {location} or the surrounding area?
+</h2>
+<h3 class="h4 coloured-text">
+	Call us now on {
+		locationTel ? locationTel : `Freephone ${FREEPHONE_NUMBER} - 24 hour Emergency Helpline`
+	}
+</h3>
+
 <p>
-	When you suspect a blockage, knowing what signs to look out for is the first step to a <strong
-		>quick resolution</strong
-	>. Is there a foul smell emitting from your sink or bath? Perhaps the water is taking a long time
-	to drain?
+	From <strong>water supply issues</strong> and <strong>repairing taps</strong> to <strong
+		>fixing burst pipes</strong
+	> and <strong>installing showers and bathrooms</strong>, our team of plumbers covering {location} are
+	highly qualified and on hand to help. With minimal disruption and the highest standards of workmanship
+	guaranteed, you'll have complete peace of mind that you are in safe hands.
 </p>
 <p>
-	We are <strong>plumbing and drainage specialists</strong> with a wealth of experience tackling blocked
-	sinks, basins, toilets and pipework.
+	Calling on more than three decades of experience in the plumbing and home maintenance industry, we
+	are well-resourced to take care of any plumbing work, quickly and efficiently. Over the years, we
+	have built a solid <strong>reputation for excellence</strong> among home and business owners.
 </p>
+<h3 class="h4 coloured-text">
+	Call us today and find out why we're one of the highest rated companies for Plumbing Services in {
+		location
+	}.
+</h3>

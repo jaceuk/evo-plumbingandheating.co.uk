@@ -11,8 +11,16 @@ import PowerFlushingImage from '../../images/bg-power-flushing.jpg';
 import GutterCleaningImage from '../../images/bg-gutter-cleaning.jpg';
 import PatioCleaningImage from '../../images/bg-patio-cleaning.jpg';
 import RoofCleaningImage from '../../images/bg-roof-cleaning.jpg';
-import MainContent from '../ServiceMainContent.astro';
-import SecondaryContent from '../ServiceSecondaryContent.astro';
+import MainContent from '../ServiceMain.astro';
+import SecondaryContent from '../ServiceSecondary.astro';
+import PlumbingPrimary from '../content/plumbing/Primary.astro';
+import BlockedSinksToiletsPrimary from '../content/blockedSinksToilets/Primary.astro';
+import BoilerServicingRepairsPrimary from '../content/BoilerServicingRepairs/Primary.astro';
+import CentralHeatingPrimary from '../content/centralHeating/Primary.astro';
+import PowerFlushingPrimary from '../content/powerFlushing/Primary.astro';
+import GutterCleaningPrimary from '../content/gutterCleaning/Primary.astro';
+import PatioCleaningPrimary from '../content/patioCleaning/Primary.astro';
+import RoofCleaningPrimary from '../content/roofCleaning/Primary.astro';
 
 interface Props {
 	location: string;
@@ -27,19 +35,44 @@ const firstFourReviews = reviews.slice(0, 4);
 const lastEightReviews = reviews.slice(4, 12);
 
 let HeroImage: ImageMetadata;
+let PrimaryContent: any;
 
-if (serviceSlug === 'plumbing') HeroImage = PlumbingImage;
-if (serviceSlug === 'blocked-sinks-toilets') HeroImage = BlockedSinksToiletsImage;
-if (serviceSlug === 'central-heating') HeroImage = CentralHeatingImage;
-if (serviceSlug === 'boiler-servicing-repairs') HeroImage = BoilerServicingRepairsImage;
-if (serviceSlug === 'power-flushing') HeroImage = PowerFlushingImage;
-if (serviceSlug === 'gutter-cleaning') HeroImage = GutterCleaningImage;
-if (serviceSlug === 'patio-cleaning') HeroImage = PatioCleaningImage;
-if (serviceSlug === 'roof-cleaning') HeroImage = RoofCleaningImage;
+if (serviceSlug === 'plumbing') {
+	HeroImage = PlumbingImage;
+	PrimaryContent = PlumbingPrimary;
+}
+if (serviceSlug === 'blocked-sinks-toilets') {
+	HeroImage = BlockedSinksToiletsImage;
+	PrimaryContent = BlockedSinksToiletsPrimary;
+}
+if (serviceSlug === 'central-heating') {
+	HeroImage = CentralHeatingImage;
+	PrimaryContent = CentralHeatingPrimary;
+}
+if (serviceSlug === 'boiler-servicing-repairs') {
+	HeroImage = BoilerServicingRepairsImage;
+	PrimaryContent = BoilerServicingRepairsPrimary;
+}
+if (serviceSlug === 'power-flushing') {
+	HeroImage = PowerFlushingImage;
+	PrimaryContent = PowerFlushingPrimary;
+}
+if (serviceSlug === 'gutter-cleaning') {
+	HeroImage = GutterCleaningImage;
+	PrimaryContent = GutterCleaningPrimary;
+}
+if (serviceSlug === 'patio-cleaning') {
+	HeroImage = PatioCleaningImage;
+	PrimaryContent = PatioCleaningPrimary;
+}
+if (serviceSlug === 'roof-cleaning') {
+	HeroImage = RoofCleaningImage;
+	PrimaryContent = RoofCleaningPrimary;
+}
 ---
 
 <Hero title={title} location={location} image={HeroImage} />
-<MainContent locationSlug={locationSlug}>Main content</MainContent>
+<MainContent locationSlug={locationSlug}><PrimaryContent /></MainContent>
 <Reviews reviews={firstFourReviews} />
 <SecondaryContent>Main content</SecondaryContent>
 <Strapline county={location} />

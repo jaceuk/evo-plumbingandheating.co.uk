@@ -1,11 +1,10 @@
 ---
-import { getAllReviews } from '../../utils/reviews';
-import type { Review } from '../../utils/types';
+import { getAllReviews } from '../utils/reviews';
+import type { Review } from '../utils/types';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroImage from '../images/bg-contact.jpg';
 import Hero from '../components/hero/Hero.astro';
 import Reviews from '../components/Reviews.astro';
-import MainContent from '../components/ServiceMain.astro';
 
 const reviews: Review[] = await getAllReviews();
 const firstEightReviews = reviews.slice(0, 8);
@@ -18,7 +17,7 @@ const description =
 <BaseLayout title={title} description={description}>
 	<Hero title="Contact EVO Plumbing and Heating Services" image={HeroImage} />
 
-	<MainContent>Contact form</MainContent>
+	Contact form
 
 	<Reviews reviews={firstEightReviews} />
 </BaseLayout>

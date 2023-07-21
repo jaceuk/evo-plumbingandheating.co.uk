@@ -1,11 +1,10 @@
 ---
-import { getAllReviews } from '../../utils/reviews';
-import type { Review } from '../../utils/types';
+import { getAllReviews } from '../utils/reviews';
+import type { Review } from '../utils/types';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroImage from '../images/bg-about.jpg';
 import Hero from '../components/hero/Hero.astro';
 import Reviews from '../components/Reviews.astro';
-import MainContent from '../components/ServiceMain.astro';
 
 const reviews: Review[] = await getAllReviews();
 const firstEightReviews = reviews.slice(0, 8);
@@ -18,74 +17,71 @@ const description =
 <BaseLayout title={title} description={description}>
 	<Hero title="About EVO Plumbing and Heating Services" image={HeroImage} />
 
-	<MainContent>
-		<p>
-			At EVO Plumbing and Heating Services we are proud to have the industry knowledge and
-			experience to complete any job quickly and efficiently. We aim to provide service with the<strong
-				>minimum disruption and to the highest industry standards</strong
-			> so you can rest assured your home or business are in the hands of a highly qualified team of
-			industry professionals.
-		</p>
-		<p>
-			<strong>Our customers are our priority!</strong> Our friendly, approachable nature means we offer
-			a customer centric approach to our work. We fulfil a duty of care to all our customers and our
-			passion for high quality workmanship ensures we are the best solution to all your home services
-			requirements.
-		</p>
-		<p>
-			All of our employees are passionate and dedicated to their work and pride themselves on the
-			high quality service we provide. We are proud of our impeccable, reliable track record of
-			providing quality workmanship with a friendly face.
-		</p>
-		<p>
-			Our priority is to be your preferred choice for emergency and planned maintenance services.
-			Combining highly trained engineers with highly trained and motivated office staff who act with
-			integrity and are inspired to <strong
-				>deliver a customer experience of unsurpassed excellence every time</strong
-			>.
-		</p>
+	<p>
+		At EVO Plumbing and Heating Services we are proud to have the industry knowledge and experience
+		to complete any job quickly and efficiently. We aim to provide service with the<strong
+			>minimum disruption and to the highest industry standards</strong
+		> so you can rest assured your home or business are in the hands of a highly qualified team of industry
+		professionals.
+	</p>
+	<p>
+		<strong>Our customers are our priority!</strong> Our friendly, approachable nature means we offer
+		a customer centric approach to our work. We fulfil a duty of care to all our customers and our passion
+		for high quality workmanship ensures we are the best solution to all your home services requirements.
+	</p>
+	<p>
+		All of our employees are passionate and dedicated to their work and pride themselves on the high
+		quality service we provide. We are proud of our impeccable, reliable track record of providing
+		quality workmanship with a friendly face.
+	</p>
+	<p>
+		Our priority is to be your preferred choice for emergency and planned maintenance services.
+		Combining highly trained engineers with highly trained and motivated office staff who act with
+		integrity and are inspired to <strong
+			>deliver a customer experience of unsurpassed excellence every time</strong
+		>.
+	</p>
 
-		<h2>Complaints Policy</h2>
-		<p>
-			We always endeavour to provide the best service and products for our customers. However, on
-			rare occasions, we recognise that there may be times where our customers may not be completely
-			satisfied.
-		</p>
-		<p>
-			To ensure we are able to put things right as soon as we can, please read our complaints
-			procedure below and we will respond promptly to ensure complete satisfaction.
-		</p>
-		<p>
-			As soon as possible after the completion of the works, please inspect the work to ensure
-			everything has been carried out to our usual high standards.
-		</p>
-		<p>
-			In the unlikely event there is anything you are not completely satisfied with, please contact
-			us as soon as you can in order that we can rectify any problems as soon as possible.
-		</p>
+	<h2>Complaints Policy</h2>
+	<p>
+		We always endeavour to provide the best service and products for our customers. However, on rare
+		occasions, we recognise that there may be times where our customers may not be completely
+		satisfied.
+	</p>
+	<p>
+		To ensure we are able to put things right as soon as we can, please read our complaints
+		procedure below and we will respond promptly to ensure complete satisfaction.
+	</p>
+	<p>
+		As soon as possible after the completion of the works, please inspect the work to ensure
+		everything has been carried out to our usual high standards.
+	</p>
+	<p>
+		In the unlikely event there is anything you are not completely satisfied with, please contact us
+		as soon as you can in order that we can rectify any problems as soon as possible.
+	</p>
 
-		<h3>Our Procedure</h3>
-		<p>You can:</p>
-		<ul>
-			<li>call us on 0800 710 1011</li>
-			<li>
-				write to us at Evo Home Services Ltd - Unit 7 Cophall Farm business units, Effingham Road,
-				Copthorne, RH10 3HZ (please request proof of receipt if posting)
-			</li>
-			<li>email us info@evo-homeservices.co.uk</li>
-		</ul>
-		<p>
-			We aim to respond within 2 days of receiving your complaint and where possible, will provide
-			you with a date to remedy any issues raised.
-		</p>
-		<p>
-			Where we are unable to resolve your complaint using our own complaints procedure, as a Which?
-			Trusted Trader we use Dispute Resolution Ombudsman for dispute resolution. In the unlikely
-			event that we cannot remedy your complaint to your satisfaction you may wish to refer your
-			complaint to them. If you wish to do so please contact Which? Trusted traders in the first
-			instance on 0117 456 6031.
-		</p>
-	</MainContent>
+	<h3>Our Procedure</h3>
+	<p>You can:</p>
+	<ul>
+		<li>call us on 0800 710 1011</li>
+		<li>
+			write to us at Evo Home Services Ltd - Unit 7 Cophall Farm business units, Effingham Road,
+			Copthorne, RH10 3HZ (please request proof of receipt if posting)
+		</li>
+		<li>email us info@evo-homeservices.co.uk</li>
+	</ul>
+	<p>
+		We aim to respond within 2 days of receiving your complaint and where possible, will provide you
+		with a date to remedy any issues raised.
+	</p>
+	<p>
+		Where we are unable to resolve your complaint using our own complaints procedure, as a Which?
+		Trusted Trader we use Dispute Resolution Ombudsman for dispute resolution. In the unlikely event
+		that we cannot remedy your complaint to your satisfaction you may wish to refer your complaint
+		to them. If you wish to do so please contact Which? Trusted traders in the first instance on
+		0117 456 6031.
+	</p>
 
 	<Reviews reviews={firstEightReviews} />
 </BaseLayout>

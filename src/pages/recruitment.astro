@@ -1,11 +1,10 @@
 ---
-import { getAllReviews } from '../../utils/reviews';
-import type { Review } from '../../utils/types';
+import { getAllReviews } from '../utils/reviews';
+import type { Review } from '../utils/types';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroImage from '../images/bg-recruitment.jpg';
 import Hero from '../components/hero/Hero.astro';
 import Reviews from '../components/Reviews.astro';
-import MainContent from '../components/ServiceMain.astro';
 
 const reviews: Review[] = await getAllReviews();
 const firstEightReviews = reviews.slice(0, 8);
@@ -18,27 +17,25 @@ const description =
 <BaseLayout title={title} description={description}>
 	<Hero title="Recruitment opportunities" image={HeroImage} />
 
-	<MainContent>
-		<h2>Recruitment opportunities at EVO Plumbing and Heating</h2>
-		<h3 class="h4">Newly qualified plumber or engineer?</h3>
-		<h3 class="h4 coloured-text">
-			Would you like the opportunity to grow within a company that will invest in you?
-		</h3>
-		<p>
-			If so, get in touch with today. All our employees are passionate and dedicated to providing
-			our customers with superior service. We invest in our team and only hire the finest calibre of
-			staff, sourcing only exceptional trade professionals to work with and represent us.
-		</p>
-		<p>
-			We are always on the lookout for qualified, enthusiastic, motivated, and reliable individuals
-			with an exceptional work ethic. Our job opportunities are available to qualified plumbers,
-			boiler engineers and heating engineers.
-		</p>
-		<p>
-			Take a look at some of the home services we provide and if you feel like you'd fit in well
-			with our team, contact us to learn about our current career opportunities.
-		</p>
-	</MainContent>
+	<h2>Recruitment opportunities at EVO Plumbing and Heating</h2>
+	<h3 class="h4">Newly qualified plumber or engineer?</h3>
+	<h3 class="h4 coloured-text">
+		Would you like the opportunity to grow within a company that will invest in you?
+	</h3>
+	<p>
+		If so, get in touch with today. All our employees are passionate and dedicated to providing our
+		customers with superior service. We invest in our team and only hire the finest calibre of
+		staff, sourcing only exceptional trade professionals to work with and represent us.
+	</p>
+	<p>
+		We are always on the lookout for qualified, enthusiastic, motivated, and reliable individuals
+		with an exceptional work ethic. Our job opportunities are available to qualified plumbers,
+		boiler engineers and heating engineers.
+	</p>
+	<p>
+		Take a look at some of the home services we provide and if you feel like you'd fit in well with
+		our team, contact us to learn about our current career opportunities.
+	</p>
 
 	<Reviews reviews={firstEightReviews} />
 </BaseLayout>

@@ -1,6 +1,6 @@
 ---
 import ServiceInfoCard from '../../ServiceInfoCard.astro';
-import ServiceInfoCardStack from '../../ServiceInfoCardStack.astro';
+import ServiceInfoCardGrid from '../../ServiceInfoCardGrid.astro';
 import BurstPipes from '../../../images/info-burst-pipes.jpg';
 import Taps from '../../../images/info-taps.jpg';
 import WaterSupply from '../../../images/info-water-supply.jpg';
@@ -10,7 +10,7 @@ import ShowersBathrooms from '../../../images/info-showers-bathrooms.jpg';
 import Overflow from '../../../images/info-overflow.jpg';
 ---
 
-<ServiceInfoCardStack>
+<ServiceInfoCardGrid>
 	<ServiceInfoCard imagePosition="right" title="Fixing Burst Pipes" image={BurstPipes}>
 		<p>
 			The change of a burst or leaking pipe increases with the age and condition of your pipework.
@@ -89,4 +89,4 @@ import Overflow from '../../../images/info-overflow.jpg';
 			ensure the overall performance of your system.
 		</p>
 	</ServiceInfoCard>
-</ServiceInfoCardStack>
+</ServiceInfoCardGrid>

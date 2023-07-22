@@ -11,6 +11,13 @@ interface Props {
 <style lang="scss">
 	.stack {
 		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
 		gap: var(--scale-32-64);
+
+		@media (min-width: 768px) {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: auto;
+		}
 	}
 </style>

@@ -102,7 +102,7 @@ if (serviceSlug === 'roof-cleaning') {
 ---
 
 <Section>
-	<div data-template={localTemplateNumber}>
+	<div class="grid" data-template={localTemplateNumber}>
 		<Content location={location} locationTel={locationTel} />
 	</div>
 </Section>
@@ -110,6 +110,18 @@ if (serviceSlug === 'roof-cleaning') {
 <style lang="scss">
 	main {
 		padding: var(--scale-32-64) 0;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		gap: var(--scale-32-64);
+
+		@media (min-width: 768px) {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: auto;
+		}
 	}
 
 	.inner-wrapper {

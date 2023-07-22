@@ -1,5 +1,5 @@
 ---
-import Service from './Service.astro';
+import ServiceCard from './ServiceCard.astro';
 import PlumbingImage from '../images/bg-plumbing.jpg';
 import BlockedSinksToiletsImage from '../images/bg-blocked-sinks-toilets.jpg';
 import CentralHeatingImage from '../images/bg-central-heating.jpg';
@@ -22,7 +22,7 @@ const { county, countySlug = '' } = Astro.props;
 <Section>
 	<h2 class="sr-only">Our services</h2>
 	<div class="wrapper">
-		<Service
+		<ServiceCard
 			image={PlumbingImage}
 			title="Plumbing"
 			href={`/plumbing${countySlug && `/${countySlug}`}`}
@@ -32,9 +32,9 @@ const { county, countySlug = '' } = Astro.props;
 				From blocked pipes and water leaks to hot water cylinder, ball valves and overflow systems,
 				we are on hand to deal with <strong>all aspects of plumbing</strong>.
 			</p>
-		</Service>
+		</ServiceCard>
 
-		<Service
+		<ServiceCard
 			image={BlockedSinksToiletsImage}
 			title="Blocked sinks and toilets"
 			href={`/blocked-sinks-toilets${countySlug && `/${countySlug}`}`}
@@ -47,9 +47,9 @@ const { county, countySlug = '' } = Astro.props;
 					>quickly and with minimum fuss</strong
 				>.
 			</p>
-		</Service>
+		</ServiceCard>
 
-		<Service
+		<ServiceCard
 			image={CentralHeatingImage}
 			title="Central heating"
 			href={`/central-heating${countySlug && `/${countySlug}`}`}
@@ -60,9 +60,9 @@ const { county, countySlug = '' } = Astro.props;
 				that a <strong>fast, effective response</strong> is needed. At EVO Plumbing and Heating Services,
 				help is always at hand.
 			</p>
-		</Service>
+		</ServiceCard>
 
-		<Service
+		<ServiceCard
 			image={BoilerServicingRepairsImage}
 			title="Boiler servicing and repairs"
 			href={`/boiler-servicing-repairs${countySlug && `/${countySlug}`}`}
@@ -74,9 +74,9 @@ const { county, countySlug = '' } = Astro.props;
 					>speedy resolution</strong
 				>{county && ` wherever you are in ${county}`}.
 			</p>
-		</Service>
+		</ServiceCard>
 
-		<Service
+		<ServiceCard
 			image={PowerFlushingImage}
 			title="Power flushing"
 			href={`/power-flushing${countySlug && `/${countySlug}`}`}
@@ -87,9 +87,9 @@ const { county, countySlug = '' } = Astro.props;
 				of breakdowns with power flushing. Not only can power flushing extend the life of your
 				system, it also helps to <strong>keep your heating bills down</strong>.
 			</p>
-		</Service>
+		</ServiceCard>
 
-		<Service
+		<ServiceCard
 			image={GutterCleaningImage}
 			title="Gutter cleaning"
 			href={`/gutter-cleaning${countySlug && `/${countySlug}`}`}
@@ -100,9 +100,9 @@ const { county, countySlug = '' } = Astro.props;
 				essential part of property maintenance. <strong>Protect your home</strong> from water damage,
 				staining, mould and wood rot with our gutter cleaning solutions.
 			</p>
-		</Service>
+		</ServiceCard>
 
-		<Service
+		<ServiceCard
 			image={PatioCleaningImage}
 			title="Patio cleaning"
 			href={`/patio-cleaning${countySlug && `/${countySlug}`}`}
@@ -113,9 +113,9 @@ const { county, countySlug = '' } = Astro.props;
 				hard surface cleaning specialist, we use quality cleaning products and tried and tested
 				techniques to provide outstanding results.
 			</p>
-		</Service>
+		</ServiceCard>
 
-		<Service
+		<ServiceCard
 			image={RoofCleaningImage}
 			title="Roof cleaning"
 			href={`/roof-cleaning${countySlug && `/${countySlug}`}`}
@@ -126,7 +126,7 @@ const { county, countySlug = '' } = Astro.props;
 				with our help. Using specialist roof cleaning equipment, we will remove dirt, buildup and debris
 				and provide a safe, intensive treatment.
 			</p>
-		</Service>
+		</ServiceCard>
 	</div>
 </Section>
 

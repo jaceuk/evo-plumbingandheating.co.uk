@@ -61,7 +61,7 @@ const description = `${service.name} experts in ${location.name}.`;
 		locationTel={location.tel}
 	/>
 
-	<LocationInfo location={location.name} locationInfo={location.info} />
+	{location.info && <LocationInfo location={location.name} locationInfo={location.info} />}
 
 	<NeighbouringLocations
 		county={county.name}

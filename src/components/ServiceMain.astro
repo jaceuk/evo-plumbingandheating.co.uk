@@ -129,6 +129,11 @@ if (serviceSlug === 'roof-cleaning') {
 	.text {
 		display: grid;
 		gap: var(--scale-16-32);
+		width: 100%;
+	}
+
+	aside {
+		width: 100%;
 	}
 
 	.row {
@@ -139,14 +144,14 @@ if (serviceSlug === 'roof-cleaning') {
 
 		@media (min-width: 768px) {
 			flex-direction: row;
-		}
 
-		.text {
-			width: 60%;
-		}
+			.text {
+				width: 60%;
+			}
 
-		aside {
-			width: 40%;
+			aside {
+				width: 40%;
+			}
 		}
 	}
 </style>

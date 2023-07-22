@@ -42,6 +42,12 @@ const HeroImage = getHeroImage(serviceSlug);
 	locationTel={locationTel}
 />
 <Reviews reviews={firstFourReviews} />
-<SecondaryContent>SecondaryContent</SecondaryContent>
+<SecondaryContent
+	locationSlug={locationSlug}
+	serviceSlug={serviceSlug}
+	localTemplateNumber={localTemplateNumber}
+	location={location}
+	locationTel={locationTel}
+/>
 <Strapline county={location} />
 <Reviews reviews={lastEightReviews} />

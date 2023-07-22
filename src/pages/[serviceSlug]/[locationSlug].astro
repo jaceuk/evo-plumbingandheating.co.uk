@@ -27,6 +27,10 @@ export async function getStaticPaths() {
 
 const { location, service } = Astro.props;
 
+const localTemplateNumber = await fetch(
+	`${API_URL}/template/service/${service.id}/location/${location.id}`
+).then((response) => response.json());
+
 const locationsInSameCounty = await fetch(`${API_URL}/locations/county/${location.county}`).then(
 	(response) => response.json()
 );
@@ -53,7 +57,7 @@ const description = `${service.name} experts in ${location.name}.`;
 		reviews={twelveReviews}
 		serviceSlug={service.slug}
 		locationSlug={location.slug}
-		localTemplateNumber={1}
+		localTemplateNumber={localTemplateNumber.template}
 		locationTel={location.tel}
 	/>
 

@@ -1,17 +1,111 @@
 ---
-import Coverage from './Coverage.astro';
-import Map from './Map.astro';
 import Section from './Section.astro';
 
+import Plumbing from '../components/content/plumbing/Secondary.astro';
+import PlumbingLocalTemplate1 from '../components/content/plumbing/localTemplates/1/Secondary.astro';
+import PlumbingLocalTemplate2 from '../components/content/plumbing/localTemplates/2/Secondary.astro';
+
+import BlockedSinksToilets from '../components/content/blockedSinksToilets/Secondary.astro';
+import BlockedSinksToiletsLocalTemplate1 from '../components/content/blockedSinksToilets/localTemplates/1/Secondary.astro';
+import BlockedSinksToiletsLocalTemplate2 from '../components/content/blockedSinksToilets/localTemplates/2/Secondary.astro';
+
+import BoilerServicingRepairs from '../components/content/boilerServicingRepairs/Secondary.astro';
+import BoilerServicingRepairsLocalTemplate1 from '../components/content/boilerServicingRepairs/localTemplates/1/Secondary.astro';
+import BoilerServicingRepairsLocalTemplate2 from '../components/content/boilerServicingRepairs/localTemplates/2/Secondary.astro';
+
+import CentralHeating from '../components/content/centralHeating/Secondary.astro';
+import CentralHeatingLocalTemplate1 from '../components/content/centralHeating/localTemplates/1/Secondary.astro';
+import CentralHeatingLocalTemplate2 from '../components/content/centralHeating/localTemplates/2/Secondary.astro';
+
+import PowerFlushing from '../components/content/powerFlushing/Secondary.astro';
+import PowerFlushingLocalTemplate1 from '../components/content/powerFlushing/localTemplates/1/Secondary.astro';
+import PowerFlushingLocalTemplate2 from '../components/content/powerFlushing/localTemplates/2/Secondary.astro';
+import PowerFlushingLocalTemplate3 from '../components/content/powerFlushing/localTemplates/3/Secondary.astro';
+import PowerFlushingLocalTemplate4 from '../components/content/powerFlushing/localTemplates/4/Secondary.astro';
+import PowerFlushingLocalTemplate5 from '../components/content/powerFlushing/localTemplates/5/Secondary.astro';
+import PowerFlushingLocalTemplate6 from '../components/content/powerFlushing/localTemplates/6/Secondary.astro';
+import PowerFlushingLocalTemplate7 from '../components/content/powerFlushing/localTemplates/7/Secondary.astro';
+import PowerFlushingLocalTemplate8 from '../components/content/powerFlushing/localTemplates/8/Secondary.astro';
+import PowerFlushingLocalTemplate9 from '../components/content/powerFlushing/localTemplates/9/Secondary.astro';
+
+import GutterCleaning from '../components/content/gutterCleaning/Secondary.astro';
+import GutterCleaningLocalTemplate1 from '../components/content/gutterCleaning/localTemplates/1/Secondary.astro';
+import GutterCleaningLocalTemplate2 from '../components/content/gutterCleaning/localTemplates/2/Secondary.astro';
+
+import PatioCleaning from '../components/content/patioCleaning/Secondary.astro';
+import PatioCleaningLocalTemplate1 from '../components/content/patioCleaning/localTemplates/1/Secondary.astro';
+import PatioCleaningLocalTemplate2 from '../components/content/patioCleaning/localTemplates/2/Secondary.astro';
+
+import RoofCleaning from '../components/content/roofCleaning/Secondary.astro';
+import RoofCleaningLocalTemplate1 from '../components/content/roofCleaning/localTemplates/1/Secondary.astro';
+import RoofCleaningLocalTemplate2 from '../components/content/roofCleaning/localTemplates/2/Secondary.astro';
+
 interface Props {
-	children: any;
 	locationSlug?: string;
+	serviceSlug: string;
+	localTemplateNumber: number;
+	location: string;
+	locationTel?: string;
 }
 
-const { locationSlug = '' } = Astro.props;
+const { locationSlug = '', serviceSlug, localTemplateNumber, location, locationTel } = Astro.props;
+
+let Content: any;
+
+if (serviceSlug === 'plumbing') {
+	if (!localTemplateNumber) Content = Plumbing;
+	if (localTemplateNumber === 1) Content = PlumbingLocalTemplate1;
+	if (localTemplateNumber === 2) Content = PlumbingLocalTemplate2;
+}
+if (serviceSlug === 'blocked-sinks-toilets') {
+	if (!localTemplateNumber) Content = BlockedSinksToilets;
+	if (localTemplateNumber === 1) Content = BlockedSinksToiletsLocalTemplate1;
+	if (localTemplateNumber === 2) Content = BlockedSinksToiletsLocalTemplate2;
+}
+if (serviceSlug === 'central-heating') {
+	if (!localTemplateNumber) Content = CentralHeating;
+	if (localTemplateNumber === 1) Content = CentralHeatingLocalTemplate1;
+	if (localTemplateNumber === 2) Content = CentralHeatingLocalTemplate2;
+}
+if (serviceSlug === 'boiler-servicing-repairs') {
+	if (!localTemplateNumber) Content = BoilerServicingRepairs;
+	if (localTemplateNumber === 1) Content = BoilerServicingRepairsLocalTemplate1;
+	if (localTemplateNumber === 2) Content = BoilerServicingRepairsLocalTemplate2;
+}
+if (serviceSlug === 'power-flushing') {
+	if (!localTemplateNumber) Content = PowerFlushing;
+	if (localTemplateNumber === 1) Content = PowerFlushingLocalTemplate1;
+	if (localTemplateNumber === 2) Content = PowerFlushingLocalTemplate2;
+	if (localTemplateNumber === 3) Content = PowerFlushingLocalTemplate3;
+	if (localTemplateNumber === 4) Content = PowerFlushingLocalTemplate4;
+	if (localTemplateNumber === 5) Content = PowerFlushingLocalTemplate5;
+	if (localTemplateNumber === 6) Content = PowerFlushingLocalTemplate6;
+	if (localTemplateNumber === 7) Content = PowerFlushingLocalTemplate7;
+	if (localTemplateNumber === 8) Content = PowerFlushingLocalTemplate8;
+	if (localTemplateNumber === 9) Content = PowerFlushingLocalTemplate9;
+}
+if (serviceSlug === 'gutter-cleaning') {
+	if (!localTemplateNumber) Content = GutterCleaning;
+	if (localTemplateNumber === 1) Content = GutterCleaningLocalTemplate1;
+	if (localTemplateNumber === 2) Content = GutterCleaningLocalTemplate2;
+}
+if (serviceSlug === 'patio-cleaning') {
+	if (!localTemplateNumber) Content = PatioCleaning;
+	if (localTemplateNumber === 1) Content = PatioCleaningLocalTemplate1;
+	if (localTemplateNumber === 2) Content = PatioCleaningLocalTemplate2;
+}
+if (serviceSlug === 'roof-cleaning') {
+	if (!localTemplateNumber) Content = RoofCleaning;
+	if (localTemplateNumber === 1) Content = RoofCleaningLocalTemplate1;
+	if (localTemplateNumber === 2) Content = RoofCleaningLocalTemplate2;
+}
 ---
 
-<Section>Secondary content</Section>
+<Section>
+	<div data-template={localTemplateNumber}>
+		<Content location={location} locationTel={locationTel} />
+	</div>
+</Section>
 
 <style lang="scss">
 	main {

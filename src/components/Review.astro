@@ -10,11 +10,11 @@ interface Props {
 const { title, text, postcode } = Astro.props;
 ---
 
-<figure>
+<figure data-postcode={postcode}>
 	<h3 class="h5 coloured-text">{title}</h3>
 	<blockquote>
 		<span><Icon name="icon-park:quote" /></span>
-		<p>{text} {postcode}</p>
+		<p>{text}</p>
 	</blockquote>
 </figure>
 

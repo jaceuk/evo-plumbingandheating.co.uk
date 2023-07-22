@@ -1,6 +1,12 @@
 ---
 import Card from '../../Card.astro';
 import BoilerServicingRepairs from '../../../images/bg-boiler-servicing-repairs.jpg';
+
+interface Props {
+	location: string;
+}
+
+const { location } = Astro.props;
 ---
 
 <Card title="Replacement tanks">

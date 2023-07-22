@@ -5,18 +5,18 @@ import Benefits from '../Benefits.astro';
 import Section from '../Section.astro';
 
 interface Props {
-	title: string;
+	service: string;
 	image: ImageMetadata;
 	location?: string;
 }
 
-const { title, image, location = '' } = Astro.props;
+const { service, image, location = '' } = Astro.props;
 ---
 
 <div class="section-wrapper">
 	<Section>
 		<div class="wrapper">
-			<h1>{title + (location && ` in ${location}`)}</h1>
+			<h1>{service + (location && ` in ${location}`)}</h1>
 			<HeroCallout />
 		</div>
 		<div class="overlay"></div>

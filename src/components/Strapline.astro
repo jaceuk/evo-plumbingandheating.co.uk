@@ -1,17 +1,16 @@
 ---
 interface Props {
-	county?: string;
+	location?: string;
+	service: string;
 }
 
-const { county } = Astro.props;
+const { location, service } = Astro.props;
 ---
 
 <div class="strapline">
 	<div class="inner-wrapper">
 		<h3>
-			Your first choice for Plumbing, Heating, Boiler Repair and Maintenance in {
-				county ? `${county}` : 'South East England'
-			}
+			Your first choice for {service} in {location && location}
 		</h3>
 	</div>
 </div>

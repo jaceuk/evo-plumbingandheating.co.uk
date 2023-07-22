@@ -3,6 +3,12 @@ import Card from '../../Card.astro';
 import PowerFlushing from '../../../images/bg-power-flushing.jpg';
 import BoilerServicing from '../../../images/info-boiler-servicing.jpg';
 import BoilerService from '../../../images/info-hot-water-supply.jpg';
+
+interface Props {
+	location: string;
+}
+
+const { location } = Astro.props;
 ---
 
 <Card title="Boiler servicing" image={BoilerServicing}>

@@ -11,17 +11,21 @@ interface Props {
 	county?: string;
 	countySlug?: string;
 	reviews: Review[];
-	title: string;
+	service: string;
 }
 
-const { county, reviews, title, countySlug = '' } = Astro.props;
+const { county, reviews, service, countySlug = '' } = Astro.props;
 const firstFourReviews = reviews.slice(0, 4);
 const lastEightReviews = reviews.slice(4, 12);
 ---
 
-<Hero title={title} location={county} image={HeroImage} />
+<Hero
+	service={service}
+	location={county !== 'South East England' ? county : ''}
+	image={HeroImage}
+/>
 <Main county={county} countySlug={countySlug} />
 <Reviews reviews={firstFourReviews} />
 <Services county={county} countySlug={countySlug} />
-<Strapline county={county} />
+<Strapline location={county} service={service} />
 <Reviews reviews={lastEightReviews} />

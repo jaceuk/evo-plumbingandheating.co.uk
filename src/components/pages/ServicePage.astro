@@ -11,20 +11,20 @@ import { getHeroImage } from '../../utils/getHeroImage';
 interface Props {
 	location: string;
 	reviews: Review[];
-	title: string;
+	service: string;
 	serviceSlug: string;
 	locationSlug?: string;
-	localTemplateNumber: number;
+	localTemplateNumber?: number;
 	locationTel?: string;
 }
 
 const {
 	location,
 	reviews,
-	title,
+	service,
 	serviceSlug,
 	locationSlug = '',
-	localTemplateNumber,
+	localTemplateNumber = 0,
 	locationTel
 } = Astro.props;
 const firstFourReviews = reviews.slice(0, 4);
@@ -33,7 +33,7 @@ const lastEightReviews = reviews.slice(4, 12);
 const HeroImage = getHeroImage(serviceSlug);
 ---
 
-<Hero title={title} location={location} image={HeroImage} />
+<Hero service={service} location={location} image={HeroImage} />
 <ServiceMain
 	locationSlug={locationSlug}
 	serviceSlug={serviceSlug}
@@ -49,5 +49,5 @@ const HeroImage = getHeroImage(serviceSlug);
 	location={location}
 	locationTel={locationTel}
 />
-<Strapline county={location} />
+<Strapline location={location} service={service} />
 <Reviews reviews={lastEightReviews} />

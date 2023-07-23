@@ -1,7 +1,7 @@
 // pull down menu
 const menuTriggers = document.querySelectorAll('[aria-haspopup="true"]');
 
-function toggleMenu(menuTrigger: Element) {
+function toggleMenu(menuTrigger) {
 	menuTrigger.setAttribute(
 		'aria-expanded',
 		menuTrigger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
@@ -22,7 +22,7 @@ window.addEventListener('scroll', () => {
 });
 
 window.addEventListener('click', (element) => {
-	const target = element.target as Element;
+	const target = element.target;
 	if (target.classList.contains('link')) return;
 	menuTriggers?.forEach((menuTrigger) => {
 		menuTrigger.setAttribute('aria-expanded', 'false');

@@ -51,7 +51,7 @@ interface Props {
 
 const { locationSlug = '', serviceSlug, localTemplateNumber, location, locationTel } = Astro.props;
 
-let Content: any;
+let Content: any = '<div></div>';
 
 if (serviceSlug === 'plumbing') {
 	if (!localTemplateNumber) Content = Plumbing;

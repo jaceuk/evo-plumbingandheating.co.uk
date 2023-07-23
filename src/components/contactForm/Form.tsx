@@ -19,7 +19,7 @@ interface formFeedback {
 const RECAPTCHA_ERROR_MESSAGE = 'Captcha could not be verified. Please try again.';
 const SENDING_ERROR_MESSAGE =
 	'There was a problem sending your message, please try again. If the problem perists please email info@jace.info.';
-const SENDING_SUCCESS_MESSAGE = 'Your message was sent successfully, you can now close this popup.';
+const SENDING_SUCCESS_MESSAGE = 'Your message was sent successfully.';
 const SENDING_MESSAGE = 'Sending';
 const SITE = 'EVO-PLUMBINGANDHEATING.CO.UK';
 const PAGE = window.location.href;

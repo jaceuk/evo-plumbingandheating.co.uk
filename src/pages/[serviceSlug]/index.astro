@@ -25,7 +25,7 @@ const reviews: Review[] = await getReviewsByServiceWithBackfill(service.id);
 const twelveReviews = reviews.slice(0, 12);
 
 const title = `${service.name} | EVO Plumbing and Heating Services`;
-const description = `${service.name} experts in South East England.`;
+const description = `Welcome to EVO Plumbing and Heating Services, your first choice for ${service.name} in South East England.`;
 ---
 
 <BaseLayout title={title} description={description}>

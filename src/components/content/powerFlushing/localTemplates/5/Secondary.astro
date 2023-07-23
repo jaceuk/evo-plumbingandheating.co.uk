@@ -1,5 +1,5 @@
 ---
-import Card from '../../../../Card.astro';
+import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
 import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
 import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
 
@@ -10,7 +10,10 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<Card title="When does your heating system require a power flushing?" image={PowerFlushingNeeded}>
+<ServiceInfoCard
+	title="When does your heating system require a power flushing?"
+	image={PowerFlushingNeeded}
+>
 	<ul>
 		<li>Is your heating system giving no or very little hot water?</li>
 		<li>Are you noticing that all areas of your home are not heating up?</li>
@@ -23,9 +26,13 @@ const { location } = Astro.props;
 		If you answer yes to any of the above questions, perhaps your central heating system needs a
 		thorough power flush. Go for power flushing specialists for the purpose.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card title="How can power flushing benefit you?" image={PowerFlushingBenefits}>
+<ServiceInfoCard
+	title="How can power flushing benefit you?"
+	image={PowerFlushingBenefits}
+	imagePosition="left"
+>
 	<p>A power flush will benefit you in the following ways:</p>
 	<ul>
 		<li>
@@ -41,4 +48,4 @@ const { location } = Astro.props;
 		Contact power flushing specialists in {location} to fix your central heating system and prepare your
 		home for winters.
 	</p>
-</Card>
+</ServiceInfoCard>

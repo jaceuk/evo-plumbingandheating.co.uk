@@ -1,5 +1,5 @@
 ---
-import Card from '../../../../Card.astro';
+import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
 import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
 import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
 
@@ -10,7 +10,7 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<Card
+<ServiceInfoCard
 	title={`When does power flushing become important in your ${location} home?`}
 	image={PowerFlushingNeeded}
 >
@@ -34,11 +34,12 @@ const { location } = Astro.props;
 		} immediately. You should also remember to conduct a power flush every five years and before installing
 		a new boiler.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card
+<ServiceInfoCard
 	title={`The benefits of power flushing services in ${location}`}
 	image={PowerFlushingBenefits}
+	imagePosition="left"
 >
 	<p>
 		When you get your central heating system power flushed, you are likely to benefit in a number of
@@ -55,4 +56,4 @@ const { location } = Astro.props;
 		So, what are you waiting for? Get in touch with us today to get efficient power flushing
 		services in {location}.
 	</p>
-</Card>
+</ServiceInfoCard>

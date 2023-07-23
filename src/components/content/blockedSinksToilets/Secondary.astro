@@ -1,12 +1,12 @@
 ---
 import { Image } from '@astrojs/image/components';
-import Card from '../../Card.astro';
 import BlockedSink from '../../../images/info-blocked-sink.jpg';
 import Drainage from '../../../images/info-drainage.jpg';
 import LogoDrainage from '../../../images/logo-drainage.svg';
+import ServiceInfoCard from '../../ServiceInfoCard.astro';
 ---
 
-<Card title="DIY guide to unblocking a sink" image={BlockedSink}>
+<ServiceInfoCard title="DIY guide to unblocking a sink" image={BlockedSink}>
 	<p>
 		We understand how irritating and inconvenient dripping or leaking taps can be. No matter how
 		minor the problem appears, we cannot stress the importance of calling a professional to avoid
@@ -32,13 +32,14 @@ import LogoDrainage from '../../../images/logo-drainage.svg';
 		examine the U-bend and give it a good clean; removing any debris that is blocking the tube
 		before you screw it back into place.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card
+<ServiceInfoCard
 	title="EVO Drainage Services"
 	image={Drainage}
 	href="https://www.evo-drainage.co.uk/"
 	linkText="EVO Drainage Serices"
+	imagePosition="left"
 >
 	<p>Issues with <strong>blocked drains</strong>?</p>
 	<p>
@@ -48,4 +49,4 @@ import LogoDrainage from '../../../images/logo-drainage.svg';
 		>.
 	</p>
 	<Image class="logo" src={LogoDrainage} alt="EVO Drainage logo" />
-</Card>
+</ServiceInfoCard>

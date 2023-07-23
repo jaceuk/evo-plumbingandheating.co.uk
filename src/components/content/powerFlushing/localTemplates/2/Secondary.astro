@@ -1,5 +1,5 @@
 ---
-import Card from '../../../../Card.astro';
+import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
 import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
 import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
 
@@ -10,7 +10,10 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<Card title={`Is power flushing needed in my ${location} home?`} image={PowerFlushingNeeded}>
+<ServiceInfoCard
+	title={`Is power flushing needed in my ${location} home?`}
+	image={PowerFlushingNeeded}
+>
 	<ul>
 		<li>Do your radiators frequently need bleeding?</li>
 		<li>Do you have a noisy boiler?</li>
@@ -23,9 +26,13 @@ const { location } = Astro.props;
 		If you answered yes to one or more of the questions above, the likelihood is that your system
 		will benefit from power flushing.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card title="The benefits of power flushing" image={PowerFlushingBenefits}>
+<ServiceInfoCard
+	title="The benefits of power flushing"
+	image={PowerFlushingBenefits}
+	imagePosition="left"
+>
 	<p>
 		When you choose EVO Plumbing and Heating Services for professional power flushing, you will
 		benefit from:
@@ -37,4 +44,4 @@ const { location } = Astro.props;
 		<li>Increased heat up speed</li>
 		<li>Protection from damage or increased further corrosion</li>
 	</ul>
-</Card>
+</ServiceInfoCard>

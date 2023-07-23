@@ -1,5 +1,5 @@
 ---
-import Card from '../../../../Card.astro';
+import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
 import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
 import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
 
@@ -10,7 +10,10 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<Card title={`Is power flushing needed in my ${location} home?`} image={PowerFlushingNeeded}>
+<ServiceInfoCard
+	title={`Is power flushing needed in my ${location} home?`}
+	image={PowerFlushingNeeded}
+>
 	<p>
 		Sludge and debris build up adversely affects the efficiency of heating systems. It is
 		recommended that you power flush your radiators, pipes and boiler at least every five years.
@@ -29,11 +32,12 @@ const { location } = Astro.props;
 		If you have answered yes to even one of these questions, there is a good chance that your
 		heating system requires a power flush.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card
+<ServiceInfoCard
 	title={`The benefits of power flushing for your ${location} home`}
 	image={PowerFlushingBenefits}
+	imagePosition="left"
 >
 	<p>
 		Including power flushing in your home maintenance plan has important benefits that are hard to
@@ -45,4 +49,4 @@ const { location } = Astro.props;
 		An optimally functioning heating system also ensures good heat distribution and keeps your home
 		comfortable, particularly avoiding inconvenience during cold weather.
 	</p>
-</Card>
+</ServiceInfoCard>

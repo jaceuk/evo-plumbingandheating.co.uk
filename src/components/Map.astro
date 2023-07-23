@@ -16,7 +16,7 @@ const { locationSlug } = Astro.props;
 			width="100%"
 			height="300"
 			style="border:0"
-			src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDrSdRm7IroK5t_WhKED3WkDmaplPlxX2Q&q=${locationSlug}+UK"
+			src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDrSdRm7IroK5t_WhKED3WkDmaplPlxX2Q&q=${locationSlug}+UK`}
 			allowfullscreen
 		>
 		</iframe>

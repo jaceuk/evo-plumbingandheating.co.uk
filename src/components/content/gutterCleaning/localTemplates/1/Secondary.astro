@@ -1,5 +1,5 @@
 ---
-import Card from '../../../../Card.astro';
+import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
 import GutterCare from '../../../../../images/info-gutter-care.jpg';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<Card title="What could happen if I don't take care of my guttering?" image={GutterCare}>
+<ServiceInfoCard title="What could happen if I don't take care of my guttering?" image={GutterCare}>
 	<p>
 		<strong>Mould damage:</strong> once mould begins to accumulate, it spreads and can be difficult to
 		remove. Maintaining your gutters can significantly reduce the possibility of mould damaging your
@@ -33,4 +33,4 @@ const { location } = Astro.props;
 	<p>
 		Gutter cleaning is an <strong>essential part of maintaining your {location} property</strong>.
 	</p>
-</Card>
+</ServiceInfoCard>

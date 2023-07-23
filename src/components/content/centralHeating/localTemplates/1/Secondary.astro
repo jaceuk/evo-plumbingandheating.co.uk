@@ -1,6 +1,8 @@
 ---
-import Card from '../../../../Card.astro';
+import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
 import BoilerServicingRepairs from '../../../../../images/bg-boiler-servicing-repairs.jpg';
+import ReplacementTanks from '../../../../../images/bg-placeholder.png';
+import WaterPumpInstallation from '../../../../../images/bg-placeholder.png';
 
 interface Props {
 	location: string;
@@ -9,7 +11,7 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<Card title={`Replacement tanks in ${location}`}>
+<ServiceInfoCard title={`Replacement tanks in ${location}`} image={ReplacementTanks}>
 	<p>
 		Due to the volume of water stored in water tanks, their maintenance and condition is essential
 		to avoid a major split or leak. Tanks, like all products, are susceptible to wear and tear over
@@ -22,18 +24,22 @@ const { location } = Astro.props;
 		this service, we will inspect, clean and repair your tank, overflows and connecting pipework to
 		maintain the overall performance of your system.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card title={`Water pump installations in ${location}`}>
+<ServiceInfoCard
+	title={`Water pump installations in ${location}`}
+	image={WaterPumpInstallation}
+	imagePosition="left"
+>
 	<p>
 		A water pump comprises one of the major instruments needed to provide heat and water to your
 		home. Working alongside thermostats, valves and boilers, a water pump helps to ensure your home
 		is always supplied with hot water, on-demand. Not only does it provide a cost-effective heating
 		solution to your home, it also helps the environment in the process.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card
+<ServiceInfoCard
 	title={`Boiler Servicing and Repairs in ${location}`}
 	href={`/boiler-servicing-repairs/${location}`}
 	linkText={`Boiler Servicing and Repairs in ${location}`}
@@ -43,4 +49,4 @@ const { location } = Astro.props;
 		We can help with regular boiler maintenance to ensure its long-term performance. In the event of
 		a boiler breakdown call our emergency helpline for a <strong>speedy resolution</strong>.
 	</p>
-</Card>
+</ServiceInfoCard>

@@ -1,5 +1,5 @@
 ---
-import Card from '../../../../Card.astro';
+import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
 import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
 import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
 
@@ -10,7 +10,7 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<Card title="Is power flushing needed in my home?" image={PowerFlushingNeeded}>
+<ServiceInfoCard title="Is power flushing needed in my home?" image={PowerFlushingNeeded}>
 	<p>Certain signs indicate that power flush is required sooner than later:</p>
 	<ul>
 		<li>A slow warming system</li>
@@ -26,9 +26,13 @@ const { location } = Astro.props;
 		Even if you experience only one of the above issues, follow it up to understand and resolve the
 		underlying problem speedily for the reasons stated below.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card title="The benefits of power flushing" image={PowerFlushingBenefits}>
+<ServiceInfoCard
+	title="The benefits of power flushing"
+	image={PowerFlushingBenefits}
+	imagePosition="left"
+>
 	<p>
 		Periodic power flushing preserves the efficiency of your heating system, keeping every room in
 		your home comfortable and your fuel bills low. You can also keep corrosion at bay and extend the
@@ -41,4 +45,4 @@ const { location } = Astro.props;
 		pressure.
 	</p>
 	<p>If you haven't scheduled a power flush in a long time, get it done today.</p>
-</Card>
+</ServiceInfoCard>

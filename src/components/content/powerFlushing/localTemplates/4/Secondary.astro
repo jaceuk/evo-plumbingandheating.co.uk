@@ -1,5 +1,5 @@
 ---
-import Card from '../../../../Card.astro';
+import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
 import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
 import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
 
@@ -10,7 +10,10 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<Card title={`When does your ${location} home need a power flush?`} image={PowerFlushingNeeded}>
+<ServiceInfoCard
+	title={`When does your ${location} home need a power flush?`}
+	image={PowerFlushingNeeded}
+>
 	<ul>
 		<li>
 			<strong>Boiler malfunctioning</strong> - Your boiler may sometimes overheat due to sludge and debris
@@ -38,9 +41,13 @@ const { location } = Astro.props;
 			is cold at the bottom, or your system is functioning inefficiently.
 		</li>
 	</ul>
-</Card>
+</ServiceInfoCard>
 
-<Card title="Benefits of power flushing" image={PowerFlushingBenefits}>
+<ServiceInfoCard
+	title="Benefits of power flushing"
+	image={PowerFlushingBenefits}
+	imagePosition="left"
+>
 	<p>After a power flushing session, you are likely to experience:</p>
 	<ul>
 		<li>Reduced heating-up periods.</li>
@@ -51,4 +58,4 @@ const { location } = Astro.props;
 	<p>
 		So, what are you waiting for? Contact our team of power flushing experts in {location} today!
 	</p>
-</Card>
+</ServiceInfoCard>

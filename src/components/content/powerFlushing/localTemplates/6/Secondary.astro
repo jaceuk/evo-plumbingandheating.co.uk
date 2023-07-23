@@ -1,5 +1,5 @@
 ---
-import Card from '../../../../Card.astro';
+import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
 import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
 import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
 
@@ -10,7 +10,10 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<Card title={`When does my ${location} home require power flushing?`} image={PowerFlushingNeeded}>
+<ServiceInfoCard
+	title={`When does my ${location} home require power flushing?`}
+	image={PowerFlushingNeeded}
+>
 	<p>
 		Signs of your central heating system going out of kilter become quite obvious. Here are a few
 		that you should look for and call us immediately when you spot them:
@@ -33,9 +36,13 @@ const { location } = Astro.props;
 		performance of the system's boiler, radiators and pipes at optimal levels. You should also
 		remember to conduct power flushing before installing a new boiler.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card title="How power flushing benefits you?" image={PowerFlushingBenefits}>
+<ServiceInfoCard
+	title="How power flushing benefits you?"
+	image={PowerFlushingBenefits}
+	imagePosition="left"
+>
 	<p>
 		Here's why you should opt for our power flushing services in {location}:
 	</p>
@@ -57,4 +64,4 @@ const { location } = Astro.props;
 			replacement affair if you can simply clean up the system and make it functional again.
 		</li>
 	</ul>
-</Card>
+</ServiceInfoCard>

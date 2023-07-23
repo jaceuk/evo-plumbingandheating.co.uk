@@ -1,11 +1,11 @@
 ---
-import Card from '../../Card.astro';
+import ServiceInfoCard from '../../ServiceInfoCard.astro';
 import PowerFlushing from '../../../images/bg-power-flushing.jpg';
 import BoilerServicing from '../../../images/info-boiler-servicing.jpg';
 import BoilerService from '../../../images/info-hot-water-supply.jpg';
 ---
 
-<Card title="Boiler servicing" image={BoilerServicing}>
+<ServiceInfoCard title="Boiler servicing" image={BoilerServicing}>
 	<p>
 		Of course there is no convenient time for a boiler repair, but you could avoid costly repairs by
 		having your boiler serviced regularly.
@@ -20,9 +20,13 @@ import BoilerService from '../../../images/info-hot-water-supply.jpg';
 		regular, professional maintenance of your boiler save you money, it can also reduce the risk of
 		danger and the potential problems associated with carbon monoxide.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card title="What is involved in a boiler service?" image={BoilerService}>
+<ServiceInfoCard
+	title="What is involved in a boiler service?"
+	image={BoilerService}
+	imagePosition="left"
+>
 	<ul>
 		<li>
 			An assessment of:
@@ -44,12 +48,17 @@ import BoilerService from '../../../images/info-hot-water-supply.jpg';
 		present and to adjust your burners for optimal combustion. This means that the correct amount of
 		gas will go through your system and help to identify dangerous levels of carbon monoxide.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card title="Power Flushing" href="/power-flushing" linkText="Power Flushing" image={PowerFlushing}>
+<ServiceInfoCard
+	title="Power Flushing"
+	href="/power-flushing"
+	linkText="Power Flushing"
+	image={PowerFlushing}
+>
 	<p>
 		Noticed a drop in the performance of your boiler and central heating system? Reduce the risk of
 		breakdowns with power flushing. Not only can power flushing extend the life of your system, it
 		also helps to <strong>keep your heating bills down</strong>.
 	</p>
-</Card>
+</ServiceInfoCard>

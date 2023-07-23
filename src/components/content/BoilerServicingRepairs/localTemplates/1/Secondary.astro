@@ -1,5 +1,5 @@
 ---
-import Card from '../../../../Card.astro';
+import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
 import PowerFlushing from '../../../../../images/bg-power-flushing.jpg';
 import BoilerServicing from '../../../../../images/info-boiler-servicing.jpg';
 import BoilerService from '../../../../../images/info-hot-water-supply.jpg';
@@ -12,7 +12,7 @@ interface Props {
 const { location, locationSlug } = Astro.props;
 ---
 
-<Card title={`Boiler servicing in ${location}`} image={BoilerServicing}>
+<ServiceInfoCard title={`Boiler servicing in ${location}`} image={BoilerServicing}>
 	<p>
 		Of course there is no convenient time for a boiler repair, but you could avoid costly repairs by
 		having your boiler serviced regularly.
@@ -27,9 +27,13 @@ const { location, locationSlug } = Astro.props;
 		regular, professional maintenance of your boiler save you money, it can also reduce the risk of
 		danger and the potential problems associated with carbon monoxide.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card title="What is involved in a boiler service?" image={BoilerService}>
+<ServiceInfoCard
+	title="What is involved in a boiler service?"
+	image={BoilerService}
+	imagePosition="left"
+>
 	<ul>
 		<li>
 			An assessment of:
@@ -51,9 +55,9 @@ const { location, locationSlug } = Astro.props;
 		present and to adjust your burners for optimal combustion. This means that the correct amount of
 		gas will go through your system and help to identify dangerous levels of carbon monoxide.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card
+<ServiceInfoCard
 	title={`Power Flushing in ${location}`}
 	href={`/power-flushing/${locationSlug}`}
 	linkText={`Power Flushing in ${location}`}
@@ -64,4 +68,4 @@ const { location, locationSlug } = Astro.props;
 		breakdowns with power flushing. Not only can power flushing extend the life of your system, it
 		also helps to <strong>keep your heating bills down</strong>.
 	</p>
-</Card>
+</ServiceInfoCard>

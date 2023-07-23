@@ -1,5 +1,5 @@
 ---
-import Card from '../../../../Card.astro';
+import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
 import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
 import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
 
@@ -10,7 +10,10 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<Card title={`Is power flushing needed in my ${location} home?`} image={PowerFlushingNeeded}>
+<ServiceInfoCard
+	title={`Is power flushing needed in my ${location} home?`}
+	image={PowerFlushingNeeded}
+>
 	<p>
 		Power flushing the quickest way to flush a heating system completely of contaminants, which if
 		left unattended, can cause your radiator, boiler and pipes to break down. Signs that your
@@ -34,9 +37,13 @@ const { location } = Astro.props;
 		years. Over time, your heating system will inevitably build up sludge and debris. Power flushing
 		is an effective method to preserve the efficiency and life of your radiator and boiler.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card title={`The benefits of power flushing for ${location} home`} image={PowerFlushingBenefits}>
+<ServiceInfoCard
+	title={`The benefits of power flushing for ${location} home`}
+	image={PowerFlushingBenefits}
+	imagePosition="left"
+>
 	<p>
 		If you have been exploring ways to cut down on your fuel bill, power flushing should be on your
 		to-do list. Here are more reasons to consider a power flush:
@@ -53,4 +60,4 @@ const { location } = Astro.props;
 		Improve heat distribution throughout your home for optimal comfort. Schedule a power flush - the
 		rapid and deep clean can be completed in a few hours.
 	</p>
-</Card>
+</ServiceInfoCard>

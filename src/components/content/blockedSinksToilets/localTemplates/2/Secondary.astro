@@ -1,6 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components';
-import Card from '../../../../Card.astro';
+import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
 import BlockedSink from '../../../../../images/info-blocked-sink.jpg';
 import Drainage from '../../../../../images/info-drainage.jpg';
 import LogoDrainage from '../../../../../images/logo-drainage.svg';
@@ -12,7 +12,7 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<Card title="DIY guide to unblocking a sink" image={BlockedSink}>
+<ServiceInfoCard title="DIY guide to unblocking a sink" image={BlockedSink}>
 	<p>Follow our step-by-step guide to unblocking a sink:</p>
 	<ul>
 		<li>
@@ -33,13 +33,14 @@ const { location } = Astro.props;
 		examine the U-bend and give it a good clean; removing any debris that is blocking the tube
 		before you screw it back into place.
 	</p>
-</Card>
+</ServiceInfoCard>
 
-<Card
+<ServiceInfoCard
 	title="EVO Drainage Services"
 	image={Drainage}
 	href="https://www.evo-drainage.co.uk/"
 	linkText="EVO Drainage Serices"
+	imagePosition="left"
 >
 	<p>Issues with <strong>blocked drains</strong> in {location}?</p>
 	<p>
@@ -49,4 +50,4 @@ const { location } = Astro.props;
 		>.
 	</p>
 	<Image class="logo" src={LogoDrainage} alt="EVO Drainage logo" />
-</Card>
+</ServiceInfoCard>

@@ -1,0 +1,40 @@
+---
+import Card from '../../../../Card.astro';
+import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
+import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
+
+interface Props {
+	location: string;
+}
+
+const { location } = Astro.props;
+---
+
+<Card title={`Is power flushing needed in my ${location} home?`} image={PowerFlushingNeeded}>
+	<ul>
+		<li>Are certain rooms much colder than others?</li>
+		<li>Does it take a long time for your heating system to warm up?</li>
+		<li>Is your radiator cold at the bottom?</li>
+		<li>Do your radiators frequently need bleeding?</li>
+		<li>Do you have a noisy boiler?</li>
+		<li>Is your heating water discoloured?</li>
+	</ul>
+	<p>
+		If you answered yes to one or more of the questions above, the likelihood is that your system
+		will benefit from power flushing.
+	</p>
+</Card>
+
+<Card title="The benefits of power flushing" image={PowerFlushingBenefits}>
+	<p>
+		When you choose EVO Plumbing and Heating Services for professional power flushing, you will
+		benefit from:
+	</p>
+	<ul>
+		<li>Better circulation</li>
+		<li>Increased efficiency from your radiator and heating system</li>
+		<li>Quieter system</li>
+		<li>Increased heat up speed</li>
+		<li>Protection from damage or increased further corrosion</li>
+	</ul>
+</Card>

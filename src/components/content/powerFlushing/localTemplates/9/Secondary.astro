@@ -1,0 +1,56 @@
+---
+import Card from '../../../../Card.astro';
+import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
+import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
+
+interface Props {
+	location: string;
+}
+
+const { location } = Astro.props;
+---
+
+<Card title={`Is power flushing needed in my ${location} home?`} image={PowerFlushingNeeded}>
+	<p>
+		Power flushing the quickest way to flush a heating system completely of contaminants, which if
+		left unattended, can cause your radiator, boiler and pipes to break down. Signs that your
+		heating system require a power flush include:
+	</p>
+	<ul>
+		<li>The system warms slowly</li>
+		<li>Presence of cold spots/Radiator does not heat up fully</li>
+		<li>Some rooms are colder than others</li>
+		<li>The boiler is excessively noisy</li>
+		<li>Your heating water is discoloured</li>
+		<li>Radiators frequently need bleeding</li>
+		<li>The boiler cuts out frequently</li>
+	</ul>
+	<p>
+		If you face one or more of these issues, then we recommend a power flush to keep your heating
+		system in good condition.
+	</p>
+	<p>
+		As a best practice of preventive maintenance, heating systems require a power flush every five
+		years. Over time, your heating system will inevitably build up sludge and debris. Power flushing
+		is an effective method to preserve the efficiency and life of your radiator and boiler.
+	</p>
+</Card>
+
+<Card title={`The benefits of power flushing for ${location} home`} image={PowerFlushingBenefits}>
+	<p>
+		If you have been exploring ways to cut down on your fuel bill, power flushing should be on your
+		to-do list. Here are more reasons to consider a power flush:
+	</p>
+	<ul>
+		<li>Improve heating efficiency</li>
+		<li>Boost heat up speed</li>
+		<li>Prevent rust build-up and corrosion</li>
+		<li>Ensure noiseless operation</li>
+		<li>Enjoy better circulation</li>
+		<li>Extend pump life</li>
+	</ul>
+	<p>
+		Improve heat distribution throughout your home for optimal comfort. Schedule a power flush - the
+		rapid and deep clean can be completed in a few hours.
+	</p>
+</Card>

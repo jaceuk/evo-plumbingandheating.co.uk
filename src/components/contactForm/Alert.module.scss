@@ -6,6 +6,7 @@
 	color: var(--c-paper);
 	border-radius: var(--s-8);
 	font-size: var(--fs-nav);
+	max-width: var(--max-readable-width);
 
 	&.success {
 		background-color: var(--c-success-pale);

@@ -5,6 +5,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroImage from '../images/bg-contact.jpg';
 import Hero from '../components/hero/Hero.astro';
 import Reviews from '../components/Reviews.astro';
+import PageMain from '../components/PageMain.astro';
+import Card from '../components/Card.astro';
+import Form from '../components/contactForm/Form';
+import { FREEPHONE_NUMBER } from '../utils/constants';
 
 const reviews: Review[] = await getAllReviews();
 const firstEightReviews = reviews.slice(0, 8);
@@ -15,9 +19,14 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
-	<Hero title="Contact EVO Plumbing and Heating Services" image={HeroImage} />
-
-	Contact form
-
+	<Hero service="Contact EVO Plumbing and Heating Services" image={HeroImage} />
+	<PageMain>
+		<p>For all your emergency and planned plumbing and heating works please call us on</p>
+		<h3 class="coloured-text">Freephone {FREEPHONE_NUMBER}</h3>
+		<p>Alternatively you can enquire online and we will get back to you shortly.</p>
+		<Card title="Enquire online">
+			<Form client:only="react" />
+		</Card>
+	</PageMain>
 	<Reviews reviews={firstEightReviews} />
 </BaseLayout>

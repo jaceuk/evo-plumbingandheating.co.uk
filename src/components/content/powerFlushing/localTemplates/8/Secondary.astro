@@ -1,0 +1,44 @@
+---
+import Card from '../../../../Card.astro';
+import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
+import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
+
+interface Props {
+	location: string;
+}
+
+const { location } = Astro.props;
+---
+
+<Card title="Is power flushing needed in my home?" image={PowerFlushingNeeded}>
+	<p>Certain signs indicate that power flush is required sooner than later:</p>
+	<ul>
+		<li>A slow warming system</li>
+		<li>Cold spots on radiators</li>
+		<li>Radiator does not heat u fully</li>
+		<li>Some rooms in your home are cold</li>
+		<li>Radiators frequently need bleeding</li>
+		<li>Bleeding the radiators reveals discoloured water</li>
+		<li>Excessively noisy boiler</li>
+		<li>Heating system produces little or no water</li>
+	</ul>
+	<p>
+		Even if you experience only one of the above issues, follow it up to understand and resolve the
+		underlying problem speedily for the reasons stated below.
+	</p>
+</Card>
+
+<Card title="The benefits of power flushing" image={PowerFlushingBenefits}>
+	<p>
+		Periodic power flushing preserves the efficiency of your heating system, keeping every room in
+		your home comfortable and your fuel bills low. You can also keep corrosion at bay and extend the
+		life of the system.
+	</p>
+	<p>
+		A faulty heating system can be a big bother during the cold months. Moisture condensing in
+		winter can increase dampness and mould formation, triggering episodes in allergic or asthmatic
+		family members. An uncomfortably cold indoor environment can also affect heart rate and blood
+		pressure.
+	</p>
+	<p>If you haven't scheduled a power flush in a long time, get it done today.</p>
+</Card>

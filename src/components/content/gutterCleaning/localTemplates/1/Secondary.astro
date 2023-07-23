@@ -1,0 +1,36 @@
+---
+import Card from '../../../../Card.astro';
+import GutterCare from '../../../../../images/info-gutter-care.jpg';
+
+interface Props {
+	location: string;
+}
+
+const { location } = Astro.props;
+---
+
+<Card title="What could happen if I don't take care of my guttering?" image={GutterCare}>
+	<p>
+		<strong>Mould damage:</strong> once mould begins to accumulate, it spreads and can be difficult to
+		remove. Maintaining your gutters can significantly reduce the possibility of mould damaging your
+		{location} home.
+	</p>
+	<p>
+		<strong>Staining to your property:</strong> when leaves, debris and dirt obstruct your guttering,
+		rain water has no point of exit to drain away. This causes the rainwater to leak over the edge of
+		the gutters, travel down the outside structure of your property and leave unsightly marks and staining.
+	</p>
+	<p>
+		<strong>Damage caused by rotting wood:</strong> over time, substantial rot damage can often lead
+		to structural damage and unnecessary costs further down the line. Again, this damage is caused by
+		the obstruction of rainwater flowing through guttering.
+	</p>
+	<p>
+		<strong>Collapsing and broken guttering:</strong> when water accumulates in clogged and unkempt gutters,
+		they can become heavy and break. This can be more of a risk during the winter months as the water
+		can freeze, causing the guttering to collapse.
+	</p>
+	<p>
+		Gutter cleaning is an <strong>essential part of maintaining your {location} property</strong>.
+	</p>
+</Card>

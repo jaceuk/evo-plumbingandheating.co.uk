@@ -1,0 +1,48 @@
+---
+import Card from '../../../../Card.astro';
+import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
+import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
+
+interface Props {
+	location: string;
+}
+
+const { location } = Astro.props;
+---
+
+<Card title={`Is power flushing needed in my ${location} home?`} image={PowerFlushingNeeded}>
+	<p>
+		Sludge and debris build up adversely affects the efficiency of heating systems. It is
+		recommended that you power flush your radiators, pipes and boiler at least every five years.
+		However, it is possible that contaminants may act disruptively earlier. Watch out for these
+		warning signs and book a power flush with us at the earliest:
+	</p>
+	<ul>
+		<li>Noticed that heat is not reaching all areas of your home?</li>
+		<li>Is your heating system producing little or no hot water?</li>
+		<li>Is your radiator cold at the bottom?</li>
+		<li>Does it take a long time for your heating system to warm up?</li>
+		<li>Observed discoloured water when you bleed your radiators?</li>
+		<li>Does your boiler make funny noises all the time?</li>
+	</ul>
+	<p>
+		If you have answered yes to even one of these questions, there is a good chance that your
+		heating system requires a power flush.
+	</p>
+</Card>
+
+<Card
+	title={`The benefits of power flushing for your ${location} home`}
+	image={PowerFlushingBenefits}
+>
+	<p>
+		Including power flushing in your home maintenance plan has important benefits that are hard to
+		ignore. From a monetary perspective, a power flush can keep your heating system operating
+		efficiently at all times and reduce your fuel bill. It also minimizes the risk of your boiler,
+		radiator and pipes breaking down from sludge accumulation.
+	</p>
+	<p>
+		An optimally functioning heating system also ensures good heat distribution and keeps your home
+		comfortable, particularly avoiding inconvenience during cold weather.
+	</p>
+</Card>

@@ -1,0 +1,44 @@
+---
+import Card from '../../../../Card.astro';
+import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
+import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
+
+interface Props {
+	location: string;
+}
+
+const { location } = Astro.props;
+---
+
+<Card title="When does your heating system require a power flushing?" image={PowerFlushingNeeded}>
+	<ul>
+		<li>Is your heating system giving no or very little hot water?</li>
+		<li>Are you noticing that all areas of your home are not heating up?</li>
+		<li>Do you find the bottom of your system's radiator cold on touching it?</li>
+		<li>Does it take a lot of time for your system to warm up?</li>
+		<li>Does your radiator dispense dirty water on bleeding?</li>
+		<li>Is your boiler working noisily?</li>
+	</ul>
+	<p>
+		If you answer yes to any of the above questions, perhaps your central heating system needs a
+		thorough power flush. Go for power flushing specialists for the purpose.
+	</p>
+</Card>
+
+<Card title="How can power flushing benefit you?" image={PowerFlushingBenefits}>
+	<p>A power flush will benefit you in the following ways:</p>
+	<ul>
+		<li>
+			Reduce corrosion of your system's pipes and components, leading to its extended lifespan.
+		</li>
+		<li>Improved efficiency of your heating system as it warms up and heats the space faster.</li>
+		<li>Reduced utility bills as your central heating system will consume less energy.</li>
+		<li>Pleasant operation of the system as the noise from the boiler is eliminated.</li>
+		<li>Money-saving as expensive replacements can be avoided.</li>
+	</ul>
+	<p>
+		Don't worry the next time you see radiators, boiler or pipes of your heating system seize up?
+		Contact power flushing specialists in {location} to fix your central heating system and prepare your
+		home for winters.
+	</p>
+</Card>

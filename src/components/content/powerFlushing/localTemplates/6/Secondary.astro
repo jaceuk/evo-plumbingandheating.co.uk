@@ -1,0 +1,60 @@
+---
+import Card from '../../../../Card.astro';
+import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
+import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
+
+interface Props {
+	location: string;
+}
+
+const { location } = Astro.props;
+---
+
+<Card title={`When does my ${location} home require power flushing?`} image={PowerFlushingNeeded}>
+	<p>
+		Signs of your central heating system going out of kilter become quite obvious. Here are a few
+		that you should look for and call us immediately when you spot them:
+	</p>
+	<ul>
+		<li>Slow warming of the system</li>
+		<li>Partial heating of the radiator</li>
+		<li>Cold spots present throughout the system</li>
+		<li>Noise coming from the boiler</li>
+		<li>The increasing frequency of bleeding required for radiators</li>
+		<li>Increasing utility bills</li>
+		<li>Valve or pump seizes to work</li>
+	</ul>
+	<p>
+		Whenever you see any of the above signs, there's a chance that there is a buildup of debris and
+		sludge in your central heating system, which is why it is malfunctioning.
+	</p>
+	<p>
+		We recommend that you power flush your heating system every five years. It will maintain the
+		performance of the system's boiler, radiators and pipes at optimal levels. You should also
+		remember to conduct power flushing before installing a new boiler.
+	</p>
+</Card>
+
+<Card title="How power flushing benefits you?" image={PowerFlushingBenefits}>
+	<p>
+		Here's why you should opt for our power flushing services in {location}:
+	</p>
+	<ul>
+		<li>
+			<strong>Increased efficiency and lifespan of the heating system</strong> - We can boost the efficiency
+			of your system with a thorough cleanup, which means there will be a reduction on corrosion and
+			damage and all components of your system work perfectly. A power flush can increase the lifespan
+			of your system by ten years. So, why shouldn't you do it?
+		</li>
+		<li>
+			<strong>Utility bills slashed</strong> - With the increase in efficiency comes faster-performing
+			radiators. Your radiators will warm up your space faster, meaning you don't have to keep your heater
+			on maximum. You consume less energy and ultimately reduce your monthly expenditure.
+		</li>
+		<li>
+			<strong>No hassle of replacement</strong> - Our power flushing services in {location} im to restore
+			the system without compromising with its integrity. You don't always have to undergo an expensive
+			replacement affair if you can simply clean up the system and make it functional again.
+		</li>
+	</ul>
+</Card>

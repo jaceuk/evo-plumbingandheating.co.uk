@@ -1,0 +1,18 @@
+---
+import Card from '../../../../Card.astro';
+import RoofMoss from '../../../../../images/info-roof-moss.jpg';
+
+interface Props {
+	location: string;
+}
+
+const { location } = Astro.props;
+---
+
+<Card title={`Remove unsightly moss and algae from your roof in ${location}`} image={RoofMoss}>
+	<p>
+		Our roof cleaning service is carried out using specialist equipment to remove dirt, buildup and
+		debris. We will ensure your roof tiles are be cleaned thoroughly, safely and to the highest of
+		standards. All downpipes will be protected throughout the roof cleaning process.
+	</p>
+</Card>

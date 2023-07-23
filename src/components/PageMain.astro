@@ -1,0 +1,61 @@
+---
+import Coverage from './Coverage.astro';
+
+type Props = { children: any };
+---
+
+<main>
+	<div class="inner-wrapper">
+		<div class="row">
+			<div class="text">
+				<slot />
+			</div>
+			<aside>
+				<Coverage />
+			</aside>
+		</div>
+	</div>
+
+	<style lang="scss">
+		main {
+			padding: var(--scale-32-64) 0;
+		}
+
+		.inner-wrapper {
+			display: grid;
+			gap: var(--scale-32-64);
+		}
+
+		.text {
+			display: grid;
+			gap: var(--scale-16-32);
+		}
+
+		.row {
+			display: flex;
+			gap: var(--scale-32-64);
+			align-items: start;
+			flex-direction: column;
+
+			@media (min-width: 768px) {
+				flex-direction: row;
+			}
+
+			.text {
+				width: 100%;
+
+				@media (min-width: 768px) {
+					width: 60%;
+				}
+			}
+
+			aside {
+				width: 100%;
+
+				@media (min-width: 768px) {
+					width: 40%;
+				}
+			}
+		}
+	</style>
+</main>

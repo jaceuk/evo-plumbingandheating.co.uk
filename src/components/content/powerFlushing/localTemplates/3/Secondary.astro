@@ -1,0 +1,58 @@
+---
+import Card from '../../../../Card.astro';
+import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
+import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
+
+interface Props {
+	location: string;
+}
+
+const { location } = Astro.props;
+---
+
+<Card
+	title={`When does power flushing become important in your ${location} home?`}
+	image={PowerFlushingNeeded}
+>
+	<p>
+		Inefficient performance of the system, heat loss and rising utility costs are the primary signs
+		that you need a power flushing service.
+	</p>
+	<p>
+		Sludge problem also becomes evident when the bottom of your radiators is cold while their top
+		portion is hot. Cold spots in the system are caused by the accumulation of iron oxide sludge at
+		the bottom, thereby restricting the flow of hot water.
+	</p>
+	<p>
+		A power flush also becomes essential when you notice discoloured water while bleeding your
+		radiators. Not to forget, black oxide sludge may increase wear and tear on the bearings and
+		shaft of your system, which often leads to your pump breaking down or failing completely.
+	</p>
+	<p>
+		Whenever you see any of the above signs, you should get in touch with power flushing experts in {
+			location
+		} immediately. You should also remember to conduct a power flush every five years and before installing
+		a new boiler.
+	</p>
+</Card>
+
+<Card
+	title={`The benefits of power flushing services in ${location}`}
+	image={PowerFlushingBenefits}
+>
+	<p>
+		When you get your central heating system power flushed, you are likely to benefit in a number of
+		ways. Here are a few:
+	</p>
+	<ul>
+		<li>Extended lifespan of your central heating system.</li>
+		<li>Improved efficiency, and reduced heat loss from your radiators</li>
+		<li>Increased heating speed.</li>
+		<li>Elimination of unpleasant noise.</li>
+		<li>Protection of your system against corrosion and further damage.</li>
+	</ul>
+	<p>
+		So, what are you waiting for? Get in touch with us today to get efficient power flushing
+		services in {location}.
+	</p>
+</Card>

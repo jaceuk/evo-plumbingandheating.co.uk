@@ -1,0 +1,54 @@
+---
+import Card from '../../../../Card.astro';
+import PowerFlushingNeeded from '../../../../../images/info-power-flushing-needed.jpg';
+import PowerFlushingBenefits from '../../../../../images/info-power-flushing-benefits.jpg';
+
+interface Props {
+	location: string;
+}
+
+const { location } = Astro.props;
+---
+
+<Card title={`When does your ${location} home need a power flush?`} image={PowerFlushingNeeded}>
+	<ul>
+		<li>
+			<strong>Boiler malfunctioning</strong> - Your boiler may sometimes overheat due to sludge and debris
+			trapping the heat inside the system. This is a sign that your boiler needs a power flush to smoothen
+			the transfer of heat.
+		</li>
+		<li>
+			<strong>Fuel loss</strong> - The accumulation of debris and resulting restriction of heat transfer
+			cause loss of heat, which means you have to turn the operation up. This leads to high utility bills
+			at the end of the month.
+		</li>
+		<li>
+			<strong>Cold radiators</strong> - If your radiators are hot at the top but cold at the bottom,
+			then perhaps there is a sludge buildup. Formation of iron oxide sludge at the bottom restricts
+			the flow of water, thereby causing your radiators to act up.
+		</li>
+		<li>
+			<strong>Inefficient water heating</strong> - Clogged pipes in your central heating system is the
+			primary reason why you get little or no hot water. Sludge and debris deposits in the pipes reduce
+			the transfer of heat within the system and cause heat exchange to malfunction.
+		</li>
+		<li>
+			<strong>Pump failure</strong> - The pump of your central heating system may fail due to black oxide
+			sludge forming in the shaft and bearing. A sticking valve is also another reason why your radiator
+			is cold at the bottom, or your system is functioning inefficiently.
+		</li>
+	</ul>
+</Card>
+
+<Card title="Benefits of power flushing" image={PowerFlushingBenefits}>
+	<p>After a power flushing session, you are likely to experience:</p>
+	<ul>
+		<li>Reduced heating-up periods.</li>
+		<li>Uniform heat transfer throughout the system.</li>
+		<li>Noise elimination and quieter performance.</li>
+		<li>Reduction in utility bills.</li>
+	</ul>
+	<p>
+		So, what are you waiting for? Contact our team of power flushing experts in {location} today!
+	</p>
+</Card>

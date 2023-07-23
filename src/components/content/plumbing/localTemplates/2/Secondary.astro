@@ -1,1 +1,95 @@
-2
+---
+import Card from '../../../../Card.astro';
+import BurstPipes from '../../../../../images/info-burst-pipes.jpg';
+import Taps from '../../../../../images/info-taps.jpg';
+import WaterSupply from '../../../../../images/info-water-supply.jpg';
+import HotWaterCylinders from '../../../../../images/info-hot-water-cylinders.jpg';
+import HotWaterSupply from '../../../../../images/info-hot-water-supply.jpg';
+import ShowersBathrooms from '../../../../../images/info-showers-bathrooms.jpg';
+import Overflow from '../../../../../images/info-overflow.jpg';
+
+interface Props {
+	location: string;
+}
+
+const { location } = Astro.props;
+---
+
+<Card title={`Fixing Burst Pipes in ${location}`} image={BurstPipes}>
+	<p>
+		Knowing how to respond in the event of a burst pipe will save you unnecessary stress and money
+		further down the line. The change of a burst or leaking pipe increases with the age and
+		condition of your pipework. As pipes can freeze in winter and expand in the heat of summer, they
+		can weaken when the change in temperature happens suddenly.
+	</p>
+</Card>
+
+<Card title={`Installing and Repairing Taps in ${location}`} image={Taps}>
+	<p>
+		We are on hand to install and repair taps so you can avoid the costly replacement of waterlogged
+		floorboards and units. We understand how irritating and inconvenient dripping or leaking taps
+		can be. No matter how minor the problem appears, we cannot stress the importance of calling a
+		professional to avoid damage to your kitchen units and bathroom floor.
+	</p>
+</Card>
+
+<Card title={`Water Supply and Stop Cock Replacement in ${location}`} image={WaterSupply}>
+	<p>
+		Should you need to shut off your water supply in the event of a burst pipe or other emergency,
+		switching off the stop cock will stop the water supply to the property. This is the mechanism
+		that controls the flow of water to your home.
+	</p>
+	<p>
+		If your stop cock seizes, you will be unable to switch off the water supply to your home. When
+		this happens, it is time to replace your stop cock. Should your stop cock develop a leak, this
+		needs to be addressed immediately to ensure the problem doesn't escalate.
+	</p>
+</Card>
+
+<Card title={`Hot Water Cylinders in ${location}`} image={HotWaterCylinders}>
+	<p>
+		Our commitment to providing the best service for our customers in {location}
+		means that we won't just keep repairing an old or poorly functioning cylinder. If we feel it would
+		be more cost-effective for you, we will recommend a suitable replacement.
+	</p>
+	<p>
+		The hot water cylinder is the water tank used to store hot water for your property. These can be
+		heated by a gas or oiler burner system, electric immersion heater or by solar power. From
+		replacements and new installations through to repairs and ongoing maintenance, our skilled
+		engineers specialise in a range of services for hot water cylinders.
+	</p>
+</Card>
+
+<Card title={`Hot Water Supply in ${location}`} image={HotWaterSupply}>
+	<p>Your hot water supply can stop for a multitude of reasons. These include:</p>
+	<ul>
+		<li>Sediment build-up in the pipes and pipework</li>
+		<li>
+			A gas leak - if you smell gas, immediately switch off the pilot light and the gas supply then
+			call an experienced plumber
+		</li>
+		<li>Problems with the power supply to heater</li>
+	</ul>
+</Card>
+
+<Card title={`Showers and Bathrooms in ${location}`} image={ShowersBathrooms}>
+	<p>
+		Upgrading your existing bathroom? Perhaps you'd like to add ensuite facilities to your bedroom
+		with a wet room or shower room?
+	</p>
+	<p>
+		We install and repair bathrooms and all types of showers, including power showers, across {
+			location
+		}.
+	</p>
+</Card>
+
+<Card title={`Ball Valves, Tanks and Overflows in ${location}`} image={Overflow}>
+	<p>
+		We inspect, clean and repair your tank, overflows and connecting pipe work to ensure the overall
+		performance of your system. Are your overflow pipes dripping? Over time, ball valves can seize
+		up. Our plumbers can replace ball valves, repair leaking tanks, solve noisy clunky tanks,
+		install new overflows and more. We also offer a maintenance service so that your water system
+		continues to run efficiently.
+	</p>
+</Card>

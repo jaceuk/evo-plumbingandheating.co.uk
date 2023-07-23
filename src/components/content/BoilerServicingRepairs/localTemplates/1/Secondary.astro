@@ -1,1 +1,67 @@
+---
+import Card from '../../../../Card.astro';
+import PowerFlushing from '../../../../../images/bg-power-flushing.jpg';
+import BoilerServicing from '../../../../../images/info-boiler-servicing.jpg';
+import BoilerService from '../../../../../images/info-hot-water-supply.jpg';
 
+interface Props {
+	location: string;
+	locationSlug: string;
+}
+
+const { location, locationSlug } = Astro.props;
+---
+
+<Card title={`Boiler servicing in ${location}`} image={BoilerServicing}>
+	<p>
+		Of course there is no convenient time for a boiler repair, but you could avoid costly repairs by
+		having your boiler serviced regularly.
+	</p>
+	<p>
+		The ideal time to have your boiler serviced is in the spring/summer period when you should no
+		longer require the heating on. As we are a heating company covering {location}
+		where the weather is, to put it mildly, changeable, please don't hold us to that.
+	</p>
+	<p>
+		Servicing your boiler allows early identification of leaks and potential faults. Not only can
+		regular, professional maintenance of your boiler save you money, it can also reduce the risk of
+		danger and the potential problems associated with carbon monoxide.
+	</p>
+</Card>
+
+<Card title="What is involved in a boiler service?" image={BoilerService}>
+	<ul>
+		<li>
+			An assessment of:
+			<ul>
+				<li>Boiler, controls and components</li>
+				<li>Vital parts (heat exchanger and ignition)</li>
+			</ul>
+		</li>
+		<li>Checking for water leak signs on seals and washers</li>
+		<li>Inspection for corrosion around and under the boiler casing</li>
+		<li>Check boiler flue internal and external for corrosion or damage</li>
+		<li>Carry out a burner and pressure test to boiler</li>
+		<li>Gas tightness test may be included to test for gas leaks</li>
+		<li>Flue analyser test (at no extra cost)</li>
+	</ul>
+	<p>
+		The flue analyser test is to check the combustion and burner pressure of the boiler. Specialist
+		test equipment is used to enable the engineer to measure the concentrations of the pollutants
+		present and to adjust your burners for optimal combustion. This means that the correct amount of
+		gas will go through your system and help to identify dangerous levels of carbon monoxide.
+	</p>
+</Card>
+
+<Card
+	title={`Power Flushing in ${location}`}
+	href={`/power-flushing/${locationSlug}`}
+	linkText={`Power Flushing in ${location}`}
+	image={PowerFlushing}
+>
+	<p>
+		Noticed a drop in the performance of your boiler and central heating system? Reduce the risk of
+		breakdowns with power flushing. Not only can power flushing extend the life of your system, it
+		also helps to <strong>keep your heating bills down</strong>.
+	</p>
+</Card>

@@ -3,43 +3,43 @@ import Coverage from './Coverage.astro';
 import Map from './Map.astro';
 
 import Plumbing from './content/plumbing/Primary.astro';
-import PlumbingLocalTemplate1 from './content/plumbing/localTemplates/1/Primary.astro';
-import PlumbingLocalTemplate2 from './content/plumbing/localTemplates/2/Primary.astro';
+// import PlumbingLocalTemplate1 from './content/plumbing/localTemplates/1/Primary.astro';
+// import PlumbingLocalTemplate2 from './content/plumbing/localTemplates/2/Primary.astro';
 
-import BlockedSinksToilets from './content/blockedSinksToilets/Primary.astro';
-import BlockedSinksToiletsLocalTemplate1 from './content/blockedSinksToilets/localTemplates/1/Primary.astro';
-import BlockedSinksToiletsLocalTemplate2 from './content/blockedSinksToilets/localTemplates/2/Primary.astro';
+// import BlockedSinksToilets from './content/blockedSinksToilets/Primary.astro';
+// import BlockedSinksToiletsLocalTemplate1 from './content/blockedSinksToilets/localTemplates/1/Primary.astro';
+// import BlockedSinksToiletsLocalTemplate2 from './content/blockedSinksToilets/localTemplates/2/Primary.astro';
 
-import BoilerServicingRepairs from './content/boilerServicingRepairs/Primary.astro';
-import BoilerServicingRepairsLocalTemplate1 from './content/boilerServicingRepairs/localTemplates/1/Primary.astro';
-import BoilerServicingRepairsLocalTemplate2 from './content/boilerServicingRepairs/localTemplates/2/Primary.astro';
+// import BoilerServicingRepairs from './content/boilerServicingRepairs/Primary.astro';
+// import BoilerServicingRepairsLocalTemplate1 from './content/boilerServicingRepairs/localTemplates/1/Primary.astro';
+// import BoilerServicingRepairsLocalTemplate2 from './content/boilerServicingRepairs/localTemplates/2/Primary.astro';
 
-import CentralHeating from './content/centralHeating/Primary.astro';
-import CentralHeatingLocalTemplate1 from './content/centralHeating/localTemplates/1/Primary.astro';
-import CentralHeatingLocalTemplate2 from './content/centralHeating/localTemplates/2/Primary.astro';
+// import CentralHeating from './content/centralHeating/Primary.astro';
+// import CentralHeatingLocalTemplate1 from './content/centralHeating/localTemplates/1/Primary.astro';
+// import CentralHeatingLocalTemplate2 from './content/centralHeating/localTemplates/2/Primary.astro';
 
-import PowerFlushing from './content/powerFlushing/Primary.astro';
-import PowerFlushingLocalTemplate1 from './content/powerFlushing/localTemplates/1/Primary.astro';
-import PowerFlushingLocalTemplate2 from './content/powerFlushing/localTemplates/2/Primary.astro';
-import PowerFlushingLocalTemplate3 from './content/powerFlushing/localTemplates/3/Primary.astro';
-import PowerFlushingLocalTemplate4 from './content/powerFlushing/localTemplates/4/Primary.astro';
-import PowerFlushingLocalTemplate5 from './content/powerFlushing/localTemplates/5/Primary.astro';
-import PowerFlushingLocalTemplate6 from './content/powerFlushing/localTemplates/6/Primary.astro';
-import PowerFlushingLocalTemplate7 from './content/powerFlushing/localTemplates/7/Primary.astro';
-import PowerFlushingLocalTemplate8 from './content/powerFlushing/localTemplates/8/Primary.astro';
-import PowerFlushingLocalTemplate9 from './content/powerFlushing/localTemplates/9/Primary.astro';
+// import PowerFlushing from './content/powerFlushing/Primary.astro';
+// import PowerFlushingLocalTemplate1 from './content/powerFlushing/localTemplates/1/Primary.astro';
+// import PowerFlushingLocalTemplate2 from './content/powerFlushing/localTemplates/2/Primary.astro';
+// import PowerFlushingLocalTemplate3 from './content/powerFlushing/localTemplates/3/Primary.astro';
+// import PowerFlushingLocalTemplate4 from './content/powerFlushing/localTemplates/4/Primary.astro';
+// import PowerFlushingLocalTemplate5 from './content/powerFlushing/localTemplates/5/Primary.astro';
+// import PowerFlushingLocalTemplate6 from './content/powerFlushing/localTemplates/6/Primary.astro';
+// import PowerFlushingLocalTemplate7 from './content/powerFlushing/localTemplates/7/Primary.astro';
+// import PowerFlushingLocalTemplate8 from './content/powerFlushing/localTemplates/8/Primary.astro';
+// import PowerFlushingLocalTemplate9 from './content/powerFlushing/localTemplates/9/Primary.astro';
 
-import GutterCleaning from './content/gutterCleaning/Primary.astro';
-import GutterCleaningLocalTemplate1 from './content/gutterCleaning/localTemplates/1/Primary.astro';
-import GutterCleaningLocalTemplate2 from './content/gutterCleaning/localTemplates/2/Primary.astro';
+// import GutterCleaning from './content/gutterCleaning/Primary.astro';
+// import GutterCleaningLocalTemplate1 from './content/gutterCleaning/localTemplates/1/Primary.astro';
+// import GutterCleaningLocalTemplate2 from './content/gutterCleaning/localTemplates/2/Primary.astro';
 
-import PatioCleaning from './content/patioCleaning/Primary.astro';
-import PatioCleaningLocalTemplate1 from './content/patioCleaning/localTemplates/1/Primary.astro';
-import PatioCleaningLocalTemplate2 from './content/patioCleaning/localTemplates/2/Primary.astro';
+// import PatioCleaning from './content/patioCleaning/Primary.astro';
+// import PatioCleaningLocalTemplate1 from './content/patioCleaning/localTemplates/1/Primary.astro';
+// import PatioCleaningLocalTemplate2 from './content/patioCleaning/localTemplates/2/Primary.astro';
 
-import RoofCleaning from './content/roofCleaning/Primary.astro';
-import RoofCleaningLocalTemplate1 from './content/roofCleaning/localTemplates/1/Primary.astro';
-import RoofCleaningLocalTemplate2 from './content/roofCleaning/localTemplates/2/Primary.astro';
+// import RoofCleaning from './content/roofCleaning/Primary.astro';
+// import RoofCleaningLocalTemplate1 from './content/roofCleaning/localTemplates/1/Primary.astro';
+// import RoofCleaningLocalTemplate2 from './content/roofCleaning/localTemplates/2/Primary.astro';
 
 interface Props {
 	locationSlug?: string;
@@ -106,7 +106,7 @@ if (serviceSlug === 'roof-cleaning') {
 	<div class="inner-wrapper">
 		<div class="row">
 			<div class="text" data-template={localTemplateNumber}>
-				<Content location={location} locationTel={locationTel} />
+				<Plumbing location={location} locationTel={locationTel} />
 			</div>
 
 			<aside>

@@ -11,8 +11,8 @@ import BlockedSinksToiletsLocalTemplate1 from './content/blockedSinksToilets/loc
 import BlockedSinksToiletsLocalTemplate2 from './content/blockedSinksToilets/localTemplates/2/Primary.astro';
 
 // import BoilerServicingRepairs from './content/boilerServicingRepairs/Primary.astro';
-import BoilerServicingRepairsLocalTemplate1 from './content/boilerServicingRepairs/localTemplates/1/Primary.astro';
-import BoilerServicingRepairsLocalTemplate2 from './content/boilerServicingRepairs/localTemplates/2/Primary.astro';
+// import BoilerServicingRepairsLocalTemplate1 from './content/boilerServicingRepairs/localTemplates/1/Primary.astro';
+// import BoilerServicingRepairsLocalTemplate2 from './content/boilerServicingRepairs/localTemplates/2/Primary.astro';
 
 import CentralHeating from './content/centralHeating/Primary.astro';
 import CentralHeatingLocalTemplate1 from './content/centralHeating/localTemplates/1/Primary.astro';
@@ -69,9 +69,9 @@ if (serviceSlug === 'central-heating') {
 	if (localTemplateNumber === 2) Content = CentralHeatingLocalTemplate2;
 }
 if (serviceSlug === 'boiler-servicing-repairs') {
-	if (!localTemplateNumber) Content = BoilerServicingRepairsLocalTemplate1;
-	if (localTemplateNumber === 1) Content = BoilerServicingRepairsLocalTemplate1;
-	if (localTemplateNumber === 2) Content = BoilerServicingRepairsLocalTemplate2;
+	if (!localTemplateNumber) Content = Plumbing;
+	if (localTemplateNumber === 1) Content = Plumbing;
+	if (localTemplateNumber === 2) Content = Plumbing;
 }
 if (serviceSlug === 'power-flushing') {
 	if (!localTemplateNumber) Content = PowerFlushing;

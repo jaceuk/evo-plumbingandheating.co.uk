@@ -10,7 +10,7 @@ import BlockedSinksToilets from './content/blockedSinksToilets/Primary.astro';
 import BlockedSinksToiletsLocalTemplate1 from './content/blockedSinksToilets/localTemplates/1/Primary.astro';
 import BlockedSinksToiletsLocalTemplate2 from './content/blockedSinksToilets/localTemplates/2/Primary.astro';
 
-import BoilerServicingRepairs from './content/boilerServicingRepairs/Primary.astro';
+// import BoilerServicingRepairs from './content/boilerServicingRepairs/Primary.astro';
 import BoilerServicingRepairsLocalTemplate1 from './content/boilerServicingRepairs/localTemplates/1/Primary.astro';
 import BoilerServicingRepairsLocalTemplate2 from './content/boilerServicingRepairs/localTemplates/2/Primary.astro';
 
@@ -69,7 +69,7 @@ if (serviceSlug === 'central-heating') {
 	if (localTemplateNumber === 2) Content = CentralHeatingLocalTemplate2;
 }
 if (serviceSlug === 'boiler-servicing-repairs') {
-	if (!localTemplateNumber) Content = BoilerServicingRepairs;
+	if (!localTemplateNumber) Content = BoilerServicingRepairsLocalTemplate1;
 	if (localTemplateNumber === 1) Content = BoilerServicingRepairsLocalTemplate1;
 	if (localTemplateNumber === 2) Content = BoilerServicingRepairsLocalTemplate2;
 }

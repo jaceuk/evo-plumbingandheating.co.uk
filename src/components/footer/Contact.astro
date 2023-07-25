@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Picture } from '@astrojs/image/components';
 import ReviewsImage from '../../images/bg-contact.jpg';
 import Section from '../Section.astro';
 import { Modal } from '../contactForm/Modal';
@@ -10,7 +10,9 @@ type Props = Record<string, never>;
 
 <Section background="evo-orange-pale">
 	<div class="wrapper">
-		<div class="image"><Image class="background" src={ReviewsImage} alt="" /></div>
+		<div class="image">
+			<Picture class="background" src={ReviewsImage} widths={[200, 400, 800, 1100]} alt="" />
+		</div>
 
 		<div class="text">
 			<h2>Get in touch</h2>

@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Picture } from '@astrojs/image/components';
 import ReviewsImage from '../images/bg-reviews.jpg';
 import Review from './Review.astro';
 import Icon from 'astro-icon';
@@ -21,7 +21,9 @@ const reviewsCount = reviews.length;
 			<ReviewsHeader />
 
 			<div class="text">
-				<div class="image"><Image class="background" src={ReviewsImage} alt="" /></div>
+				<div class="image">
+					<Picture class="background" src={ReviewsImage} widths={[200, 400, 800, 1100]} alt="" />
+				</div>
 
 				<div class="reviews">
 					{

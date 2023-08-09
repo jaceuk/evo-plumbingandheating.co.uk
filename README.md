@@ -11,7 +11,7 @@ Setting up Git in Plesk:
 - Respository name - evo-plumbingandheating.co.uk
 - Repository URL - https://github.com/jaceuk/evo-plumbingandheating.co.uk
 - Make sure to setup the Webhook in Github using the Webhook URL here
-- Server path - /httpdocs
+- Server path - /
 - Enable additional deployment actions
 
 ```
@@ -25,10 +25,10 @@ Setting up Git in Plesk:
 
 - Node.js Version - 17.9.1
 - Package Manager - npm
-- Document Root - /httpdocs/dist
+- Document Root - /dist
 - Application Mode - production
 - Application URL - http://www.evo-plumbingandheating.co.uk
-- Application Root - /httpdocs
+- Application Root - /
 - Application Startup File - node_modules/.bin/astro edit
 - Custom environment variables
   - PUBLIC_ENVIRONMENT: production

@@ -6,15 +6,18 @@ import Reviews from '../Reviews.astro';
 import Services from '../Services.astro';
 import Strapline from '../Strapline.astro';
 import type { Review } from '../../utils/types';
+import type { CollectionEntry } from 'astro:content';
+import BlogPosts from '../BlogPosts.astro';
 
 interface Props {
 	county?: string;
 	countySlug?: string;
 	reviews: Review[];
 	service: string;
+	blogPosts?: CollectionEntry<'blog'>[];
 }
 
-const { county, reviews, service, countySlug = '' } = Astro.props;
+const { county, reviews, service, countySlug = '', blogPosts } = Astro.props;
 const firstFourReviews = reviews.slice(0, 4);
 const lastEightReviews = reviews.slice(4, 12);
 ---
@@ -29,3 +32,4 @@ const lastEightReviews = reviews.slice(4, 12);
 <Services county={county} countySlug={countySlug} />
 <Strapline location={county} service={service} />
 <Reviews reviews={lastEightReviews} />
+{blogPosts && <BlogPosts blogPosts={blogPosts} />}

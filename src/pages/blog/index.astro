@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/hero/Hero.astro';
+import PageMain from '../../components/PageMain.astro';
+import Reviews from '../../components/Reviews.astro';
+import HeroImage from '../../images/bg-contact.jpg';
+import type { Review } from '../../utils/types';
+import { getAllReviews } from '../../utils/reviews';
+import { getMarkdownExcerpt, sortByDateDesc } from '../../utils/blog';
+import Card from '../../components/Card.astro';
+import { getHeroImage } from '../../utils/getHeroImage';
+
+const reviews: Review[] = await getAllReviews();
+const firstEightReviews = reviews.slice(0, 8);
+const title = 'Blog posts | EVO Plumbing and Heating Services';
+const description =
+	'Welcome to EVO Plumbing and Heating Services, your first choice for plumbing, heating, boiler repair and maintenance in South East England.';
+const blogPosts = sortByDateDesc(await getCollection('blog'));
+---
+
+<BaseLayout title={title} description={description}>
+	<Hero service="Blog posts" image={HeroImage} />
+
+	<PageMain>
+		<h2 class="sr-only">All blog posts</h2>
+		<div class="wrapper">
+			{
+				blogPosts.map((post) => (
+					<Card
+						title={post.data.title}
+						href={`/blog/${post.slug}`}
+						linkText="Read more"
+						image={getHeroImage(post.data.service)}
+						wideImage
+					>
+						<p>{getMarkdownExcerpt(post.body, 300)}</p>
+					</Card>
+				))
+			}
+		</div>
+	</PageMain>
+
+	<Reviews reviews={firstEightReviews} />
+</BaseLayout>
+
+<style>
+	.wrapper {
+		display: grid;
+		gap: var(--scale-32-64);
+	}
+</style>

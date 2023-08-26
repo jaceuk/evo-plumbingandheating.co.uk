@@ -3,7 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getAllReviews } from '../utils/reviews';
 import type { Review } from '../utils/types';
 import ServicesPage from '../components/pages/ServicesPage.astro';
+import { getCollection } from 'astro:content';
+import { sortByDateDesc } from '../utils/blog';
 
+const latestTwoBlogPosts = sortByDateDesc(await getCollection('blog')).slice(0, 2);
 const reviews: Review[] = await getAllReviews();
 const twelveReviews = reviews.slice(0, 12);
 
@@ -18,5 +21,6 @@ const description =
 		service="Plumbing, Heating, Boiler Repair and Maintenance"
 		reviews={twelveReviews}
 		county="South East England"
+		blogPosts={latestTwoBlogPosts}
 	/>
 </BaseLayout>

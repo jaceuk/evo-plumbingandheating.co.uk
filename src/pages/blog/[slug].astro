@@ -1,0 +1,54 @@
+---
+import { API_URL, WEBSITE } from '../../utils/constants';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/hero/Hero.astro';
+import PageMain from '../../components/PageMain.astro';
+import { getReviewsByServiceWithBackfill } from '../../utils/reviews';
+import type { Review, Service } from '../../utils/types';
+import Reviews from '../../components/Reviews.astro';
+import { getHeroImage } from '../../utils/getHeroImage';
+import { getMarkdownExcerpt } from '../../utils/blog';
+import BlogPostFooter from '../../components/BlogPostFooter.astro';
+
+// 1. Generate a new path for every blog post
+export async function getStaticPaths() {
+	const blogPosts = await getCollection('blog');
+
+	return blogPosts.map((entry) => {
+		return {
+			params: { slug: entry.slug },
+			props: { entry }
+		};
+	});
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const services = await fetch(`${API_URL}/services/website/${WEBSITE}`).then((response) =>
+	response.json()
+);
+
+let serviceId = 0;
+services.map((service: Service) => {
+	if (service.slug === entry.data.service) serviceId = service.id;
+});
+
+const reviews: Review[] = await getReviewsByServiceWithBackfill(serviceId);
+const firstEightReviews = reviews.slice(0, 8);
+const HeroImage = getHeroImage(entry.data.service);
+const title = `${entry.data.title} | EVO Plumbing and Heating Services`;
+const description = getMarkdownExcerpt(entry.body, 150);
+---
+
+<BaseLayout title={title} description={description}>
+	<Hero service={entry.data.title} image={HeroImage} />
+
+	<PageMain>
+		<Content />
+		<BlogPostFooter />
+	</PageMain>
+
+	<Reviews reviews={firstEightReviews} />
+</BaseLayout>

@@ -1,0 +1,52 @@
+---
+import Section from './Section.astro';
+import Card from './Card.astro';
+import BlogPostsHeader from './BlogPostsHeader.astro';
+import { getMarkdownExcerpt } from '../utils/blog';
+import { getHeroImage } from '../utils/getHeroImage';
+
+const { blogPosts } = Astro.props;
+---
+
+<Section>
+	<div class="outer-wrapper">
+		<BlogPostsHeader />
+		<div class="wrapper">
+			{
+				blogPosts.map(
+					(post: { data: { title: string; service: string }; slug: any; body: string }) => (
+						<Card
+							title={post.data.title}
+							href={`/blog/${post.slug}`}
+							linkText="Read more"
+							titleSize="h4"
+							image={getHeroImage(post.data.service)}
+							wideImage
+						>
+							<p>{getMarkdownExcerpt(post.body)}</p>
+						</Card>
+					)
+				)
+			}
+		</div>
+	</div>
+</Section>
+
+<style lang="scss">
+	.outer-wrapper {
+		display: grid;
+		gap: var(--scale-32-64);
+	}
+
+	.wrapper {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		gap: var(--scale-32-64);
+
+		@media (min-width: 768px) {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: auto;
+		}
+	}
+</style>

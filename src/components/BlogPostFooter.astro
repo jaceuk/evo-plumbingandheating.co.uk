@@ -1,0 +1,64 @@
+---
+import Section from './Section.astro';
+import { Modal } from './contactForm/Modal';
+import { FREEPHONE_NUMBER } from '../utils/constants';
+
+type Props = Record<string, never>;
+---
+
+<section>
+	<div class="wrapper">
+		<div class="text">
+			<p>
+				<strong>If you have any questions or are in need of further advice</strong>, just call a
+				member of the EVO Plumbing and Heating team who will be happy to help.
+			</p>
+			<h3 class="coloured-text">Freephone {FREEPHONE_NUMBER}</h3>
+			<p>Alternatively you can enquire online and we will get back to you shortly.</p>
+			<div class="enquire">
+				<Modal buttonType="secondary" client:only="react" />
+			</div>
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	section {
+		border-radius: var(--border-radius-med);
+		background: var(--c-evo-orange-pale);
+		padding: var(--scale-16-32);
+	}
+
+	.wrapper {
+		display: flex;
+		align-items: stretch;
+		gap: var(--scale-32-64);
+		flex-direction: column;
+
+		@media (min-width: 1100px) {
+			flex-direction: row;
+		}
+	}
+
+	.enquire {
+		width: 100%;
+
+		@media (min-width: 1100px) {
+			width: fit-content;
+		}
+	}
+
+	.text {
+		display: grid;
+		gap: var(--scale-16-32);
+	}
+
+	.background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+</style>

@@ -5,13 +5,15 @@ interface Props {
 	title: string;
 	text: string;
 	postcode: string;
+	date: string;
 }
 
-const { title, text, postcode } = Astro.props;
+const { title, text, postcode, date } = Astro.props;
 ---
 
 <figure data-postcode={postcode}>
 	<h3 class="h5 coloured-text">{title}</h3>
+	<div class="sr-only">{date}</div>
 	<blockquote>
 		<span><Icon name="icon-park:quote" /></span>
 		<p>{text}</p>

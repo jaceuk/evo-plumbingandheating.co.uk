@@ -11,6 +11,13 @@ interface Props {
 	reviews: ReviewType[];
 }
 
+interface Review {
+	title: string;
+	text: string;
+	postcode: string;
+	date: string;
+}
+
 const { reviews } = Astro.props;
 const reviewsCount = reviews.length;
 ---
@@ -27,8 +34,13 @@ const reviewsCount = reviews.length;
 
 				<div class="reviews">
 					{
-						reviews.map((review) => (
-							<Review title={review.title} text={review.text} postcode={review.postcode} />
+						reviews.map((review: Review) => (
+							<Review
+								title={review.title}
+								text={review.text}
+								postcode={review.postcode}
+								date={review.date}
+							/>
 						))
 					}
 				</div>

@@ -1,7 +1,7 @@
 ---
 title: 'Knowing When to Hire a Pro'
 date: '2024-05-06'
-service: 'plumbing'
+service: ''
 ---
 
 Plumbing issues are an inevitable part of homeownership, ranging from minor annoyances like leaky faucets to major emergencies such as burst pipes.
